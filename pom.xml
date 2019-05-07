@@ -15,13 +15,18 @@
 	<modules>
 		<module>cli</module>
 		<module>deploy</module>
+		<module>kernel</module>
 	</modules>
 
 	<properties>
+		<coin-or-tools.version>0.8.8</coin-or-tools.version>
+		<couenne.version>219e889484f8da6ac0c5b255cbd53b7cb920f1a0</couenne.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<spring.version>2.0.4.RELEASE</spring.version>
+		<zorba.version>cd929a5abd824d53936bfffbc551fab05cb19b12</zorba.version>
 	</properties>
 
 	<scm>
