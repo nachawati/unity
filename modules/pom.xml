@@ -16,6 +16,7 @@
 	<name>Unity DGMS / Modules</name>
 
 	<modules>
+	<module>system</module>
 	</modules>
 	
 	<dependencies>
