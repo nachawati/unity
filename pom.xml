@@ -16,6 +16,7 @@
 		<module>cli</module>
 		<module>deploy</module>
 		<module>kernel</module>
+		<module>modules</module>
 	</modules>
 
 	<properties>
