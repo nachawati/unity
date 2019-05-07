@@ -1,0 +1,13 @@
+{
+	"argv": [
+		"java",
+		"-jar",
+		"/opt/unity/lib/unity-cli-${project.version}.jar",
+		"kernel",
+		"-e",
+		"jsoniq10",
+		"{connection_file}"
+	],
+	"display_name": "JSONiq 1.0 + DGAL",
+	"language": "xquery"
+}
