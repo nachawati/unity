@@ -1,0 +1,176 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>unity</groupId>
+		<artifactId>unity</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>unity-deploy</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Unity DGMS / Deploy</name>
+
+	<profiles>
+
+		<profile>
+
+			<id>main-linux-gcc-amd64</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>3.1.0</version>
+						<executions>
+
+							<execution>
+								<id>Dockerfile</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/../target/unity/${target}</outputDirectory>
+									<overwrite>true</overwrite>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/src/docker</directory>
+											<includes>
+												<include>Dockerfile</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>package.json</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/npm</outputDirectory>
+									<overwrite>true</overwrite>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/src/bin</directory>
+											<includes>
+												<include>dgms.js</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+										<resource>
+											<directory>${project.basedir}/..</directory>
+											<includes>
+												<include>COPYING</include>
+												<include>NOTICE</include>
+												<include>package.json</include>
+												<include>README.md</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>dockerfile-maven-plugin</artifactId>
+						<version>1.4.4</version>
+						<configuration>
+							<contextDirectory>${project.basedir}/../target/unity/${target}</contextDirectory>
+							<repository>dgms/dgms</repository>
+							<tag>${project.version}</tag>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<exec executable="npm" failonerror="true" dir="${project.build.directory}/npm">
+											<arg value="install" />
+											<arg value="--global" />
+										</exec>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					
+				</plugins>
+
+			</build>
+
+		</profile>
+
+		<profile>
+
+			<id>dependencies-linux-gcc-amd64</id>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.7.0</version>
+						<executions>
+							<execution>
+								<id>default-compile</id>
+								<phase>none</phase>
+							</execution>
+							<execution>
+								<id>default-testCompile</id>
+								<phase>none</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<excludes>**/*.*</excludes>
+						</configuration>
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+		</profile>
+
+	</profiles>
+
+</project>
