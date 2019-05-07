@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>unity</groupId>
+		<artifactId>unity</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>unity-cli</artifactId>
+
+	<name>Unity DGMS / CLI</name>
+
+	<profiles>
+
+		<profile>
+
+			<id>main-linux-gcc-amd64</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>3.0.0</version>
+						<executions>
+
+							<execution>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/../target/unity/${target}/lib</outputDirectory>
+									<silent>true</silent>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<addClasspath>true</addClasspath>
+									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+									<mainClass>unity.cli.Main</mainClass>
+								</manifest>
+							</archive>
+							<outputDirectory>${project.basedir}/../target/unity/${target}/lib</outputDirectory>
+						</configuration>
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+			<dependencies>
+
+				<dependency>
+					<groupId>com.beust</groupId>
+					<artifactId>jcommander</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>info.picocli</groupId>
+					<artifactId>picocli</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>io.github.spencerpark</groupId>
+					<artifactId>jupyter-jvm-basekernel</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.fusesource.jansi</groupId>
+					<artifactId>jansi</artifactId>
+				</dependency>
+
+			</dependencies>
+
+		</profile>
+
+		<profile>
+
+			<id>dependencies-linux-gcc-amd64</id>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.7.0</version>
+						<executions>
+							<execution>
+								<id>default-compile</id>
+								<phase>none</phase>
+							</execution>
+							<execution>
+								<id>default-testCompile</id>
+								<phase>none</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<excludes>**/*.*</excludes>
+						</configuration>
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+		</profile>
+
+	</profiles>
+
+</project>
