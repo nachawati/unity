@@ -1,0 +1,500 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>unity</groupId>
+		<artifactId>unity</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>unity-kernel</artifactId>
+
+	<name>Unity DGMS / Kernel</name>
+
+	<profiles>
+
+		<profile>
+
+			<id>main-linux-gcc-amd64</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<dependencies>
+
+				<dependency>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>io.github.spencerpark</groupId>
+					<artifactId>jupyter-jvm-basekernel</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>io.zorba</groupId>
+					<artifactId>zorba-api</artifactId>
+					<version>${zorba.version}</version>
+				</dependency>
+
+				<dependency>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.basex</groupId>
+					<artifactId>basex</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.gitlab4j</groupId>
+					<artifactId>gitlab4j-api</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.kohsuke</groupId>
+					<artifactId>github-api</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.jooq</groupId>
+					<artifactId>joox</artifactId>
+				</dependency>
+
+			</dependencies>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>3.0.2</version>
+						<executions>
+
+							<execution>
+								<id>copy-kernels</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/../target/unity/${target}/kernels</outputDirectory>
+									<overwrite>true</overwrite>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/src/main/resources/kernels</directory>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>copy-resources-include</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/../target/unity/${target}/include</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/src/main/include</directory>
+											<includes>
+												<include>unity-zorba.hpp</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+
+						</executions>
+
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>3.0.0</version>
+						<executions>
+
+							<execution>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/../target/unity/${target}/lib</outputDirectory>
+									<silent>true</silent>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<dependencies>
+							<dependency>
+								<groupId>com.sun</groupId>
+								<artifactId>tools</artifactId>
+								<version>1.8.0</version>
+								<scope>system</scope>
+								<systemPath>${java.home}/../lib/tools.jar</systemPath>
+							</dependency>
+						</dependencies>
+						<executions>
+
+							<execution>
+								<id>javah</id>
+								<phase>process-classes</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<exportAntProperties>true</exportAntProperties>
+									<target>
+
+										<property name="runtime_classpath"
+											refid="maven.runtime.classpath" />
+
+										<exec executable="javah" failonerror="true">
+											<arg value="-cp" />
+											<arg value="${runtime_classpath}" />
+											<arg value="-d" />
+											<arg value="${project.basedir}/src/main/include" />
+											<arg
+												value="unity.kernel.engine.UnityAnalyticsEngineManager" />
+										</exec>
+
+										<exec executable="javah" failonerror="true">
+											<arg value="-cp" />
+											<arg value="${runtime_classpath}" />
+											<arg value="-d" />
+											<arg value="${project.basedir}/src/main/include" />
+											<arg
+												value="unity.kernel.engine.zorba.UnityZorbaDynamicContext" />
+										</exec>
+
+										<exec executable="javah" failonerror="true">
+											<arg value="-cp" />
+											<arg value="${runtime_classpath}" />
+											<arg value="-d" />
+											<arg value="${project.basedir}/src/main/include" />
+											<arg
+												value="unity.kernel.engine.zorba.UnityZorbaStaticContext" />
+										</exec>
+
+									</target>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>compile</id>
+								<phase>process-classes</phase>
+								<configuration>
+									<target>
+										<mkdir
+											dir="${project.build.directory}/${target}/unity-kernel" />
+										<exec executable="cmake" failonerror="true"
+											dir="${project.build.directory}/${target}/unity-kernel">
+											<arg value="-G" />
+											<arg value="Unix Makefiles" />
+											<arg value="-D" />
+											<arg value="${target}='true'" />
+											<arg value="${project.basedir}/src/main/c++" />
+										</exec>
+										<exec executable="make" failonerror="true"
+											dir="${project.build.directory}/${target}/unity-kernel">
+											<arg value="-j${cpuCount}" />
+										</exec>
+										<copy
+											file="${project.build.directory}/${target}/unity-kernel/libunity-kernel.so"
+											tofile="${project.basedir}/../target/unity/${target}/lib/libunity-kernel.so"
+											overwrite="true" />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+
+						</executions>
+					</plugin>
+
+
+				</plugins>
+
+			</build>
+
+		</profile>
+
+		<profile>
+
+			<id>dependencies-linux-gcc-amd64</id>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.7.0</version>
+						<executions>
+							<execution>
+								<id>default-compile</id>
+								<phase>none</phase>
+							</execution>
+							<execution>
+								<id>default-testCompile</id>
+								<phase>none</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<excludes>**/*.*</excludes>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>wagon-maven-plugin</artifactId>
+						<version>2.0.0</version>
+						<inherited>false</inherited>
+						<executions>
+
+							<execution>
+								<id>download-zorba</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>download-single</goal>
+								</goals>
+								<configuration>
+									<url>https://github.com/nachawati/zorba/archive</url>
+									<fromFile>${zorba.version}.zip</fromFile>
+									<toFile>${project.build.directory}/zorba-${zorba.version}.zip</toFile>
+									<skipIfExists>true</skipIfExists>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>download-coin-or-tools</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>download-single</goal>
+								</goals>
+								<configuration>
+									<url>https://github.com/coin-or-tools/BuildTools/archive/releases</url>
+									<fromFile>${coin-or-tools.version}.zip</fromFile>
+									<toFile>${project.build.directory}/BuildTools-releases-${coin-or-tools.version}.zip</toFile>
+									<skipIfExists>true</skipIfExists>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>download-couenne</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>download-single</goal>
+								</goals>
+								<configuration>
+									<url>https://github.com/coin-or/Couenne/archive</url>
+									<fromFile>${couenne.version}.zip</fromFile>
+									<toFile>${project.build.directory}/Couenne-${couenne.version}.zip</toFile>
+									<skipIfExists>true</skipIfExists>
+								</configuration>
+							</execution>
+  							
+						</executions>
+
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+
+						<executions>
+
+							<execution>
+								<id>compile-zorba</id>
+								<phase>compile</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<taskdef
+											resource="net/sf/antcontrib/antcontrib.properties"
+											classpathref="maven.plugin.classpath" />
+										<available
+											file="${project.basedir}/../target/unity/${target}/lib/libzorba_simplestore.so"
+											property="CompileZorba" value="false" />
+										<if>
+											<equals arg1="${CompileZorba}" arg2="false" />
+											<then>
+											</then>
+											<else>
+												<unzip
+													src="${project.build.directory}/zorba-${zorba.version}.zip"
+													dest="${project.build.directory}" overwrite="false" />
+												<mkdir
+													dir="${project.build.directory}/zorba-${zorba.version}/build/${target}" />
+												<exec executable="cmake" failonerror="true"
+													dir="${project.build.directory}/zorba-${zorba.version}/build/${target}">
+													<arg value="-DZORBA_XQUERYX:BOOL=ON" />
+													<arg value="-DZORBA_WITH_BIG_INTEGER=ON" />
+													<arg value="-DZORBA_FOR_ONE_THREAD_ONLY=OFF" />
+													<arg value="-DZORBA_SUPPRESS_CURL=ON" />
+													<arg value="-DZORBA_SUPPRESS_PHP=ON" />
+													<arg value="-DZORBA_SUPPRESS_PYTHON=ON" />
+													<arg value="-DCMAKE_BUILD_TYPE=Release" />
+													<arg value="-DCMAKE_CXX_STANDARD=14" />
+													<arg value="-DCMAKE_CXX_STANDARD_REQUIRED=ON" />
+													<arg value="-DCMAKE_CXX_EXTENSIONS=OFF" />
+													<arg
+														value="-DCMAKE_INSTALL_PREFIX=${project.basedir}/../target/unity/${target}" />
+													<arg
+														value="${project.build.directory}/zorba-${zorba.version}" />
+												</exec>
+												<exec executable="make" failonerror="true"
+													dir="${project.build.directory}/zorba-${zorba.version}/build/${target}">
+													<arg value="-j${cpuCount}" />
+												</exec>
+												<exec executable="make" failonerror="true"
+													dir="${project.build.directory}/zorba-${zorba.version}/build/${target}">
+													<arg value="install" />
+												</exec>
+											</else>
+										</if>
+									</target>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>compile-couenne</id>
+								<phase>compile</phase>
+								<configuration>
+									<target>
+										<taskdef
+											resource="net/sf/antcontrib/antcontrib.properties"
+											classpathref="maven.plugin.classpath" />
+										<available
+											file="${project.basedir}/../target/unity/${target}/bin/couenne"
+											property="CompileCouenne" value="false" />
+										<if>
+											<equals arg1="${CompileCouenne}" arg2="false" />
+											<then>
+											</then>
+											<else>
+												<unzip
+													src="${project.build.directory}/BuildTools-releases-${coin-or-tools.version}.zip"
+													dest="${project.build.directory}" overwrite="false" />
+												<move
+													file="${project.build.directory}/BuildTools-releases-${coin-or-tools.version}"
+													tofile="${project.build.directory}/Couenne-${couenne.version}"
+													overwrite="false" />
+												<unzip
+													src="${project.build.directory}/Couenne-${couenne.version}.zip"
+													dest="${project.build.directory}" overwrite="false" />
+												<chmod
+													file="${project.build.directory}/Couenne-${couenne.version}/Couenne/configure"
+													perm="+x" />
+												<chmod
+													file="${project.build.directory}/Couenne-${couenne.version}/Couenne/install-sh"
+													perm="+x" />
+												<exec executable="/bin/bash" failonerror="true"
+													dir="${project.build.directory}/Couenne-${couenne.version}">
+													<arg value="get.dependencies.sh" />
+													<arg value="fetch" />
+												</exec>
+												<exec executable="/bin/bash" failonerror="true"
+													dir="${project.build.directory}/Couenne-${couenne.version}">
+													<arg value="get.dependencies.sh" />
+													<arg value="build" />
+													<arg
+														value="--prefix=${project.basedir}/../target/unity/${target}" />
+												</exec>
+												<exec executable="make" failonerror="true"
+													dir="${project.build.directory}/Couenne-${couenne.version}/build/Couenne">
+													<arg value="-j${cpuCount}" />
+												</exec>
+												<exec executable="make" failonerror="true"
+													dir="${project.build.directory}/Couenne-${couenne.version}/build/Couenne">
+													<arg value="install" />
+												</exec>
+											</else>
+										</if>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+
+						</executions>
+
+						<dependencies>
+							<dependency>
+								<groupId>ant-contrib</groupId>
+								<artifactId>ant-contrib</artifactId>
+								<version>1.0b3</version>
+								<exclusions>
+									<exclusion>
+										<groupId>ant</groupId>
+										<artifactId>ant</artifactId>
+									</exclusion>
+								</exclusions>
+							</dependency>
+						</dependencies>
+
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-install-plugin</artifactId>
+						<version>2.5.2</version>
+						<executions>
+
+							<execution>
+								<id>install-zorba</id>
+								<phase>package</phase>
+								<goals>
+									<goal>install-file</goal>
+								</goals>
+								<configuration>
+									<file>${project.basedir}/../target/unity/${target}/share/java/zorba_api.jar</file>
+									<groupId>io.zorba</groupId>
+									<artifactId>zorba-api</artifactId>
+									<version>${zorba.version}</version>
+									<packaging>jar</packaging>
+									<generatePom>true</generatePom>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+		</profile>
+
+	</profiles>
+
+</project>
