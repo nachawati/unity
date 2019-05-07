@@ -13,6 +13,7 @@
 	<description>Unity DGMS is an open-source JSONiq analytics run-time environment for building model-driven decision guidance applications.</description>
 
 	<modules>
+		<module>cli</module>
 		<module>deploy</module>
 	</modules>
 
