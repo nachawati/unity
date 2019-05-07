@@ -122,7 +122,8 @@
 								</goals>
 								<configuration>
 									<target>
-										<exec executable="npm" failonerror="true" dir="${project.build.directory}/npm">
+										<exec executable="npm" failonerror="true"
+											dir="${project.build.directory}/npm">
 											<arg value="install" />
 											<arg value="--global" />
 										</exec>
@@ -131,10 +132,20 @@
 							</execution>
 						</executions>
 					</plugin>
-					
+
 				</plugins>
 
 			</build>
+
+			<dependencies>
+
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-cli</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+			</dependencies>
 
 		</profile>
 
