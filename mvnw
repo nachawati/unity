@@ -18,6 +18,9 @@ else
 		-v /var/run/docker.sock:/var/run/docker.sock \
 		-v "$(cd "$(dirname "${0%/*}")"; pwd)/$(basename "${0%/*}"):/usr/src/unity" \
 		-v "/home/${SUDO_USER:-$USER}/.m2:/var/maven/.m2" \
+		-v "/home/${SUDO_USER:-$USER}/.npmrc:/root/.npmrc" \
+		-v "/usr/lib/node_modules:/usr/lib/node_modules" \
+		-v "/home/${SUDO_USER:-$USER}/.docker:/root/.docker" \
 		-e DOCKER_HOST=unix:///var/run/docker.sock \
 		-e MAVEN_CONFIG=/var/maven/.m2 \
 		unity-build:latest \
