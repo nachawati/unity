@@ -71,6 +71,12 @@
 			<dependencies>
 
 				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-kernel</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+				<dependency>
 					<groupId>com.beust</groupId>
 					<artifactId>jcommander</artifactId>
 				</dependency>
