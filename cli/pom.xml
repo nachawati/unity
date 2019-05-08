@@ -75,6 +75,30 @@
 					<artifactId>unity-kernel</artifactId>
 					<version>${project.version}</version>
 				</dependency>
+				
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-numerics</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+				
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-reflection</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+				
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-symbolics</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+				
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-system</artifactId>
+					<version>${project.version}</version>
+				</dependency>
 
 				<dependency>
 					<groupId>com.beust</groupId>
