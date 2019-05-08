@@ -27,6 +27,7 @@
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<skip-documentation>true</skip-documentation>
 		<spring.version>2.0.4.RELEASE</spring.version>
 		<zorba.version>cd929a5abd824d53936bfffbc551fab05cb19b12</zorba.version>
 	</properties>
