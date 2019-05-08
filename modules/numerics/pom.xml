@@ -72,12 +72,18 @@
 				</plugins>
 
 			</build>
-			
+
 			<dependencies>
 
 				<dependency>
 					<groupId>unity</groupId>
 					<artifactId>unity-modules-reflection</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-symbolics</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
