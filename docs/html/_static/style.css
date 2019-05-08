@@ -1,0 +1,60 @@
+.function-summary {
+	border: 0 !important;
+	padding: 0 !important;
+	margin-bottom: 1em !important;
+	font-size: 14px !important;
+	display: block !important;
+}
+
+#function-summary h2, #functions h2
+{
+	font-weight: normal !important;
+}
+
+#functions h3 {
+	color: #2980b9 !important;
+}
+
+#functions h4 {
+	color: #787c7d !important;
+}
+
+#functions .first {
+	margin-top: 12px !important;
+}
+.wy-table-responsive table td {
+	white-space: normal;
+}
+
+.wy-table-responsive table th {
+	white-space: nowrap;
+}
+
+.code .keyword {
+	color: #007020;
+	font-weight: bold;
+}
+
+.code .keyword.type {
+	color: #B00040;
+	font-weight: normal;
+}
+
+.code .name {
+	color: #404040;
+	font-weight: normal;
+}
+
+.code .name.function {
+	color: #0000FF;
+	font-weight: normal;
+}
+
+.code .punctuation {
+	color: #404040;
+	font-weight: normal;
+}
+
+#functions h3 {
+	font-weight: normal;
+}
