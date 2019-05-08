@@ -58,7 +58,7 @@ public class UnityZorbaJSONiq10AnalyticsEngineFactory extends UnityZorbaAnalytic
     @Override
     public String getLanguageName()
     {
-        return "JSONiq 1.0/DGAL";
+        return "JSONiq 1.0 + DGAL";
     }
 
     @Override
@@ -91,13 +91,13 @@ public class UnityZorbaJSONiq10AnalyticsEngineFactory extends UnityZorbaAnalytic
         return new UnityZorbaJSONiq10AnalyticsEngine(this);
     }
 
-    public static final List<String>    EXTENSIONS = Collections.unmodifiableList(Arrays.asList("jq", "jqm", "jqy", "jql", "jqu", "jsoniq"));
+    public static final List<String>    EXTENSIONS = Collections.unmodifiableList(Arrays.asList("jq", "jqm"));
 
     private final static Logger         LOGGER     = Logger.getLogger(UnityZorbaJSONiq10AnalyticsEngineFactory.class.getName());
 
     public static final List<String>    MIME_TYPES = Collections.unmodifiableList(Arrays.asList("application/jsoniq", "text/jsoniq"));
 
-    public static final List<String>    NAMES      = Collections.unmodifiableList(Arrays.asList("jsoniq10-zorba31"));
+    public static final List<String>    NAMES      = Collections.unmodifiableList(Arrays.asList("jsoniq10"));
 
     private static SerializationOptions OPTIONS;
 
