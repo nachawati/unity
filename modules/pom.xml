@@ -16,6 +16,7 @@
 	<name>Unity DGMS / Modules</name>
 
 	<modules>
+		<module>numerics</module>
 		<module>reflection</module>
 		<module>system</module>
 	</modules>
