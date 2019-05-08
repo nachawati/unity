@@ -91,6 +91,29 @@
 					</plugin>
 
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.6.0</version>
+						<executions>
+							<execution>
+								<id>docs-html</id>
+								<phase>package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>make</executable>
+									<skip>${skip-documentation}</skip>
+									<arguments>
+										<argument>html</argument>
+									</arguments>
+									<workingDirectory>${project.basedir}/../docs</workingDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
 						<groupId>com.spotify</groupId>
 						<artifactId>dockerfile-maven-plugin</artifactId>
 						<version>1.4.4</version>
@@ -115,7 +138,7 @@
 						<artifactId>maven-antrun-plugin</artifactId>
 						<version>1.8</version>
 						<executions>
-							
+
 							<execution>
 								<id>install</id>
 								<phase>install</phase>
@@ -132,7 +155,7 @@
 									</target>
 								</configuration>
 							</execution>
-							
+
 							<execution>
 								<id>deploy</id>
 								<phase>deploy</phase>
@@ -141,21 +164,21 @@
 								</goals>
 								<configuration>
 									<target>
-									
+
 										<exec executable="docker" failonerror="true">
 											<arg value="push" />
 											<arg value="dgms/dgms:${project.version}" />
 										</exec>
-										
+
 										<exec executable="npm" failonerror="true"
 											dir="${project.build.directory}/npm">
 											<arg value="publish" />
 										</exec>
-										
+
 									</target>
 								</configuration>
 							</execution>
-							
+
 						</executions>
 					</plugin>
 
