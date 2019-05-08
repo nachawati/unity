@@ -358,7 +358,7 @@ declare %public %an:deterministic function operators:log($x)
 declare %public %an:deterministic function operators:log10($x)
 {
 	if ($x instance of xs:anyURI) then
-  		return n:divide(n:log($x), n:log(n:constant(10, { dtype: n:dtype($x) }))))
+  		n:divide(n:log($x), n:log(n:constant(10, { dtype: n:dtype($x) })))
   	else
 		math:log10($x)
 };
