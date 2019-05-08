@@ -18,6 +18,7 @@
 	<modules>
 		<module>numerics</module>
 		<module>reflection</module>
+		<module>symbolics</module>
 		<module>system</module>
 	</modules>
 
