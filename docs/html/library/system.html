@@ -1,0 +1,933 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>system Module &mdash; Unity DGMS latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Unity DGMS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Unity DGMS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>system Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/nachawati/unity/blob/master/docs/library/system.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="system-module">
+<h1>system Module<a class="headerlink" href="#system-module" title="Permalink to this headline">¶</a></h1>
+<p><strong>http://dgms.io/modules/system</strong></p>
+<hr class="docutils" />
+<div class="section" id="function-summary">
+<h2>Function Summary<a class="headerlink" href="#function-summary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<code class="function-summary"><a href="#abort-0">abort</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#access-0">access</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#chdir-0">chdir</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#chflags-0">chflags</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#chmod-0">chmod</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#chown-0">chown</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#chroot-0">chroot</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#close-0">close</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#cpu-count-0">cpu-count</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#ctermid-0">ctermid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#dup-0">dup</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#dup2-0">dup2</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#execl-0">execl</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#execle-0">execle</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#execlp-0">execlp</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#execlpe-0">execlpe</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#execv-0">execv</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#execve-0">execve</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#execvp-0">execvp</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#execvpe-0">execvpe</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#exit-0">exit</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fchdir-0">fchdir</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fchmod-0">fchmod</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fchown-0">fchown</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fdatasync-0">fdatasync</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fdopen-0">fdopen</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fork-0">fork</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#forkpty-0">forkpty</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fpathconf-0">fpathconf</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fsdecode-0">fsdecode</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fsencode-0">fsencode</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fspath-0">fspath</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fstat-0">fstat</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fstatvfs-0">fstatvfs</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fsync-0">fsync</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#ftruncate-0">ftruncate</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#fwalk-0">fwalk</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getcwd-0">getcwd</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getcwdb-0">getcwdb</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getegid-0">getegid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getenv-0">getenv</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getenvb-0">getenvb</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#geteuid-0">geteuid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getgid-0">getgid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getgrouplist-0">getgrouplist</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getgroups-0">getgroups</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getloadavg-0">getloadavg</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getlogin-0">getlogin</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getpgid-0">getpgid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getpgrp-0">getpgrp</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getpid-0">getpid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getppid-0">getppid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getpriority-0">getpriority</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getrandom-0">getrandom</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getresgid-0">getresgid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getresuid-0">getresuid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getsid-0">getsid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#getuid-0">getuid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#initgroups-0">initgroups</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#isatty-0">isatty</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#kill-0">kill</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#killpg-0">killpg</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#lchflags-0">lchflags</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#lchmod-0">lchmod</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#lchown-0">lchown</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#link-0">link</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#listdir-0">listdir</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#lockf-0">lockf</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#lseek-0">lseek</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#lstat-0">lstat</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#major-0">major</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#makedev-0">makedev</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#makedirs-0">makedirs</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#minor-0">minor</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#mkdir-0">mkdir</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#mkfifo-0">mkfifo</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#mknod-0">mknod</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#name-0">name</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#nice-0">nice</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#open-0">open</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#openpty-0">openpty</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#pathconf-0">pathconf</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#pipe-0">pipe</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#pipe2-0">pipe2</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#plock-0">plock</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#popen-0">popen</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#pread-0">pread</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#preadv-0">preadv</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#putenv-0">putenv</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#pwrite-0">pwrite</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#pwritev-0">pwritev</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#read-0">read</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#readlink-0">readlink</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#readv-0">readv</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#remove-0">remove</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#removedirs-0">removedirs</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#rename-0">rename</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#renames-0">renames</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#replace-0">replace</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#rmdir-0">rmdir</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#scandir-0">scandir</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setegid-0">setegid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#seteuid-0">seteuid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setgid-0">setgid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setgroups-0">setgroups</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setpgid-0">setpgid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setpgrp-0">setpgrp</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setpriority-0">setpriority</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setregid-0">setregid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setresgid-0">setresgid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setresuid-0">setresuid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setreuid-0">setreuid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setsid-0">setsid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#setuid-0">setuid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#spawnl-0">spawnl</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#spawnle-0">spawnle</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#spawnlp-0">spawnlp</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#spawnlpe-0">spawnlpe</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#spawnv-0">spawnv</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#spawnve-0">spawnve</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#spawnvp-0">spawnvp</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#spawnvpe-0">spawnvpe</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#startfile-0">startfile</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#stat-0">stat</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#statvfs-0">statvfs</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#symlink-0">symlink</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#sync-0">sync</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#system-0">system</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#times-0">times</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#truncate-0">truncate</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#ttyname-0">ttyname</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#umask-0">umask</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#uname-0">uname</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#unlink-0">unlink</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#unsetenv-0">unsetenv</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#urandom-0">urandom</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#utime-0">utime</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#wait-0">wait</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#wait3-0">wait3</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#wait4-0">wait4</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#waitid-0">waitid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#waitpid-0">waitpid</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#walk-0">walk</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#write-0">write</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#writev-0">writev</a>() external</code></div>
+<hr class="docutils" />
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="system-abort-0">
+<span id="abort-0"></span><h3>system:abort#0<a class="headerlink" href="#system-abort-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:abort() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-access-0">
+<span id="access-0"></span><h3>system:access#0<a class="headerlink" href="#system-access-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:access() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-chdir-0">
+<span id="chdir-0"></span><h3>system:chdir#0<a class="headerlink" href="#system-chdir-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:chdir() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-chflags-0">
+<span id="chflags-0"></span><h3>system:chflags#0<a class="headerlink" href="#system-chflags-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:chflags() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-chmod-0">
+<span id="chmod-0"></span><h3>system:chmod#0<a class="headerlink" href="#system-chmod-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:chmod() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-chown-0">
+<span id="chown-0"></span><h3>system:chown#0<a class="headerlink" href="#system-chown-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:chown() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-chroot-0">
+<span id="chroot-0"></span><h3>system:chroot#0<a class="headerlink" href="#system-chroot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:chroot() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-close-0">
+<span id="close-0"></span><h3>system:close#0<a class="headerlink" href="#system-close-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:close() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-cpu-count-0">
+<span id="cpu-count-0"></span><h3>system:cpu-count#0<a class="headerlink" href="#system-cpu-count-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:cpu-count() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-ctermid-0">
+<span id="ctermid-0"></span><h3>system:ctermid#0<a class="headerlink" href="#system-ctermid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:ctermid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-dup-0">
+<span id="dup-0"></span><h3>system:dup#0<a class="headerlink" href="#system-dup-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:dup() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-dup2-0">
+<span id="dup2-0"></span><h3>system:dup2#0<a class="headerlink" href="#system-dup2-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:dup2() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-execl-0">
+<span id="execl-0"></span><h3>system:execl#0<a class="headerlink" href="#system-execl-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:execl() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-execle-0">
+<span id="execle-0"></span><h3>system:execle#0<a class="headerlink" href="#system-execle-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:execle() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-execlp-0">
+<span id="execlp-0"></span><h3>system:execlp#0<a class="headerlink" href="#system-execlp-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:execlp() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-execlpe-0">
+<span id="execlpe-0"></span><h3>system:execlpe#0<a class="headerlink" href="#system-execlpe-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:execlpe() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-execv-0">
+<span id="execv-0"></span><h3>system:execv#0<a class="headerlink" href="#system-execv-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:execv() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-execve-0">
+<span id="execve-0"></span><h3>system:execve#0<a class="headerlink" href="#system-execve-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:execve() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-execvp-0">
+<span id="execvp-0"></span><h3>system:execvp#0<a class="headerlink" href="#system-execvp-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:execvp() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-execvpe-0">
+<span id="execvpe-0"></span><h3>system:execvpe#0<a class="headerlink" href="#system-execvpe-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:execvpe() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-exit-0">
+<span id="exit-0"></span><h3>system:exit#0<a class="headerlink" href="#system-exit-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:exit() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fchdir-0">
+<span id="fchdir-0"></span><h3>system:fchdir#0<a class="headerlink" href="#system-fchdir-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fchdir() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fchmod-0">
+<span id="fchmod-0"></span><h3>system:fchmod#0<a class="headerlink" href="#system-fchmod-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fchmod() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fchown-0">
+<span id="fchown-0"></span><h3>system:fchown#0<a class="headerlink" href="#system-fchown-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fchown() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fdatasync-0">
+<span id="fdatasync-0"></span><h3>system:fdatasync#0<a class="headerlink" href="#system-fdatasync-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fdatasync() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fdopen-0">
+<span id="fdopen-0"></span><h3>system:fdopen#0<a class="headerlink" href="#system-fdopen-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fdopen() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fork-0">
+<span id="fork-0"></span><h3>system:fork#0<a class="headerlink" href="#system-fork-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fork() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-forkpty-0">
+<span id="forkpty-0"></span><h3>system:forkpty#0<a class="headerlink" href="#system-forkpty-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:forkpty() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fpathconf-0">
+<span id="fpathconf-0"></span><h3>system:fpathconf#0<a class="headerlink" href="#system-fpathconf-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fpathconf() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fsdecode-0">
+<span id="fsdecode-0"></span><h3>system:fsdecode#0<a class="headerlink" href="#system-fsdecode-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fsdecode() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fsencode-0">
+<span id="fsencode-0"></span><h3>system:fsencode#0<a class="headerlink" href="#system-fsencode-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fsencode() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fspath-0">
+<span id="fspath-0"></span><h3>system:fspath#0<a class="headerlink" href="#system-fspath-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fspath() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fstat-0">
+<span id="fstat-0"></span><h3>system:fstat#0<a class="headerlink" href="#system-fstat-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fstat() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fstatvfs-0">
+<span id="fstatvfs-0"></span><h3>system:fstatvfs#0<a class="headerlink" href="#system-fstatvfs-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fstatvfs() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fsync-0">
+<span id="fsync-0"></span><h3>system:fsync#0<a class="headerlink" href="#system-fsync-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fsync() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-ftruncate-0">
+<span id="ftruncate-0"></span><h3>system:ftruncate#0<a class="headerlink" href="#system-ftruncate-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:ftruncate() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-fwalk-0">
+<span id="fwalk-0"></span><h3>system:fwalk#0<a class="headerlink" href="#system-fwalk-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:fwalk() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getcwd-0">
+<span id="getcwd-0"></span><h3>system:getcwd#0<a class="headerlink" href="#system-getcwd-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getcwd() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getcwdb-0">
+<span id="getcwdb-0"></span><h3>system:getcwdb#0<a class="headerlink" href="#system-getcwdb-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getcwdb() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getegid-0">
+<span id="getegid-0"></span><h3>system:getegid#0<a class="headerlink" href="#system-getegid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getegid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getenv-0">
+<span id="getenv-0"></span><h3>system:getenv#0<a class="headerlink" href="#system-getenv-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getenv() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getenvb-0">
+<span id="getenvb-0"></span><h3>system:getenvb#0<a class="headerlink" href="#system-getenvb-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getenvb() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-geteuid-0">
+<span id="geteuid-0"></span><h3>system:geteuid#0<a class="headerlink" href="#system-geteuid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:geteuid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getgid-0">
+<span id="getgid-0"></span><h3>system:getgid#0<a class="headerlink" href="#system-getgid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getgid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getgrouplist-0">
+<span id="getgrouplist-0"></span><h3>system:getgrouplist#0<a class="headerlink" href="#system-getgrouplist-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getgrouplist() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getgroups-0">
+<span id="getgroups-0"></span><h3>system:getgroups#0<a class="headerlink" href="#system-getgroups-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getgroups() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getloadavg-0">
+<span id="getloadavg-0"></span><h3>system:getloadavg#0<a class="headerlink" href="#system-getloadavg-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getloadavg() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getlogin-0">
+<span id="getlogin-0"></span><h3>system:getlogin#0<a class="headerlink" href="#system-getlogin-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getlogin() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getpgid-0">
+<span id="getpgid-0"></span><h3>system:getpgid#0<a class="headerlink" href="#system-getpgid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getpgid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getpgrp-0">
+<span id="getpgrp-0"></span><h3>system:getpgrp#0<a class="headerlink" href="#system-getpgrp-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getpgrp() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getpid-0">
+<span id="getpid-0"></span><h3>system:getpid#0<a class="headerlink" href="#system-getpid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getpid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getppid-0">
+<span id="getppid-0"></span><h3>system:getppid#0<a class="headerlink" href="#system-getppid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getppid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getpriority-0">
+<span id="getpriority-0"></span><h3>system:getpriority#0<a class="headerlink" href="#system-getpriority-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getpriority() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getrandom-0">
+<span id="getrandom-0"></span><h3>system:getrandom#0<a class="headerlink" href="#system-getrandom-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getrandom() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getresgid-0">
+<span id="getresgid-0"></span><h3>system:getresgid#0<a class="headerlink" href="#system-getresgid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getresgid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getresuid-0">
+<span id="getresuid-0"></span><h3>system:getresuid#0<a class="headerlink" href="#system-getresuid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getresuid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getsid-0">
+<span id="getsid-0"></span><h3>system:getsid#0<a class="headerlink" href="#system-getsid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getsid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-getuid-0">
+<span id="getuid-0"></span><h3>system:getuid#0<a class="headerlink" href="#system-getuid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:getuid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-initgroups-0">
+<span id="initgroups-0"></span><h3>system:initgroups#0<a class="headerlink" href="#system-initgroups-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:initgroups() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-isatty-0">
+<span id="isatty-0"></span><h3>system:isatty#0<a class="headerlink" href="#system-isatty-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:isatty() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-kill-0">
+<span id="kill-0"></span><h3>system:kill#0<a class="headerlink" href="#system-kill-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:kill() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-killpg-0">
+<span id="killpg-0"></span><h3>system:killpg#0<a class="headerlink" href="#system-killpg-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:killpg() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-lchflags-0">
+<span id="lchflags-0"></span><h3>system:lchflags#0<a class="headerlink" href="#system-lchflags-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:lchflags() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-lchmod-0">
+<span id="lchmod-0"></span><h3>system:lchmod#0<a class="headerlink" href="#system-lchmod-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:lchmod() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-lchown-0">
+<span id="lchown-0"></span><h3>system:lchown#0<a class="headerlink" href="#system-lchown-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:lchown() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-link-0">
+<span id="link-0"></span><h3>system:link#0<a class="headerlink" href="#system-link-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:link() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-listdir-0">
+<span id="listdir-0"></span><h3>system:listdir#0<a class="headerlink" href="#system-listdir-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:listdir() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-lockf-0">
+<span id="lockf-0"></span><h3>system:lockf#0<a class="headerlink" href="#system-lockf-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:lockf() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-lseek-0">
+<span id="lseek-0"></span><h3>system:lseek#0<a class="headerlink" href="#system-lseek-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:lseek() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-lstat-0">
+<span id="lstat-0"></span><h3>system:lstat#0<a class="headerlink" href="#system-lstat-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:lstat() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-major-0">
+<span id="major-0"></span><h3>system:major#0<a class="headerlink" href="#system-major-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:major() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-makedev-0">
+<span id="makedev-0"></span><h3>system:makedev#0<a class="headerlink" href="#system-makedev-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:makedev() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-makedirs-0">
+<span id="makedirs-0"></span><h3>system:makedirs#0<a class="headerlink" href="#system-makedirs-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:makedirs() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-minor-0">
+<span id="minor-0"></span><h3>system:minor#0<a class="headerlink" href="#system-minor-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:minor() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-mkdir-0">
+<span id="mkdir-0"></span><h3>system:mkdir#0<a class="headerlink" href="#system-mkdir-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:mkdir() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-mkfifo-0">
+<span id="mkfifo-0"></span><h3>system:mkfifo#0<a class="headerlink" href="#system-mkfifo-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:mkfifo() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-mknod-0">
+<span id="mknod-0"></span><h3>system:mknod#0<a class="headerlink" href="#system-mknod-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:mknod() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-name-0">
+<span id="name-0"></span><h3>system:name#0<a class="headerlink" href="#system-name-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:name() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-nice-0">
+<span id="nice-0"></span><h3>system:nice#0<a class="headerlink" href="#system-nice-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:nice() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-open-0">
+<span id="open-0"></span><h3>system:open#0<a class="headerlink" href="#system-open-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:open() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-openpty-0">
+<span id="openpty-0"></span><h3>system:openpty#0<a class="headerlink" href="#system-openpty-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:openpty() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-pathconf-0">
+<span id="pathconf-0"></span><h3>system:pathconf#0<a class="headerlink" href="#system-pathconf-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:pathconf() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-pipe-0">
+<span id="pipe-0"></span><h3>system:pipe#0<a class="headerlink" href="#system-pipe-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:pipe() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-pipe2-0">
+<span id="pipe2-0"></span><h3>system:pipe2#0<a class="headerlink" href="#system-pipe2-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:pipe2() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-plock-0">
+<span id="plock-0"></span><h3>system:plock#0<a class="headerlink" href="#system-plock-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:plock() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-popen-0">
+<span id="popen-0"></span><h3>system:popen#0<a class="headerlink" href="#system-popen-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:popen() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-pread-0">
+<span id="pread-0"></span><h3>system:pread#0<a class="headerlink" href="#system-pread-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:pread() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-preadv-0">
+<span id="preadv-0"></span><h3>system:preadv#0<a class="headerlink" href="#system-preadv-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:preadv() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-putenv-0">
+<span id="putenv-0"></span><h3>system:putenv#0<a class="headerlink" href="#system-putenv-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:putenv() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-pwrite-0">
+<span id="pwrite-0"></span><h3>system:pwrite#0<a class="headerlink" href="#system-pwrite-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:pwrite() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-pwritev-0">
+<span id="pwritev-0"></span><h3>system:pwritev#0<a class="headerlink" href="#system-pwritev-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:pwritev() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-read-0">
+<span id="read-0"></span><h3>system:read#0<a class="headerlink" href="#system-read-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:read() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-readlink-0">
+<span id="readlink-0"></span><h3>system:readlink#0<a class="headerlink" href="#system-readlink-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:readlink() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-readv-0">
+<span id="readv-0"></span><h3>system:readv#0<a class="headerlink" href="#system-readv-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:readv() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-remove-0">
+<span id="remove-0"></span><h3>system:remove#0<a class="headerlink" href="#system-remove-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:remove() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-removedirs-0">
+<span id="removedirs-0"></span><h3>system:removedirs#0<a class="headerlink" href="#system-removedirs-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:removedirs() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-rename-0">
+<span id="rename-0"></span><h3>system:rename#0<a class="headerlink" href="#system-rename-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:rename() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-renames-0">
+<span id="renames-0"></span><h3>system:renames#0<a class="headerlink" href="#system-renames-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:renames() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-replace-0">
+<span id="replace-0"></span><h3>system:replace#0<a class="headerlink" href="#system-replace-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:replace() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-rmdir-0">
+<span id="rmdir-0"></span><h3>system:rmdir#0<a class="headerlink" href="#system-rmdir-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:rmdir() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-scandir-0">
+<span id="scandir-0"></span><h3>system:scandir#0<a class="headerlink" href="#system-scandir-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:scandir() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setegid-0">
+<span id="setegid-0"></span><h3>system:setegid#0<a class="headerlink" href="#system-setegid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setegid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-seteuid-0">
+<span id="seteuid-0"></span><h3>system:seteuid#0<a class="headerlink" href="#system-seteuid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:seteuid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setgid-0">
+<span id="setgid-0"></span><h3>system:setgid#0<a class="headerlink" href="#system-setgid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setgid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setgroups-0">
+<span id="setgroups-0"></span><h3>system:setgroups#0<a class="headerlink" href="#system-setgroups-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setgroups() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setpgid-0">
+<span id="setpgid-0"></span><h3>system:setpgid#0<a class="headerlink" href="#system-setpgid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setpgid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setpgrp-0">
+<span id="setpgrp-0"></span><h3>system:setpgrp#0<a class="headerlink" href="#system-setpgrp-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setpgrp() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setpriority-0">
+<span id="setpriority-0"></span><h3>system:setpriority#0<a class="headerlink" href="#system-setpriority-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setpriority() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setregid-0">
+<span id="setregid-0"></span><h3>system:setregid#0<a class="headerlink" href="#system-setregid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setregid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setresgid-0">
+<span id="setresgid-0"></span><h3>system:setresgid#0<a class="headerlink" href="#system-setresgid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setresgid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setresuid-0">
+<span id="setresuid-0"></span><h3>system:setresuid#0<a class="headerlink" href="#system-setresuid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setresuid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setreuid-0">
+<span id="setreuid-0"></span><h3>system:setreuid#0<a class="headerlink" href="#system-setreuid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setreuid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setsid-0">
+<span id="setsid-0"></span><h3>system:setsid#0<a class="headerlink" href="#system-setsid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setsid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-setuid-0">
+<span id="setuid-0"></span><h3>system:setuid#0<a class="headerlink" href="#system-setuid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:setuid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-spawnl-0">
+<span id="spawnl-0"></span><h3>system:spawnl#0<a class="headerlink" href="#system-spawnl-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:spawnl() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-spawnle-0">
+<span id="spawnle-0"></span><h3>system:spawnle#0<a class="headerlink" href="#system-spawnle-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:spawnle() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-spawnlp-0">
+<span id="spawnlp-0"></span><h3>system:spawnlp#0<a class="headerlink" href="#system-spawnlp-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:spawnlp() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-spawnlpe-0">
+<span id="spawnlpe-0"></span><h3>system:spawnlpe#0<a class="headerlink" href="#system-spawnlpe-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:spawnlpe() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-spawnv-0">
+<span id="spawnv-0"></span><h3>system:spawnv#0<a class="headerlink" href="#system-spawnv-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:spawnv() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-spawnve-0">
+<span id="spawnve-0"></span><h3>system:spawnve#0<a class="headerlink" href="#system-spawnve-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:spawnve() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-spawnvp-0">
+<span id="spawnvp-0"></span><h3>system:spawnvp#0<a class="headerlink" href="#system-spawnvp-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:spawnvp() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-spawnvpe-0">
+<span id="spawnvpe-0"></span><h3>system:spawnvpe#0<a class="headerlink" href="#system-spawnvpe-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:spawnvpe() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-startfile-0">
+<span id="startfile-0"></span><h3>system:startfile#0<a class="headerlink" href="#system-startfile-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:startfile() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-stat-0">
+<span id="stat-0"></span><h3>system:stat#0<a class="headerlink" href="#system-stat-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:stat() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-statvfs-0">
+<span id="statvfs-0"></span><h3>system:statvfs#0<a class="headerlink" href="#system-statvfs-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:statvfs() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-symlink-0">
+<span id="symlink-0"></span><h3>system:symlink#0<a class="headerlink" href="#system-symlink-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:symlink() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-sync-0">
+<span id="sync-0"></span><h3>system:sync#0<a class="headerlink" href="#system-sync-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:sync() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-system-0">
+<span id="system-0"></span><h3>system:system#0<a class="headerlink" href="#system-system-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:system() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-times-0">
+<span id="times-0"></span><h3>system:times#0<a class="headerlink" href="#system-times-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:times() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-truncate-0">
+<span id="truncate-0"></span><h3>system:truncate#0<a class="headerlink" href="#system-truncate-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:truncate() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-ttyname-0">
+<span id="ttyname-0"></span><h3>system:ttyname#0<a class="headerlink" href="#system-ttyname-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:ttyname() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-umask-0">
+<span id="umask-0"></span><h3>system:umask#0<a class="headerlink" href="#system-umask-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:umask() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-uname-0">
+<span id="uname-0"></span><h3>system:uname#0<a class="headerlink" href="#system-uname-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:uname() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-unlink-0">
+<span id="unlink-0"></span><h3>system:unlink#0<a class="headerlink" href="#system-unlink-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:unlink() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-unsetenv-0">
+<span id="unsetenv-0"></span><h3>system:unsetenv#0<a class="headerlink" href="#system-unsetenv-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:unsetenv() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-urandom-0">
+<span id="urandom-0"></span><h3>system:urandom#0<a class="headerlink" href="#system-urandom-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:urandom() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-utime-0">
+<span id="utime-0"></span><h3>system:utime#0<a class="headerlink" href="#system-utime-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:utime() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-wait-0">
+<span id="wait-0"></span><h3>system:wait#0<a class="headerlink" href="#system-wait-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:wait() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-wait3-0">
+<span id="wait3-0"></span><h3>system:wait3#0<a class="headerlink" href="#system-wait3-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:wait3() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-wait4-0">
+<span id="wait4-0"></span><h3>system:wait4#0<a class="headerlink" href="#system-wait4-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:wait4() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-waitid-0">
+<span id="waitid-0"></span><h3>system:waitid#0<a class="headerlink" href="#system-waitid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:waitid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-waitpid-0">
+<span id="waitpid-0"></span><h3>system:waitpid#0<a class="headerlink" href="#system-waitpid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:waitpid() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-walk-0">
+<span id="walk-0"></span><h3>system:walk#0<a class="headerlink" href="#system-walk-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:walk() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-write-0">
+<span id="write-0"></span><h3>system:write#0<a class="headerlink" href="#system-write-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:write() external</code><hr class="docutils" />
+</div>
+<div class="section" id="system-writev-0">
+<span id="writev-0"></span><h3>system:writev#0<a class="headerlink" href="#system-writev-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function system:writev() external</code></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
