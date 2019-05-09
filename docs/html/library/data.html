@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>data Module &mdash; Unity DGMS latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Unity DGMS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Unity DGMS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>data Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/nachawati/unity/blob/master/docs/library/data.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-module">
+<h1>data Module<a class="headerlink" href="#data-module" title="Permalink to this headline">¶</a></h1>
+<p><strong>http://dgms.io/modules/data</strong></p>
+<hr class="docutils" />
+<div class="section" id="function-summary">
+<h2>Function Summary<a class="headerlink" href="#function-summary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<code class="function-summary"><a href="#data-frame-0">data-frame</a>() external</code><p>Two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns).</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#json-normalize-0">json-normalize</a>() external</code><p>Normalize semi-structured JSON data into a flat table.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#read-csv-0">read-csv</a>() external</code><p>Read a comma-separated values (csv) file into DataFrame.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#read-excel-0">read-excel</a>() external</code><p>Read an Excel file into a pandas DataFrame.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#read-html-0">read-html</a>() external</code><p>Read HTML tables into a list of DataFrame objects.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#read-json-0">read-json</a>() external</code><p>Convert a JSON string to pandas object.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#series-0">series</a>() external</code><p>One-dimensional ndarray with axis labels (including time series).</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="data-data-frame-0">
+<span id="data-frame-0"></span><h3><a class="reference external" href="data:data-frame#0">data:data-frame#0</a><a class="headerlink" href="#data-data-frame-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function data:data-frame() external</code><p>Two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns).</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="data-json-normalize-0">
+<span id="json-normalize-0"></span><h3><a class="reference external" href="data:json-normalize#0">data:json-normalize#0</a><a class="headerlink" href="#data-json-normalize-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function data:json-normalize() external</code><p>Normalize semi-structured JSON data into a flat table.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="data-read-csv-0">
+<span id="read-csv-0"></span><h3><a class="reference external" href="data:read-csv#0">data:read-csv#0</a><a class="headerlink" href="#data-read-csv-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function data:read-csv() external</code><p>Read a comma-separated values (csv) file into DataFrame.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="data-read-excel-0">
+<span id="read-excel-0"></span><h3><a class="reference external" href="data:read-excel#0">data:read-excel#0</a><a class="headerlink" href="#data-read-excel-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function data:read-excel() external</code><p>Read an Excel file into a pandas DataFrame.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="data-read-html-0">
+<span id="read-html-0"></span><h3><a class="reference external" href="data:read-html#0">data:read-html#0</a><a class="headerlink" href="#data-read-html-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function data:read-html() external</code><p>Read HTML tables into a list of DataFrame objects.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="data-read-json-0">
+<span id="read-json-0"></span><h3><a class="reference external" href="data:read-json#0">data:read-json#0</a><a class="headerlink" href="#data-read-json-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function data:read-json() external</code><p>Convert a JSON string to pandas object.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="data-series-0">
+<span id="series-0"></span><h3><a class="reference external" href="data:series#0">data:series#0</a><a class="headerlink" href="#data-series-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function data:series() external</code><p>One-dimensional ndarray with axis labels (including time series).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
