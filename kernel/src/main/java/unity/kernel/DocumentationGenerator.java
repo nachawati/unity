@@ -82,7 +82,7 @@ public class DocumentationGenerator
                 additionalPaths.add(Paths.get(args[i]).toAbsolutePath());
 
             UnityAnalyticsEngineManager manager = new UnityAnalyticsEngineManager(basePath, additionalPaths.toArray(new Path[0]));
-            UnityAnalyticsEngine engine = manager.getEngineByName("jsoniq10-zorba31");
+            UnityAnalyticsEngine engine = manager.getEngineByName("jsoniq10");
 
             String query = "jsoniq version \"1.0\";" + "import module namespace ns = \"" + args[1] + "\";"
                     + "import module namespace xqd = \"http://zorba.io/modules/xqdoc\";" + "xqd:xqdoc(\"" + args[1] + "\")";
