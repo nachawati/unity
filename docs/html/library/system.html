@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="symbolics Module" href="symbolics.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -85,8 +86,171 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Library Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="analytics.html">analytics Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">data Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html">learning Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics.html">numerics Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">optimization Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot.html">plot Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflection.html">reflection Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbolics.html">symbolics Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">system Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#function-summary">Function Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-abort-0">system:abort#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-access-0">system:access#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-chdir-0">system:chdir#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-chflags-0">system:chflags#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-chmod-0">system:chmod#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-chown-0">system:chown#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-chroot-0">system:chroot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-close-0">system:close#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-cpu-count-0">system:cpu-count#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-ctermid-0">system:ctermid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-dup-0">system:dup#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-dup2-0">system:dup2#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-execl-0">system:execl#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-execle-0">system:execle#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-execlp-0">system:execlp#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-execlpe-0">system:execlpe#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-execv-0">system:execv#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-execve-0">system:execve#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-execvp-0">system:execvp#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-execvpe-0">system:execvpe#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-exit-0">system:exit#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fchdir-0">system:fchdir#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fchmod-0">system:fchmod#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fchown-0">system:fchown#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fdatasync-0">system:fdatasync#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fdopen-0">system:fdopen#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fork-0">system:fork#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-forkpty-0">system:forkpty#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fpathconf-0">system:fpathconf#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fsdecode-0">system:fsdecode#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fsencode-0">system:fsencode#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fspath-0">system:fspath#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fstat-0">system:fstat#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fstatvfs-0">system:fstatvfs#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fsync-0">system:fsync#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-ftruncate-0">system:ftruncate#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-fwalk-0">system:fwalk#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getcwd-0">system:getcwd#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getcwdb-0">system:getcwdb#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getegid-0">system:getegid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getenv-0">system:getenv#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getenvb-0">system:getenvb#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-geteuid-0">system:geteuid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getgid-0">system:getgid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getgrouplist-0">system:getgrouplist#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getgroups-0">system:getgroups#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getloadavg-0">system:getloadavg#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getlogin-0">system:getlogin#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getpgid-0">system:getpgid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getpgrp-0">system:getpgrp#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getpid-0">system:getpid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getppid-0">system:getppid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getpriority-0">system:getpriority#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getrandom-0">system:getrandom#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getresgid-0">system:getresgid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getresuid-0">system:getresuid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getsid-0">system:getsid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-getuid-0">system:getuid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-initgroups-0">system:initgroups#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-isatty-0">system:isatty#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-kill-0">system:kill#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-killpg-0">system:killpg#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-lchflags-0">system:lchflags#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-lchmod-0">system:lchmod#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-lchown-0">system:lchown#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-link-0">system:link#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-listdir-0">system:listdir#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-lockf-0">system:lockf#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-lseek-0">system:lseek#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-lstat-0">system:lstat#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-major-0">system:major#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-makedev-0">system:makedev#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-makedirs-0">system:makedirs#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-minor-0">system:minor#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-mkdir-0">system:mkdir#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-mkfifo-0">system:mkfifo#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-mknod-0">system:mknod#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-name-0">system:name#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-nice-0">system:nice#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-open-0">system:open#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-openpty-0">system:openpty#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-pathconf-0">system:pathconf#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-pipe-0">system:pipe#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-pipe2-0">system:pipe2#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-plock-0">system:plock#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-popen-0">system:popen#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-pread-0">system:pread#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-preadv-0">system:preadv#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-putenv-0">system:putenv#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-pwrite-0">system:pwrite#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-pwritev-0">system:pwritev#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-read-0">system:read#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-readlink-0">system:readlink#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-readv-0">system:readv#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-remove-0">system:remove#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-removedirs-0">system:removedirs#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-rename-0">system:rename#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-renames-0">system:renames#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-replace-0">system:replace#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-rmdir-0">system:rmdir#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-scandir-0">system:scandir#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setegid-0">system:setegid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-seteuid-0">system:seteuid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setgid-0">system:setgid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setgroups-0">system:setgroups#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setpgid-0">system:setpgid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setpgrp-0">system:setpgrp#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setpriority-0">system:setpriority#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setregid-0">system:setregid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setresgid-0">system:setresgid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setresuid-0">system:setresuid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setreuid-0">system:setreuid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setsid-0">system:setsid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-setuid-0">system:setuid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-spawnl-0">system:spawnl#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-spawnle-0">system:spawnle#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-spawnlp-0">system:spawnlp#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-spawnlpe-0">system:spawnlpe#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-spawnv-0">system:spawnv#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-spawnve-0">system:spawnve#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-spawnvp-0">system:spawnvp#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-spawnvpe-0">system:spawnvpe#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-startfile-0">system:startfile#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-stat-0">system:stat#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-statvfs-0">system:statvfs#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-symlink-0">system:symlink#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-sync-0">system:sync#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-system-0">system:system#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-times-0">system:times#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-truncate-0">system:truncate#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-ttyname-0">system:ttyname#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-umask-0">system:umask#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-uname-0">system:uname#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-unlink-0">system:unlink#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-unsetenv-0">system:unsetenv#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-urandom-0">system:urandom#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-utime-0">system:utime#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-wait-0">system:wait#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-wait3-0">system:wait3#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-wait4-0">system:wait4#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-waitid-0">system:waitid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-waitpid-0">system:waitpid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-walk-0">system:walk#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-write-0">system:write#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-writev-0">system:writev#0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -131,6 +295,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Library Reference</a> &raquo;</li>
         
       <li>system Module</li>
     
@@ -896,6 +1062,13 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="symbolics.html" class="btn btn-neutral float-left" title="symbolics Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
