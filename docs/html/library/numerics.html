@@ -35,6 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="optimization Module" href="optimization.html" />
+    <link rel="prev" title="learning Module" href="learning.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -85,8 +87,72 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Library Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="analytics.html">analytics Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">data Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html">learning Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">numerics Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#function-summary">Function Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-add-0">numerics:add#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-subtract-0">numerics:subtract#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-multiply-0">numerics:multiply#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-divide-0">numerics:divide#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-floor-divide-0">numerics:floor-divide#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-mod-0">numerics:mod#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-neg-0">numerics:neg#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-logical-and-0">numerics:logical-and#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-logical-not-0">numerics:logical-not#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-logical-or-0">numerics:logical-or#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-logical-xor-0">numerics:logical-xor#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-all-0">numerics:all#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-any-0">numerics:any#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-equal-0">numerics:equal#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-greater-0">numerics:greater#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-greater-equal-0">numerics:greater-equal#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-less-0">numerics:less#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-less-equal-0">numerics:less-equal#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-not-equal-0">numerics:not-equal#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-where-0">numerics:where#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-abs-0">numerics:abs#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-ceil-0">numerics:ceil#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-floor-0">numerics:floor#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-round-0">numerics:round#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-reduce-sum-0">numerics:reduce-sum#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-acos-0">numerics:acos#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-acosh-0">numerics:acosh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-asin-0">numerics:asin#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-asinh-0">numerics:asinh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-atan-0">numerics:atan#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-atan2-0">numerics:atan2#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-atanh-0">numerics:atanh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-cos-0">numerics:cos#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-cosh-0">numerics:cosh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-exp-0">numerics:exp#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-log-0">numerics:log#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-sin-0">numerics:sin#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-sinh-0">numerics:sinh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-sqrt-0">numerics:sqrt#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-square-0">numerics:square#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-tan-0">numerics:tan#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-tanh-0">numerics:tanh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-dtype-0">numerics:dtype#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-constant-0">numerics:constant#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-pow-0">numerics:pow#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numerics-asarray-0">numerics:asarray#0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">optimization Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot.html">plot Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reflection.html">reflection Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbolics.html">symbolics Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html">system Module</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -131,6 +197,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Library Reference</a> &raquo;</li>
         
       <li>numerics Module</li>
     
@@ -654,6 +722,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="optimization.html" class="btn btn-neutral float-right" title="optimization Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="learning.html" class="btn btn-neutral float-left" title="learning Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
