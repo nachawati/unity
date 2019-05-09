@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>learning Module &mdash; Unity DGMS latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Unity DGMS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Unity DGMS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>learning Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/nachawati/unity/blob/master/docs/library/learning.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="learning-module">
+<h1>learning Module<a class="headerlink" href="#learning-module" title="Permalink to this headline">¶</a></h1>
+<p><strong>http://dgms.io/modules/learning</strong></p>
+<hr class="docutils" />
+<div class="section" id="function-summary">
+<h2>Function Summary<a class="headerlink" href="#function-summary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<code class="function-summary"><a href="#absolute-difference-0">absolute-difference</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#cosine-distance-0">cosine-distance</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#hinge-loss-0">hinge-loss</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#huber-loss-0">huber-loss</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#log-loss-0">log-loss</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#mean-pairwise-squared-error-0">mean-pairwise-squared-error</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#mean-squared-error-0">mean-squared-error</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#sigmoid-cross-entropy-0">sigmoid-cross-entropy</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#softmax-cross-entropy-0">softmax-cross-entropy</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#sparse-softmax-cross-entropy-0">sparse-softmax-cross-entropy</a>() external</code></div>
+<hr class="docutils" />
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="learning-absolute-difference-0">
+<span id="absolute-difference-0"></span><h3>learning:absolute-difference#0<a class="headerlink" href="#learning-absolute-difference-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:absolute-difference() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-cosine-distance-0">
+<span id="cosine-distance-0"></span><h3>learning:cosine-distance#0<a class="headerlink" href="#learning-cosine-distance-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:cosine-distance() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-hinge-loss-0">
+<span id="hinge-loss-0"></span><h3>learning:hinge-loss#0<a class="headerlink" href="#learning-hinge-loss-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:hinge-loss() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-huber-loss-0">
+<span id="huber-loss-0"></span><h3>learning:huber-loss#0<a class="headerlink" href="#learning-huber-loss-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:huber-loss() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-log-loss-0">
+<span id="log-loss-0"></span><h3>learning:log-loss#0<a class="headerlink" href="#learning-log-loss-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:log-loss() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-mean-pairwise-squared-error-0">
+<span id="mean-pairwise-squared-error-0"></span><h3>learning:mean-pairwise-squared-error#0<a class="headerlink" href="#learning-mean-pairwise-squared-error-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:mean-pairwise-squared-error() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-mean-squared-error-0">
+<span id="mean-squared-error-0"></span><h3>learning:mean-squared-error#0<a class="headerlink" href="#learning-mean-squared-error-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:mean-squared-error() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-sigmoid-cross-entropy-0">
+<span id="sigmoid-cross-entropy-0"></span><h3>learning:sigmoid-cross-entropy#0<a class="headerlink" href="#learning-sigmoid-cross-entropy-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:sigmoid-cross-entropy() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-softmax-cross-entropy-0">
+<span id="softmax-cross-entropy-0"></span><h3>learning:softmax-cross-entropy#0<a class="headerlink" href="#learning-softmax-cross-entropy-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:softmax-cross-entropy() external</code><hr class="docutils" />
+</div>
+<div class="section" id="learning-sparse-softmax-cross-entropy-0">
+<span id="sparse-softmax-cross-entropy-0"></span><h3>learning:sparse-softmax-cross-entropy#0<a class="headerlink" href="#learning-sparse-softmax-cross-entropy-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:sparse-softmax-cross-entropy() external</code></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
