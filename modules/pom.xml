@@ -18,6 +18,7 @@
 	<modules>
 		<module>analytics</module>
 		<module>data</module>
+		<module>learning</module>
 		<module>numerics</module>
 		<module>plot</module>
 		<module>reflection</module>
