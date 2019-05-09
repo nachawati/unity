@@ -56,3 +56,124 @@ dgms run --query let $input := { text: "Hello World" } return $input.text
 ```
 
 This should write ``Hello World`` to the standard output.
+
+### Jupyter console, notebook and lab
+
+**Unity DGMS** integrates with Project Jupyter to provide out-of-the-box support for interactive computing with JSONiq.
+
+To start a Jupyter console session with **Unity DGMS**, run the following command from the terminal:
+
+```bash
+dgms console
+```
+
+To start a Jupyter notebook session with **Unity DGMS**, run the following command from the terminal:
+```bash
+dgms notebook
+```
+
+To start a Jupyter lab session with **Unity DGMS**, run the following command from the terminal:
+```bash
+dgms lab
+```
+
+### Package and dependency management
+
+**Unity DGMS** adopts the CommonJS package format for the modular development, configuration, and distribution of DG applications and libraries, which can then be published to or installed from the [npm registry](https://www.npmjs.com/) or any Git repository.
+
+To initialize a new package for **Unity DGMS**, simply use ``npm init`` or ``yarn init``
+
+1. From the terminal, set the current working directory to the directory that will serve as the root directory of the package. 
+
+    ```bash
+    cd /path/to/package
+    ```
+
+2. Run the following command:
+
+    ```bash
+    npm init
+    ```
+
+This will generate a ``package.json`` file in the root directory of the package, similar to the following:
+
+```json
+{
+    "name": "<name>",
+    "version": "<version>",
+    "description": "<description>",
+    "main": "<main>",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "<author>",
+    "license": "<license>"
+}
+```
+
+To install a dependency from the npm registry, in the root directory of the package, run the following command, replacing ``<dependency>`` with the name of the dependency from the npm registry to install:
+
+```bash
+npm install <dependency>
+```
+
+To publish a package to the npm registry, run the following command from the root directory of the package:
+
+```bash
+npm publish
+```
+
+### Namespace resolution
+
+**Unity DGMS** resolves references to external JSONiq modules and JSON documents within a single package based on the standard [Zorba URI resolution scheme](http://www.zorba.io/documentation/3.0/zorba/architecture/uriresolvers). For example, the following URL:
+
+```
+http://dgms.io/modules/mymodule
+```
+
+is transformed into the package-relative path: 
+
+```
+lib/io/dgms/modules/mymodule.jq
+```
+
+If no file exists at that location in the main package, **Unity DGMS** will systematically look for a file that matches the package-relative path in the closure of all dependencies of the main package.
+
+## Compile from source
+
+A clean build of **Unity DGMS** is performed in two steps:
+
+**Step 1:** Clean project and build dependencies
+
+```bash
+./mvnw clean install -P linux-gcc-amd64-dependencies
+```
+
+**Step 2:** Build project
+
+```bash
+./mvnw install
+```
+
+This will build a binary distribution of **Unity DGMS** with all core dependencies inside the ``./target/unity/linux-gcc-amd64`` folder. You can test the build by running:
+
+```bash
+cd ./target/unity/linux-gcc-amd64
+java -Xrs -Xms1024m -jar ./lib/unity-cli-<VERSION>.jar run 1+1
+```
+
+## Citing
+
+If you find **Unity DGMS** useful in your work, please cite our ICEIS 2017 paper: "*Unity Decision Guidance Management System: Analytics Engine and Reusable Model Repository*" ([pdf](http://www.scitepress.org/Papers/2017/63387/63387.pdf)):
+
+```
+@inproceedings{NachawatiBrodskyLuo2017,
+    author = {Mohamad Omar Nachawati and Alexander Brodsky and Juan Luo},
+    title = {Unity Decision Guidance Management System: Analytics Engine and Reusable Model Repository},
+    booktitle = {Proceedings of the 19th International Conference on Enterprise Information Systems (ICEIS 2017)},
+    volume = {1},
+    pages = {312-323},
+    year = {2017},
+    doi = {10.5220/0006338703120323},
+}
+```
