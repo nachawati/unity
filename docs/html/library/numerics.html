@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>numerics Module &mdash; Unity DGMS latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Unity DGMS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Unity DGMS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>numerics Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/nachawati/unity/blob/master/docs/library/numerics.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="numerics-module">
+<h1>numerics Module<a class="headerlink" href="#numerics-module" title="Permalink to this headline">¶</a></h1>
+<p><strong>http://dgms.io/modules/numerics</strong></p>
+<p>This module provides functions for numerical operations on tensors.</p>
+<hr class="docutils" />
+<div class="section" id="function-summary">
+<h2>Function Summary<a class="headerlink" href="#function-summary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<code class="function-summary"><a href="#add-0">add</a>() external</code><p>Returns $a + $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#subtract-0">subtract</a>() external</code><p>Returns $a - $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#multiply-0">multiply</a>() external</code><p>Returns $a * $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#divide-0">divide</a>() external</code><p>Returns $a / $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#floor-divide-0">floor-divide</a>() external</code><p>Returns $a // $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#mod-0">mod</a>() external</code><p>Returns the mod of $a and $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#neg-0">neg</a>() external</code><p>Computes the arithmetic negation of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#logical-and-0">logical-and</a>() external</code><p>Returns the truth value of $a and $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#logical-not-0">logical-not</a>() external</code><p>Returns the truth value of not($x) element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#logical-or-0">logical-or</a>() external</code><p>Returns the truth value of $a or $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#logical-xor-0">logical-xor</a>() external</code><p>Returns the truth value of $a xor $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#all-0">all</a>() external</code><p>Computes the logical and of elements across dimensions of $x.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#any-0">any</a>() external</code><p>Computes the logical or of elements across dimensions of $x.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#equal-0">equal</a>() external</code><p>Returns the truth value of $a == $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#greater-0">greater</a>() external</code><p>Returns the truth value of $a &gt; $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#greater-equal-0">greater-equal</a>() external</code><p>Returns the truth value of $a &gt;= $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#less-0">less</a>() external</code><p>Returns the truth value of $a &lt; $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#less-equal-0">less-equal</a>() external</code><p>Returns the truth value of $a &lt;= $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#not-equal-0">not-equal</a>() external</code><p>Returns the truth value of $a != $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#where-0">where</a>() external</code><p>Returns the elements $a or $b depending on $condition.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#abs-0">abs</a>() external</code><p>Computes the absolute value of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#ceil-0">ceil</a>() external</code><p>Computes the ceiling of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#floor-0">floor</a>() external</code><p>Computes the floor of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#round-0">round</a>() external</code><p>Computes the rounding of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#reduce-sum-0">reduce-sum</a>() external</code><p>Computes the sum of elements across dimensions of $x.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#acos-0">acos</a>() external</code><p>Computes the inverse cosine of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#acosh-0">acosh</a>() external</code><p>Computes the inverse hyperbolic cosine of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#asin-0">asin</a>() external</code><p>Computes the inverse sine of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#asinh-0">asinh</a>() external</code><p>Computes the inverse hyperbolic sine of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#atan-0">atan</a>() external</code><p>Computes the inverse tangent of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#atan2-0">atan2</a>() external</code><p>Computes the inverse tangent of $a / $b element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#atanh-0">atanh</a>() external</code><p>Computes the inverse hyperbolic tangent of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#cos-0">cos</a>() external</code><p>Computes the cosine of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#cosh-0">cosh</a>() external</code><p>Computes the hyperbolic cosine of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#exp-0">exp</a>() external</code><p>Computes the exponential of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#log-0">log</a>() external</code><p>Computes the natural logarithm of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#sin-0">sin</a>() external</code><p>Computes the sine of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#sinh-0">sinh</a>() external</code><p>Computes the hyperbolic sine of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#sqrt-0">sqrt</a>() external</code><p>Computes the square root of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#square-0">square</a>() external</code><p>Computes the square of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#tan-0">tan</a>() external</code><p>Computes the tangent of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#tanh-0">tanh</a>() external</code><p>Computes the hyperbolic tangent of $x element-wise.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#dtype-0">dtype</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#constant-0">constant</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#pow-0">pow</a>() external</code><hr class="docutils" />
+<code class="function-summary"><a href="#asarray-0">asarray</a>() external</code></div>
+<hr class="docutils" />
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="numerics-add-0">
+<span id="add-0"></span><h3>numerics:add#0<a class="headerlink" href="#numerics-add-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:add() external</code><p>Returns $a + $b element-wise.</p>
+<div class="section" id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-subtract-0">
+<span id="subtract-0"></span><h3>numerics:subtract#0<a class="headerlink" href="#numerics-subtract-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:subtract() external</code><p>Returns $a - $b element-wise.</p>
+<div class="section" id="id1">
+<h4>Returns<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-multiply-0">
+<span id="multiply-0"></span><h3>numerics:multiply#0<a class="headerlink" href="#numerics-multiply-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:multiply() external</code><p>Returns $a * $b element-wise.</p>
+<div class="section" id="id2">
+<h4>Returns<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-divide-0">
+<span id="divide-0"></span><h3>numerics:divide#0<a class="headerlink" href="#numerics-divide-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:divide() external</code><p>Returns $a / $b element-wise.</p>
+<div class="section" id="id3">
+<h4>Returns<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-floor-divide-0">
+<span id="floor-divide-0"></span><h3>numerics:floor-divide#0<a class="headerlink" href="#numerics-floor-divide-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:floor-divide() external</code><p>Returns $a // $b element-wise.</p>
+<div class="section" id="id4">
+<h4>Returns<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-mod-0">
+<span id="mod-0"></span><h3>numerics:mod#0<a class="headerlink" href="#numerics-mod-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:mod() external</code><p>Returns the mod of $a and $b element-wise.</p>
+<div class="section" id="id5">
+<h4>Returns<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-neg-0">
+<span id="neg-0"></span><h3>numerics:neg#0<a class="headerlink" href="#numerics-neg-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:neg() external</code><p>Computes the arithmetic negation of $x element-wise.</p>
+<div class="section" id="id6">
+<h4>Returns<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-logical-and-0">
+<span id="logical-and-0"></span><h3>numerics:logical-and#0<a class="headerlink" href="#numerics-logical-and-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:logical-and() external</code><p>Returns the truth value of $a and $b element-wise.</p>
+<div class="section" id="id7">
+<h4>Returns<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-logical-not-0">
+<span id="logical-not-0"></span><h3>numerics:logical-not#0<a class="headerlink" href="#numerics-logical-not-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:logical-not() external</code><p>Returns the truth value of not($x) element-wise.</p>
+<div class="section" id="id8">
+<h4>Returns<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-logical-or-0">
+<span id="logical-or-0"></span><h3>numerics:logical-or#0<a class="headerlink" href="#numerics-logical-or-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:logical-or() external</code><p>Returns the truth value of $a or $b element-wise.</p>
+<div class="section" id="id9">
+<h4>Returns<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-logical-xor-0">
+<span id="logical-xor-0"></span><h3>numerics:logical-xor#0<a class="headerlink" href="#numerics-logical-xor-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:logical-xor() external</code><p>Returns the truth value of $a xor $b element-wise.</p>
+<div class="section" id="id10">
+<h4>Returns<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-all-0">
+<span id="all-0"></span><h3>numerics:all#0<a class="headerlink" href="#numerics-all-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:all() external</code><p>Computes the logical and of elements across dimensions of $x.</p>
+<div class="section" id="id11">
+<h4>Returns<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-any-0">
+<span id="any-0"></span><h3>numerics:any#0<a class="headerlink" href="#numerics-any-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:any() external</code><p>Computes the logical or of elements across dimensions of $x.</p>
+<div class="section" id="id12">
+<h4>Returns<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-equal-0">
+<span id="equal-0"></span><h3>numerics:equal#0<a class="headerlink" href="#numerics-equal-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:equal() external</code><p>Returns the truth value of $a == $b element-wise.</p>
+<div class="section" id="id13">
+<h4>Returns<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-greater-0">
+<span id="greater-0"></span><h3>numerics:greater#0<a class="headerlink" href="#numerics-greater-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:greater() external</code><p>Returns the truth value of $a &gt; $b element-wise.</p>
+<div class="section" id="id14">
+<h4>Returns<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-greater-equal-0">
+<span id="greater-equal-0"></span><h3>numerics:greater-equal#0<a class="headerlink" href="#numerics-greater-equal-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:greater-equal() external</code><p>Returns the truth value of $a &gt;= $b element-wise.</p>
+<div class="section" id="id15">
+<h4>Returns<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-less-0">
+<span id="less-0"></span><h3>numerics:less#0<a class="headerlink" href="#numerics-less-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:less() external</code><p>Returns the truth value of $a &lt; $b element-wise.</p>
+<div class="section" id="id16">
+<h4>Returns<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-less-equal-0">
+<span id="less-equal-0"></span><h3>numerics:less-equal#0<a class="headerlink" href="#numerics-less-equal-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:less-equal() external</code><p>Returns the truth value of $a &lt;= $b element-wise.</p>
+<div class="section" id="id17">
+<h4>Returns<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-not-equal-0">
+<span id="not-equal-0"></span><h3>numerics:not-equal#0<a class="headerlink" href="#numerics-not-equal-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:not-equal() external</code><p>Returns the truth value of $a != $b element-wise.</p>
+<div class="section" id="id18">
+<h4>Returns<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-where-0">
+<span id="where-0"></span><h3>numerics:where#0<a class="headerlink" href="#numerics-where-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:where() external</code><p>Returns the elements $a or $b depending on $condition.</p>
+<div class="section" id="id19">
+<h4>Returns<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-abs-0">
+<span id="abs-0"></span><h3>numerics:abs#0<a class="headerlink" href="#numerics-abs-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:abs() external</code><p>Computes the absolute value of $x element-wise.</p>
+<div class="section" id="id20">
+<h4>Returns<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-ceil-0">
+<span id="ceil-0"></span><h3>numerics:ceil#0<a class="headerlink" href="#numerics-ceil-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:ceil() external</code><p>Computes the ceiling of $x element-wise.</p>
+<div class="section" id="id21">
+<h4>Returns<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-floor-0">
+<span id="floor-0"></span><h3>numerics:floor#0<a class="headerlink" href="#numerics-floor-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:floor() external</code><p>Computes the floor of $x element-wise.</p>
+<div class="section" id="id22">
+<h4>Returns<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-round-0">
+<span id="round-0"></span><h3>numerics:round#0<a class="headerlink" href="#numerics-round-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:round() external</code><p>Computes the rounding of $x element-wise.</p>
+<div class="section" id="id23">
+<h4>Returns<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-reduce-sum-0">
+<span id="reduce-sum-0"></span><h3>numerics:reduce-sum#0<a class="headerlink" href="#numerics-reduce-sum-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:reduce-sum() external</code><p>Computes the sum of elements across dimensions of $x.</p>
+<div class="section" id="id24">
+<h4>Returns<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-acos-0">
+<span id="acos-0"></span><h3>numerics:acos#0<a class="headerlink" href="#numerics-acos-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:acos() external</code><p>Computes the inverse cosine of $x element-wise.</p>
+<div class="section" id="id25">
+<h4>Returns<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-acosh-0">
+<span id="acosh-0"></span><h3>numerics:acosh#0<a class="headerlink" href="#numerics-acosh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:acosh() external</code><p>Computes the inverse hyperbolic cosine of $x element-wise.</p>
+<div class="section" id="id26">
+<h4>Returns<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-asin-0">
+<span id="asin-0"></span><h3>numerics:asin#0<a class="headerlink" href="#numerics-asin-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:asin() external</code><p>Computes the inverse sine of $x element-wise.</p>
+<div class="section" id="id27">
+<h4>Returns<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-asinh-0">
+<span id="asinh-0"></span><h3>numerics:asinh#0<a class="headerlink" href="#numerics-asinh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:asinh() external</code><p>Computes the inverse hyperbolic sine of $x element-wise.</p>
+<div class="section" id="id28">
+<h4>Returns<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-atan-0">
+<span id="atan-0"></span><h3>numerics:atan#0<a class="headerlink" href="#numerics-atan-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:atan() external</code><p>Computes the inverse tangent of $x element-wise.</p>
+<div class="section" id="id29">
+<h4>Returns<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-atan2-0">
+<span id="atan2-0"></span><h3>numerics:atan2#0<a class="headerlink" href="#numerics-atan2-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:atan2() external</code><p>Computes the inverse tangent of $a / $b element-wise.</p>
+<div class="section" id="id30">
+<h4>Returns<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-atanh-0">
+<span id="atanh-0"></span><h3>numerics:atanh#0<a class="headerlink" href="#numerics-atanh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:atanh() external</code><p>Computes the inverse hyperbolic tangent of $x element-wise.</p>
+<div class="section" id="id31">
+<h4>Returns<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-cos-0">
+<span id="cos-0"></span><h3>numerics:cos#0<a class="headerlink" href="#numerics-cos-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:cos() external</code><p>Computes the cosine of $x element-wise.</p>
+<div class="section" id="id32">
+<h4>Returns<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-cosh-0">
+<span id="cosh-0"></span><h3>numerics:cosh#0<a class="headerlink" href="#numerics-cosh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:cosh() external</code><p>Computes the hyperbolic cosine of $x element-wise.</p>
+<div class="section" id="id33">
+<h4>Returns<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-exp-0">
+<span id="exp-0"></span><h3>numerics:exp#0<a class="headerlink" href="#numerics-exp-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:exp() external</code><p>Computes the exponential of $x element-wise.</p>
+<div class="section" id="id34">
+<h4>Returns<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-log-0">
+<span id="log-0"></span><h3>numerics:log#0<a class="headerlink" href="#numerics-log-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:log() external</code><p>Computes the natural logarithm of $x element-wise.</p>
+<div class="section" id="id35">
+<h4>Returns<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-sin-0">
+<span id="sin-0"></span><h3>numerics:sin#0<a class="headerlink" href="#numerics-sin-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:sin() external</code><p>Computes the sine of $x element-wise.</p>
+<div class="section" id="id36">
+<h4>Returns<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-sinh-0">
+<span id="sinh-0"></span><h3>numerics:sinh#0<a class="headerlink" href="#numerics-sinh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:sinh() external</code><p>Computes the hyperbolic sine of $x element-wise.</p>
+<div class="section" id="id37">
+<h4>Returns<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-sqrt-0">
+<span id="sqrt-0"></span><h3>numerics:sqrt#0<a class="headerlink" href="#numerics-sqrt-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:sqrt() external</code><p>Computes the square root of $x element-wise.</p>
+<div class="section" id="id38">
+<h4>Returns<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-square-0">
+<span id="square-0"></span><h3>numerics:square#0<a class="headerlink" href="#numerics-square-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:square() external</code><p>Computes the square of $x element-wise.</p>
+<div class="section" id="id39">
+<h4>Returns<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-tan-0">
+<span id="tan-0"></span><h3>numerics:tan#0<a class="headerlink" href="#numerics-tan-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:tan() external</code><p>Computes the tangent of $x element-wise.</p>
+<div class="section" id="id40">
+<h4>Returns<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-tanh-0">
+<span id="tanh-0"></span><h3>numerics:tanh#0<a class="headerlink" href="#numerics-tanh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:tanh() external</code><p>Computes the hyperbolic tangent of $x element-wise.</p>
+<div class="section" id="id41">
+<h4>Returns<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h4>
+<p>tensor</p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="numerics-dtype-0">
+<span id="dtype-0"></span><h3>numerics:dtype#0<a class="headerlink" href="#numerics-dtype-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:dtype() external</code><hr class="docutils" />
+</div>
+<div class="section" id="numerics-constant-0">
+<span id="constant-0"></span><h3>numerics:constant#0<a class="headerlink" href="#numerics-constant-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:constant() external</code><hr class="docutils" />
+</div>
+<div class="section" id="numerics-pow-0">
+<span id="pow-0"></span><h3>numerics:pow#0<a class="headerlink" href="#numerics-pow-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:pow() external</code><hr class="docutils" />
+</div>
+<div class="section" id="numerics-asarray-0">
+<span id="asarray-0"></span><h3>numerics:asarray#0<a class="headerlink" href="#numerics-asarray-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:asarray() external</code></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
