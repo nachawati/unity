@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>unity</groupId>
+		<artifactId>unity-modules</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>unity-modules-data</artifactId>
+
+	<name>Unity DGMS / Modules / Data</name>
+
+	<profiles>
+
+		<profile>
+
+			<id>main-linux-gcc-amd64</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>3.0.2</version>
+						<executions>
+
+							<execution>
+								<id>copy-resources-jsoniq</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/../../target/unity/${target}/lib</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/src/main/jsoniq</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>copy-resources-python</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}/../../target/unity/${target}/lib/python</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.basedir}/src/main/python</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+
+						</executions>
+
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+			<dependencies>
+
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-numerics</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+			</dependencies>
+
+		</profile>
+
+		<profile>
+
+			<id>dependencies-linux-gcc-amd64</id>
+
+			<build>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.7.0</version>
+						<executions>
+							<execution>
+								<id>default-compile</id>
+								<phase>none</phase>
+							</execution>
+							<execution>
+								<id>default-testCompile</id>
+								<phase>none</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<excludes>**/*.*</excludes>
+						</configuration>
+					</plugin>
+
+				</plugins>
+
+			</build>
+
+		</profile>
+
+	</profiles>
+
+</project>
