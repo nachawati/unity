@@ -52,7 +52,7 @@ import picocli.CommandLine.Spec;
         mixinStandardHelpOptions = true,
         abbreviateSynopsis = true,
         versionProvider = Main.class,
-        subcommands = { Console.class, Lab.class, Notebook.class, Run.class })
+        subcommands = { Console.class, Generate.class, Kernel.class, Lab.class, Notebook.class, Run.class })
 public class Main implements IVersionProvider, Runnable
 {
     public static synchronized String getVersionString()
