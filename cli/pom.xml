@@ -75,25 +75,55 @@
 					<artifactId>unity-kernel</artifactId>
 					<version>${project.version}</version>
 				</dependency>
-				
+
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-analytics</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-data</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-learning</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
 				<dependency>
 					<groupId>unity</groupId>
 					<artifactId>unity-modules-numerics</artifactId>
 					<version>${project.version}</version>
 				</dependency>
-				
+
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-optimization</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-modules-plot</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
 				<dependency>
 					<groupId>unity</groupId>
 					<artifactId>unity-modules-reflection</artifactId>
 					<version>${project.version}</version>
 				</dependency>
-				
+
 				<dependency>
 					<groupId>unity</groupId>
 					<artifactId>unity-modules-symbolics</artifactId>
 					<version>${project.version}</version>
 				</dependency>
-				
+
 				<dependency>
 					<groupId>unity</groupId>
 					<artifactId>unity-modules-system</artifactId>
