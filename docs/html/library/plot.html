@@ -35,6 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="reflection Module" href="reflection.html" />
+    <link rel="prev" title="optimization Module" href="optimization.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -85,8 +87,155 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Library Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="analytics.html">analytics Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">data Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning.html">learning Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerics.html">numerics Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">optimization Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">plot Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#function-summary">Function Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#plot-acorr-0">plot:acorr#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-angle-spectrum-0">plot:angle-spectrum#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-annotate-0">plot:annotate#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-arrow-0">plot:arrow#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-autoscale-0">plot:autoscale#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-axes-0">plot:axes#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-axhline-0">plot:axhline#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-axhspan-0">plot:axhspan#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-axis-0">plot:axis#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-axvline-0">plot:axvline#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-axvspan-0">plot:axvspan#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-bar-0">plot:bar#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-barbs-0">plot:barbs#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-barh-0">plot:barh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-box-0">plot:box#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-boxplot-0">plot:boxplot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-broken-barh-0">plot:broken-barh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-cla-0">plot:cla#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-clabel-0">plot:clabel#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-clf-0">plot:clf#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-clim-0">plot:clim#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-close-0">plot:close#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-cohere-0">plot:cohere#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-colorbar-0">plot:colorbar#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-contour-0">plot:contour#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-contourf-0">plot:contourf#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-csd-0">plot:csd#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-delaxes-0">plot:delaxes#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-draw-0">plot:draw#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-errorbar-0">plot:errorbar#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-eventplot-0">plot:eventplot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-figimage-0">plot:figimage#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-figlegend-0">plot:figlegend#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-fignum-exists-0">plot:fignum-exists#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-figtext-0">plot:figtext#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-figure-0">plot:figure#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-fill-0">plot:fill#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-fill-between-0">plot:fill-between#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-fill-betweenx-0">plot:fill-betweenx#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-findobj-0">plot:findobj#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-gca-0">plot:gca#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-gcf-0">plot:gcf#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-gci-0">plot:gci#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-get-figlabels-0">plot:get-figlabels#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-get-fignums-0">plot:get-fignums#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-grid-0">plot:grid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-hexbin-0">plot:hexbin#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-hist-0">plot:hist#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-hist2d-0">plot:hist2d#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-hlines-0">plot:hlines#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-imread-0">plot:imread#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-imsave-0">plot:imsave#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-imshow-0">plot:imshow#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-install-repl-displayhook-0">plot:install-repl-displayhook#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-ioff-0">plot:ioff#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-ion-0">plot:ion#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-isinteractive-0">plot:isinteractive#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-legend-0">plot:legend#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-locator-params-0">plot:locator-params#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-loglog-0">plot:loglog#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-magnitude-spectrum-0">plot:magnitude-spectrum#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-margins-0">plot:margins#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-matshow-0">plot:matshow#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-minorticks-off-0">plot:minorticks-off#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-minorticks-on-0">plot:minorticks-on#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-pause-0">plot:pause#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-pcolor-0">plot:pcolor#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-pcolormesh-0">plot:pcolormesh#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-phase-spectrum-0">plot:phase-spectrum#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-pie-0">plot:pie#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-plot-0">plot:plot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-plot-date-0">plot:plot-date#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-plotfile-0">plot:plotfile#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-polar-0">plot:polar#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-psd-0">plot:psd#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-quiver-0">plot:quiver#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-quiverkey-0">plot:quiverkey#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-rc-0">plot:rc#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-rc-context-0">plot:rc-context#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-rcdefaults-0">plot:rcdefaults#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-rgrids-0">plot:rgrids#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-savefig-0">plot:savefig#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-sca-0">plot:sca#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-scatter-0">plot:scatter#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-sci-0">plot:sci#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-semilogx-0">plot:semilogx#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-semilogy-0">plot:semilogy#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-set-cmap-0">plot:set-cmap#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-setp-0">plot:setp#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-show-0">plot:show#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-specgram-0">plot:specgram#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-spy-0">plot:spy#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-stackplot-0">plot:stackplot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-stem-0">plot:stem#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-step-0">plot:step#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-streamplot-0">plot:streamplot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-subplot-0">plot:subplot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-subplot2grid-0">plot:subplot2grid#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-subplot-tool-0">plot:subplot-tool#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-subplots-0">plot:subplots#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-subplots-adjust-0">plot:subplots-adjust#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-suptitle-0">plot:suptitle#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-switch-backend-0">plot:switch-backend#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-table-0">plot:table#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-text-0">plot:text#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-thetagrids-0">plot:thetagrids#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-tick-params-0">plot:tick-params#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-ticklabel-format-0">plot:ticklabel-format#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-tight-layout-0">plot:tight-layout#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-title-0">plot:title#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-tricontour-0">plot:tricontour#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-tricontourf-0">plot:tricontourf#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-tripcolor-0">plot:tripcolor#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-triplot-0">plot:triplot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-twinx-0">plot:twinx#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-twiny-0">plot:twiny#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-uninstall-repl-displayhook-0">plot:uninstall-repl-displayhook#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-violinplot-0">plot:violinplot#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-vlines-0">plot:vlines#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-xcorr-0">plot:xcorr#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-xkcd-0">plot:xkcd#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-xlabel-0">plot:xlabel#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-xlim-0">plot:xlim#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-xscale-0">plot:xscale#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-xticks-0">plot:xticks#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-ylabel-0">plot:ylabel#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-ylim-0">plot:ylim#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-yscale-0">plot:yscale#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-yticks-0">plot:yticks#0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reflection.html">reflection Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbolics.html">symbolics Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html">system Module</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -131,6 +280,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Library Reference</a> &raquo;</li>
         
       <li>plot Module</li>
     
@@ -1074,6 +1225,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reflection.html" class="btn btn-neutral float-right" title="reflection Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="optimization.html" class="btn btn-neutral float-left" title="optimization Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
