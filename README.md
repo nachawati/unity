@@ -38,3 +38,21 @@ dgms run --query 1+1
 ```
 
 If successful, this should write ``2`` to the standard output.
+
+### Non-free solvers
+
+The pre-built Docker image provides a variety of open source solvers for LP, MILP, NLP, MINLP problems, as well as a large number metaheuristic algorithms for black-box, multi-objective and stochastic optimization. If these solvers do not fit your needs, **Unity DGMS** also supports a large number of non-free solvers via CasADi and Pyomo.
+
+To use additional solvers with **Unity DGMS**, simply add the path of the directory containing the solver binaries to the ``DGMS_BIN`` environmental variable. If a solver depends on any shared libraries, also add the path of the directory containing those shared libraries to the ``DGMS_LIB`` environmental variable.
+
+## Basic usage
+
+### Compact queries
+
+Compact queries can be run directly from the terminal using the ``dgms run`` command, for example:
+
+```bash
+dgms run --query let $input := { text: "Hello World" } return $input.text
+```
+
+This should write ``Hello World`` to the standard output.
