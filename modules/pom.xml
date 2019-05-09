@@ -20,6 +20,7 @@
 		<module>data</module>
 		<module>learning</module>
 		<module>numerics</module>
+		<module>optimization</module>
 		<module>plot</module>
 		<module>reflection</module>
 		<module>symbolics</module>
