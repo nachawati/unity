@@ -1,0 +1,1111 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>plot Module &mdash; Unity DGMS latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Unity DGMS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Unity DGMS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>plot Module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/nachawati/unity/blob/master/docs/library/plot.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plot-module">
+<h1>plot Module<a class="headerlink" href="#plot-module" title="Permalink to this headline">¶</a></h1>
+<p><strong>http://dgms.io/modules/plot</strong></p>
+<hr class="docutils" />
+<div class="section" id="function-summary">
+<h2>Function Summary<a class="headerlink" href="#function-summary" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<code class="function-summary"><a href="#acorr-0">acorr</a>() external</code><p>Plot the autocorrelation of x.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#angle-spectrum-0">angle-spectrum</a>() external</code><p>Plot the angle spectrum.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#annotate-0">annotate</a>() external</code><p>Annotate the point xy with text s.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#arrow-0">arrow</a>() external</code><p>Add an arrow to the axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#autoscale-0">autoscale</a>() external</code><p>Autoscale the axis view to the data (toggle).</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#axes-0">axes</a>() external</code><p>Add an axes to the current figure and make it the current axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#axhline-0">axhline</a>() external</code><p>Add a horizontal line across the axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#axhspan-0">axhspan</a>() external</code><p>Add a horizontal span (rectangle) across the axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#axis-0">axis</a>() external</code><p>Convenience method to get or set some axis properties.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#axvline-0">axvline</a>() external</code><p>Add a vertical line across the axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#axvspan-0">axvspan</a>() external</code><p>Add a vertical span (rectangle) across the axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#bar-0">bar</a>() external</code><p>Make a bar plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#barbs-0">barbs</a>() external</code><p>Plot a 2-D field of barbs.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#barh-0">barh</a>() external</code><p>Make a horizontal bar plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#box-0">box</a>() external</code><p>Turn the axes box on or off on the current axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#boxplot-0">boxplot</a>() external</code><p>Make a box and whisker plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#broken-barh-0">broken-barh</a>() external</code><p>Plot a horizontal sequence of rectangles.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#cla-0">cla</a>() external</code><p>Clear the current axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#clabel-0">clabel</a>() external</code><p>Label a contour plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#clf-0">clf</a>() external</code><p>Clear the current figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#clim-0">clim</a>() external</code><p>Set the color limits of the current image.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#close-0">close</a>() external</code><p>Close a figure window.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#cohere-0">cohere</a>() external</code><p>Plot the coherence between x and y.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#colorbar-0">colorbar</a>() external</code><p>Add a colorbar to a plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#contour-0">contour</a>() external</code><p>Plot contours.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#contourf-0">contourf</a>() external</code><p>Plot contours.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#csd-0">csd</a>() external</code><p>Plot the cross-spectral density.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#delaxes-0">delaxes</a>() external</code><p>Remove the Axes ax (defaulting to the current axes) from its figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#draw-0">draw</a>() external</code><p>Redraw the current figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#errorbar-0">errorbar</a>() external</code><p>Plot y versus x as lines and/or markers with attached errorbars.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#eventplot-0">eventplot</a>() external</code><p>Plot identical parallel lines at the given positions.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#figimage-0">figimage</a>() external</code><p>Add a non-resampled image to the figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#figlegend-0">figlegend</a>() external</code><p>Place a legend in the figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#fignum-exists-0">fignum-exists</a>() external</code><p>Return whether the figure with the given id exists.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#figtext-0">figtext</a>() external</code><p>Add text to figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#figure-0">figure</a>() external</code><p>Create a new figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#fill-0">fill</a>() external</code><p>Plot filled polygons.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#fill-between-0">fill-between</a>() external</code><p>Fill the area between two horizontal curves.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#fill-betweenx-0">fill-betweenx</a>() external</code><p>Fill the area between two vertical curves.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#findobj-0">findobj</a>() external</code><p>Find artist objects.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#gca-0">gca</a>() external</code><p>Get the current Axes instance on the current figure matching the given keyword args, or create one.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#gcf-0">gcf</a>() external</code><p>Get a reference to the current figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#gci-0">gci</a>() external</code><p>Get the current colorable artist.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#get-figlabels-0">get-figlabels</a>() external</code><p>Return a list of existing figure labels.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#get-fignums-0">get-fignums</a>() external</code><p>Return a list of existing figure numbers.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#grid-0">grid</a>() external</code><p>Configure the grid lines.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#hexbin-0">hexbin</a>() external</code><p>Make a hexagonal binning plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#hist-0">hist</a>() external</code><p>Plot a histogram.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#hist2d-0">hist2d</a>() external</code><p>Make a 2D histogram plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#hlines-0">hlines</a>() external</code><p>Plot horizontal lines at each y from xmin to xmax.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#imread-0">imread</a>() external</code><p>Read an image from a file into an array.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#imsave-0">imsave</a>() external</code><p>Save an array as in image file.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#imshow-0">imshow</a>() external</code><p>Display an image, i.e.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#install-repl-displayhook-0">install-repl-displayhook</a>() external</code><p>Install a repl display hook so that any stale figure are automatically redrawn when control is returned to the repl.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#ioff-0">ioff</a>() external</code><p>Turn the interactive mode off.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#ion-0">ion</a>() external</code><p>Turn the interactive mode on.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#isinteractive-0">isinteractive</a>() external</code><p>Return the status of interactive mode.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#legend-0">legend</a>() external</code><p>Place a legend on the axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#locator-params-0">locator-params</a>() external</code><p>Control behavior of tick locators.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#loglog-0">loglog</a>() external</code><p>Make a plot with log scaling on both the x and y axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#magnitude-spectrum-0">magnitude-spectrum</a>() external</code><p>Plot the magnitude spectrum.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#margins-0">margins</a>() external</code><p>Set or retrieve autoscaling margins.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#matshow-0">matshow</a>() external</code><p>Display an array as a matrix in a new figure window.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#minorticks-off-0">minorticks-off</a>() external</code><p>Remove minor ticks from the axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#minorticks-on-0">minorticks-on</a>() external</code><p>Display minor ticks on the axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#pause-0">pause</a>() external</code><p>Pause for interval seconds.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#pcolor-0">pcolor</a>() external</code><p>Create a pseudocolor plot with a non-regular rectangular grid.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#pcolormesh-0">pcolormesh</a>() external</code><p>Create a pseudocolor plot with a non-regular rectangular grid.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#phase-spectrum-0">phase-spectrum</a>() external</code><p>Plot the phase spectrum.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#pie-0">pie</a>() external</code><p>Plot a pie chart.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#plot-0">plot</a>() external</code><p>Plot y versus x as lines and/or markers.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#plot-date-0">plot-date</a>() external</code><p>Plot data that contains dates.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#plotfile-0">plotfile</a>() external</code><p>Plot the data in a file.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#polar-0">polar</a>() external</code><p>Make a polar plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#psd-0">psd</a>() external</code><p>Plot the power spectral density.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#quiver-0">quiver</a>() external</code><p>Plot a 2-D field of arrows.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#quiverkey-0">quiverkey</a>() external</code><p>Add a key to a quiver plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#rc-0">rc</a>() external</code><p>Set the current rc params.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#rc-context-0">rc-context</a>() external</code><p>Return a context manager for managing rc settings.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#rcdefaults-0">rcdefaults</a>() external</code><p>Restore the rc params from Matplotlib’s internal default style.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#rgrids-0">rgrids</a>() external</code><p>Get or set the radial gridlines on the current polar plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#savefig-0">savefig</a>() external</code><p>Save the current figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#sca-0">sca</a>() external</code><p>Set the current Axes instance to ax.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#scatter-0">scatter</a>() external</code><p>A scatter plot of y vs x with varying marker size and/or color.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#sci-0">sci</a>() external</code><p>Set the current image.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#semilogx-0">semilogx</a>() external</code><p>Make a plot with log scaling on the x axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#semilogy-0">semilogy</a>() external</code><p>Make a plot with log scaling on the y axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#set-cmap-0">set-cmap</a>() external</code><p>Set the default colormap.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#setp-0">setp</a>() external</code><p>Set a property on an artist object.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#show-0">show</a>() external</code><p>Display a figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#specgram-0">specgram</a>() external</code><p>Plot a spectrogram.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#spy-0">spy</a>() external</code><p>Plot the sparsity pattern of a 2D array.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#stackplot-0">stackplot</a>() external</code><p>Draw a stacked area plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#stem-0">stem</a>() external</code><p>Create a stem plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#step-0">step</a>() external</code><p>Make a step plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#streamplot-0">streamplot</a>() external</code><p>Draw streamlines of a vector flow.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#subplot-0">subplot</a>() external</code><p>Add a subplot to the current figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#subplot2grid-0">subplot2grid</a>() external</code><p>Create an axis at specific location inside a regular grid.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#subplot-tool-0">subplot-tool</a>() external</code><p>Launch a subplot tool window for a figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#subplots-0">subplots</a>() external</code><p>Create a figure and a set of subplots.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#subplots-adjust-0">subplots-adjust</a>() external</code><p>Tune the subplot layout.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#suptitle-0">suptitle</a>() external</code><p>Add a centered title to the figure.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#switch-backend-0">switch-backend</a>() external</code><p>Close all open figures and set the Matplotlib backend.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#table-0">table</a>() external</code><p>Add a table to the current axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#text-0">text</a>() external</code><p>Add text to the axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#thetagrids-0">thetagrids</a>() external</code><p>Get or set the theta gridlines on the current polar plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#tick-params-0">tick-params</a>() external</code><p>Change the appearance of ticks, tick labels, and gridlines.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#ticklabel-format-0">ticklabel-format</a>() external</code><p>Change the ScalarFormatter used by default for linear axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#tight-layout-0">tight-layout</a>() external</code><p>Automatically adjust subplot parameters to give specified padding.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#title-0">title</a>() external</code><p>Set a title for the axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#tricontour-0">tricontour</a>() external</code><p>Draw contours on an unstructured triangular grid.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#tricontourf-0">tricontourf</a>() external</code><p>Draw contours on an unstructured triangular grid.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#tripcolor-0">tripcolor</a>() external</code><p>Create a pseudocolor plot of an unstructured triangular grid.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#triplot-0">triplot</a>() external</code><p>Draw a unstructured triangular grid as lines and/or markers.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#twinx-0">twinx</a>() external</code><p>Make a second axes that shares the x-axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#twiny-0">twiny</a>() external</code><p>Make a second axes that shares the y-axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#uninstall-repl-displayhook-0">uninstall-repl-displayhook</a>() external</code><p>Uninstall the matplotlib display hook.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#violinplot-0">violinplot</a>() external</code><p>Make a violin plot.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#vlines-0">vlines</a>() external</code><p>Plot vertical lines.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#xcorr-0">xcorr</a>() external</code><p>Plot the cross correlation between x and y.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#xkcd-0">xkcd</a>() external</code><p>Turn on xkcd sketch-style drawing mode.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#xlabel-0">xlabel</a>() external</code><p>Set the label for the x-axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#xlim-0">xlim</a>() external</code><p>Get or set the x limits of the current axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#xscale-0">xscale</a>() external</code><p>Set the x-axis scale.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#xticks-0">xticks</a>() external</code><p>Get or set the current tick locations and labels of the x-axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#ylabel-0">ylabel</a>() external</code><p>Set the label for the y-axis.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#ylim-0">ylim</a>() external</code><p>Get or set the y-limits of the current axes.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#yscale-0">yscale</a>() external</code><p>Set the y-axis scale.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#yticks-0">yticks</a>() external</code><p>Get or set the current tick locations and labels of the y-axis.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="plot-acorr-0">
+<span id="acorr-0"></span><h3>plot:acorr#0<a class="headerlink" href="#plot-acorr-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:acorr() external</code><p>Plot the autocorrelation of x.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-angle-spectrum-0">
+<span id="angle-spectrum-0"></span><h3>plot:angle-spectrum#0<a class="headerlink" href="#plot-angle-spectrum-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:angle-spectrum() external</code><p>Plot the angle spectrum.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-annotate-0">
+<span id="annotate-0"></span><h3>plot:annotate#0<a class="headerlink" href="#plot-annotate-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:annotate() external</code><p>Annotate the point xy with text s.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-arrow-0">
+<span id="arrow-0"></span><h3>plot:arrow#0<a class="headerlink" href="#plot-arrow-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:arrow() external</code><p>Add an arrow to the axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-autoscale-0">
+<span id="autoscale-0"></span><h3>plot:autoscale#0<a class="headerlink" href="#plot-autoscale-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:autoscale() external</code><p>Autoscale the axis view to the data (toggle).</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-axes-0">
+<span id="axes-0"></span><h3>plot:axes#0<a class="headerlink" href="#plot-axes-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:axes() external</code><p>Add an axes to the current figure and make it the current axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-axhline-0">
+<span id="axhline-0"></span><h3>plot:axhline#0<a class="headerlink" href="#plot-axhline-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:axhline() external</code><p>Add a horizontal line across the axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-axhspan-0">
+<span id="axhspan-0"></span><h3>plot:axhspan#0<a class="headerlink" href="#plot-axhspan-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:axhspan() external</code><p>Add a horizontal span (rectangle) across the axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-axis-0">
+<span id="axis-0"></span><h3>plot:axis#0<a class="headerlink" href="#plot-axis-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:axis() external</code><p>Convenience method to get or set some axis properties.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-axvline-0">
+<span id="axvline-0"></span><h3>plot:axvline#0<a class="headerlink" href="#plot-axvline-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:axvline() external</code><p>Add a vertical line across the axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-axvspan-0">
+<span id="axvspan-0"></span><h3>plot:axvspan#0<a class="headerlink" href="#plot-axvspan-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:axvspan() external</code><p>Add a vertical span (rectangle) across the axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-bar-0">
+<span id="bar-0"></span><h3>plot:bar#0<a class="headerlink" href="#plot-bar-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:bar() external</code><p>Make a bar plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-barbs-0">
+<span id="barbs-0"></span><h3>plot:barbs#0<a class="headerlink" href="#plot-barbs-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:barbs() external</code><p>Plot a 2-D field of barbs.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-barh-0">
+<span id="barh-0"></span><h3>plot:barh#0<a class="headerlink" href="#plot-barh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:barh() external</code><p>Make a horizontal bar plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-box-0">
+<span id="box-0"></span><h3>plot:box#0<a class="headerlink" href="#plot-box-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:box() external</code><p>Turn the axes box on or off on the current axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-boxplot-0">
+<span id="boxplot-0"></span><h3>plot:boxplot#0<a class="headerlink" href="#plot-boxplot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:boxplot() external</code><p>Make a box and whisker plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-broken-barh-0">
+<span id="broken-barh-0"></span><h3>plot:broken-barh#0<a class="headerlink" href="#plot-broken-barh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:broken-barh() external</code><p>Plot a horizontal sequence of rectangles.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-cla-0">
+<span id="cla-0"></span><h3>plot:cla#0<a class="headerlink" href="#plot-cla-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:cla() external</code><p>Clear the current axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-clabel-0">
+<span id="clabel-0"></span><h3>plot:clabel#0<a class="headerlink" href="#plot-clabel-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:clabel() external</code><p>Label a contour plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-clf-0">
+<span id="clf-0"></span><h3>plot:clf#0<a class="headerlink" href="#plot-clf-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:clf() external</code><p>Clear the current figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-clim-0">
+<span id="clim-0"></span><h3>plot:clim#0<a class="headerlink" href="#plot-clim-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:clim() external</code><p>Set the color limits of the current image.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-close-0">
+<span id="close-0"></span><h3>plot:close#0<a class="headerlink" href="#plot-close-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:close() external</code><p>Close a figure window.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-cohere-0">
+<span id="cohere-0"></span><h3>plot:cohere#0<a class="headerlink" href="#plot-cohere-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:cohere() external</code><p>Plot the coherence between x and y.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-colorbar-0">
+<span id="colorbar-0"></span><h3>plot:colorbar#0<a class="headerlink" href="#plot-colorbar-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:colorbar() external</code><p>Add a colorbar to a plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-contour-0">
+<span id="contour-0"></span><h3>plot:contour#0<a class="headerlink" href="#plot-contour-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:contour() external</code><p>Plot contours.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-contourf-0">
+<span id="contourf-0"></span><h3>plot:contourf#0<a class="headerlink" href="#plot-contourf-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:contourf() external</code><p>Plot contours.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-csd-0">
+<span id="csd-0"></span><h3>plot:csd#0<a class="headerlink" href="#plot-csd-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:csd() external</code><p>Plot the cross-spectral density.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-delaxes-0">
+<span id="delaxes-0"></span><h3>plot:delaxes#0<a class="headerlink" href="#plot-delaxes-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:delaxes() external</code><p>Remove the Axes ax (defaulting to the current axes) from its figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-draw-0">
+<span id="draw-0"></span><h3>plot:draw#0<a class="headerlink" href="#plot-draw-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:draw() external</code><p>Redraw the current figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-errorbar-0">
+<span id="errorbar-0"></span><h3>plot:errorbar#0<a class="headerlink" href="#plot-errorbar-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:errorbar() external</code><p>Plot y versus x as lines and/or markers with attached errorbars.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-eventplot-0">
+<span id="eventplot-0"></span><h3>plot:eventplot#0<a class="headerlink" href="#plot-eventplot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:eventplot() external</code><p>Plot identical parallel lines at the given positions.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-figimage-0">
+<span id="figimage-0"></span><h3>plot:figimage#0<a class="headerlink" href="#plot-figimage-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:figimage() external</code><p>Add a non-resampled image to the figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-figlegend-0">
+<span id="figlegend-0"></span><h3>plot:figlegend#0<a class="headerlink" href="#plot-figlegend-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:figlegend() external</code><p>Place a legend in the figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-fignum-exists-0">
+<span id="fignum-exists-0"></span><h3>plot:fignum-exists#0<a class="headerlink" href="#plot-fignum-exists-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:fignum-exists() external</code><p>Return whether the figure with the given id exists.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-figtext-0">
+<span id="figtext-0"></span><h3>plot:figtext#0<a class="headerlink" href="#plot-figtext-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:figtext() external</code><p>Add text to figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-figure-0">
+<span id="figure-0"></span><h3>plot:figure#0<a class="headerlink" href="#plot-figure-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:figure() external</code><p>Create a new figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-fill-0">
+<span id="fill-0"></span><h3>plot:fill#0<a class="headerlink" href="#plot-fill-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:fill() external</code><p>Plot filled polygons.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-fill-between-0">
+<span id="fill-between-0"></span><h3>plot:fill-between#0<a class="headerlink" href="#plot-fill-between-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:fill-between() external</code><p>Fill the area between two horizontal curves.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-fill-betweenx-0">
+<span id="fill-betweenx-0"></span><h3>plot:fill-betweenx#0<a class="headerlink" href="#plot-fill-betweenx-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:fill-betweenx() external</code><p>Fill the area between two vertical curves.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-findobj-0">
+<span id="findobj-0"></span><h3>plot:findobj#0<a class="headerlink" href="#plot-findobj-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:findobj() external</code><p>Find artist objects.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-gca-0">
+<span id="gca-0"></span><h3>plot:gca#0<a class="headerlink" href="#plot-gca-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:gca() external</code><p>Get the current Axes instance on the current figure matching the given keyword args, or create one.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-gcf-0">
+<span id="gcf-0"></span><h3>plot:gcf#0<a class="headerlink" href="#plot-gcf-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:gcf() external</code><p>Get a reference to the current figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-gci-0">
+<span id="gci-0"></span><h3>plot:gci#0<a class="headerlink" href="#plot-gci-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:gci() external</code><p>Get the current colorable artist.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-get-figlabels-0">
+<span id="get-figlabels-0"></span><h3>plot:get-figlabels#0<a class="headerlink" href="#plot-get-figlabels-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:get-figlabels() external</code><p>Return a list of existing figure labels.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-get-fignums-0">
+<span id="get-fignums-0"></span><h3>plot:get-fignums#0<a class="headerlink" href="#plot-get-fignums-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:get-fignums() external</code><p>Return a list of existing figure numbers.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-grid-0">
+<span id="grid-0"></span><h3>plot:grid#0<a class="headerlink" href="#plot-grid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:grid() external</code><p>Configure the grid lines.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-hexbin-0">
+<span id="hexbin-0"></span><h3>plot:hexbin#0<a class="headerlink" href="#plot-hexbin-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:hexbin() external</code><p>Make a hexagonal binning plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-hist-0">
+<span id="hist-0"></span><h3>plot:hist#0<a class="headerlink" href="#plot-hist-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:hist() external</code><p>Plot a histogram.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-hist2d-0">
+<span id="hist2d-0"></span><h3>plot:hist2d#0<a class="headerlink" href="#plot-hist2d-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:hist2d() external</code><p>Make a 2D histogram plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-hlines-0">
+<span id="hlines-0"></span><h3>plot:hlines#0<a class="headerlink" href="#plot-hlines-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:hlines() external</code><p>Plot horizontal lines at each y from xmin to xmax.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-imread-0">
+<span id="imread-0"></span><h3>plot:imread#0<a class="headerlink" href="#plot-imread-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:imread() external</code><p>Read an image from a file into an array.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-imsave-0">
+<span id="imsave-0"></span><h3>plot:imsave#0<a class="headerlink" href="#plot-imsave-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:imsave() external</code><p>Save an array as in image file.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-imshow-0">
+<span id="imshow-0"></span><h3>plot:imshow#0<a class="headerlink" href="#plot-imshow-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:imshow() external</code><p>Display an image, i.e.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-install-repl-displayhook-0">
+<span id="install-repl-displayhook-0"></span><h3>plot:install-repl-displayhook#0<a class="headerlink" href="#plot-install-repl-displayhook-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:install-repl-displayhook() external</code><p>Install a repl display hook so that any stale figure are automatically redrawn when control is returned to the repl.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-ioff-0">
+<span id="ioff-0"></span><h3>plot:ioff#0<a class="headerlink" href="#plot-ioff-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:ioff() external</code><p>Turn the interactive mode off.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-ion-0">
+<span id="ion-0"></span><h3>plot:ion#0<a class="headerlink" href="#plot-ion-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:ion() external</code><p>Turn the interactive mode on.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-isinteractive-0">
+<span id="isinteractive-0"></span><h3>plot:isinteractive#0<a class="headerlink" href="#plot-isinteractive-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:isinteractive() external</code><p>Return the status of interactive mode.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-legend-0">
+<span id="legend-0"></span><h3>plot:legend#0<a class="headerlink" href="#plot-legend-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:legend() external</code><p>Place a legend on the axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-locator-params-0">
+<span id="locator-params-0"></span><h3>plot:locator-params#0<a class="headerlink" href="#plot-locator-params-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:locator-params() external</code><p>Control behavior of tick locators.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-loglog-0">
+<span id="loglog-0"></span><h3>plot:loglog#0<a class="headerlink" href="#plot-loglog-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:loglog() external</code><p>Make a plot with log scaling on both the x and y axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-magnitude-spectrum-0">
+<span id="magnitude-spectrum-0"></span><h3>plot:magnitude-spectrum#0<a class="headerlink" href="#plot-magnitude-spectrum-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:magnitude-spectrum() external</code><p>Plot the magnitude spectrum.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-margins-0">
+<span id="margins-0"></span><h3>plot:margins#0<a class="headerlink" href="#plot-margins-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:margins() external</code><p>Set or retrieve autoscaling margins.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-matshow-0">
+<span id="matshow-0"></span><h3>plot:matshow#0<a class="headerlink" href="#plot-matshow-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:matshow() external</code><p>Display an array as a matrix in a new figure window.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-minorticks-off-0">
+<span id="minorticks-off-0"></span><h3>plot:minorticks-off#0<a class="headerlink" href="#plot-minorticks-off-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:minorticks-off() external</code><p>Remove minor ticks from the axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-minorticks-on-0">
+<span id="minorticks-on-0"></span><h3>plot:minorticks-on#0<a class="headerlink" href="#plot-minorticks-on-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:minorticks-on() external</code><p>Display minor ticks on the axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-pause-0">
+<span id="pause-0"></span><h3>plot:pause#0<a class="headerlink" href="#plot-pause-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:pause() external</code><p>Pause for interval seconds.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-pcolor-0">
+<span id="pcolor-0"></span><h3>plot:pcolor#0<a class="headerlink" href="#plot-pcolor-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:pcolor() external</code><p>Create a pseudocolor plot with a non-regular rectangular grid.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-pcolormesh-0">
+<span id="pcolormesh-0"></span><h3>plot:pcolormesh#0<a class="headerlink" href="#plot-pcolormesh-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:pcolormesh() external</code><p>Create a pseudocolor plot with a non-regular rectangular grid.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-phase-spectrum-0">
+<span id="phase-spectrum-0"></span><h3>plot:phase-spectrum#0<a class="headerlink" href="#plot-phase-spectrum-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:phase-spectrum() external</code><p>Plot the phase spectrum.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-pie-0">
+<span id="pie-0"></span><h3>plot:pie#0<a class="headerlink" href="#plot-pie-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:pie() external</code><p>Plot a pie chart.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-plot-0">
+<span id="plot-0"></span><h3>plot:plot#0<a class="headerlink" href="#plot-plot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:plot() external</code><p>Plot y versus x as lines and/or markers.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-plot-date-0">
+<span id="plot-date-0"></span><h3>plot:plot-date#0<a class="headerlink" href="#plot-plot-date-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:plot-date() external</code><p>Plot data that contains dates.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-plotfile-0">
+<span id="plotfile-0"></span><h3>plot:plotfile#0<a class="headerlink" href="#plot-plotfile-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:plotfile() external</code><p>Plot the data in a file.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-polar-0">
+<span id="polar-0"></span><h3>plot:polar#0<a class="headerlink" href="#plot-polar-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:polar() external</code><p>Make a polar plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-psd-0">
+<span id="psd-0"></span><h3>plot:psd#0<a class="headerlink" href="#plot-psd-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:psd() external</code><p>Plot the power spectral density.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-quiver-0">
+<span id="quiver-0"></span><h3>plot:quiver#0<a class="headerlink" href="#plot-quiver-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:quiver() external</code><p>Plot a 2-D field of arrows.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-quiverkey-0">
+<span id="quiverkey-0"></span><h3>plot:quiverkey#0<a class="headerlink" href="#plot-quiverkey-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:quiverkey() external</code><p>Add a key to a quiver plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-rc-0">
+<span id="rc-0"></span><h3>plot:rc#0<a class="headerlink" href="#plot-rc-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:rc() external</code><p>Set the current rc params.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-rc-context-0">
+<span id="rc-context-0"></span><h3>plot:rc-context#0<a class="headerlink" href="#plot-rc-context-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:rc-context() external</code><p>Return a context manager for managing rc settings.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-rcdefaults-0">
+<span id="rcdefaults-0"></span><h3>plot:rcdefaults#0<a class="headerlink" href="#plot-rcdefaults-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:rcdefaults() external</code><p>Restore the rc params from Matplotlib’s internal default style.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-rgrids-0">
+<span id="rgrids-0"></span><h3>plot:rgrids#0<a class="headerlink" href="#plot-rgrids-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:rgrids() external</code><p>Get or set the radial gridlines on the current polar plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-savefig-0">
+<span id="savefig-0"></span><h3>plot:savefig#0<a class="headerlink" href="#plot-savefig-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:savefig() external</code><p>Save the current figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-sca-0">
+<span id="sca-0"></span><h3>plot:sca#0<a class="headerlink" href="#plot-sca-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:sca() external</code><p>Set the current Axes instance to ax.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-scatter-0">
+<span id="scatter-0"></span><h3>plot:scatter#0<a class="headerlink" href="#plot-scatter-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:scatter() external</code><p>A scatter plot of y vs x with varying marker size and/or color.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-sci-0">
+<span id="sci-0"></span><h3>plot:sci#0<a class="headerlink" href="#plot-sci-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:sci() external</code><p>Set the current image.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-semilogx-0">
+<span id="semilogx-0"></span><h3>plot:semilogx#0<a class="headerlink" href="#plot-semilogx-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:semilogx() external</code><p>Make a plot with log scaling on the x axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-semilogy-0">
+<span id="semilogy-0"></span><h3>plot:semilogy#0<a class="headerlink" href="#plot-semilogy-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:semilogy() external</code><p>Make a plot with log scaling on the y axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-set-cmap-0">
+<span id="set-cmap-0"></span><h3>plot:set-cmap#0<a class="headerlink" href="#plot-set-cmap-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:set-cmap() external</code><p>Set the default colormap.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-setp-0">
+<span id="setp-0"></span><h3>plot:setp#0<a class="headerlink" href="#plot-setp-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:setp() external</code><p>Set a property on an artist object.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-show-0">
+<span id="show-0"></span><h3>plot:show#0<a class="headerlink" href="#plot-show-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:show() external</code><p>Display a figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-specgram-0">
+<span id="specgram-0"></span><h3>plot:specgram#0<a class="headerlink" href="#plot-specgram-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:specgram() external</code><p>Plot a spectrogram.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-spy-0">
+<span id="spy-0"></span><h3>plot:spy#0<a class="headerlink" href="#plot-spy-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:spy() external</code><p>Plot the sparsity pattern of a 2D array.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-stackplot-0">
+<span id="stackplot-0"></span><h3>plot:stackplot#0<a class="headerlink" href="#plot-stackplot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:stackplot() external</code><p>Draw a stacked area plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-stem-0">
+<span id="stem-0"></span><h3>plot:stem#0<a class="headerlink" href="#plot-stem-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:stem() external</code><p>Create a stem plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-step-0">
+<span id="step-0"></span><h3>plot:step#0<a class="headerlink" href="#plot-step-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:step() external</code><p>Make a step plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-streamplot-0">
+<span id="streamplot-0"></span><h3>plot:streamplot#0<a class="headerlink" href="#plot-streamplot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:streamplot() external</code><p>Draw streamlines of a vector flow.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-subplot-0">
+<span id="subplot-0"></span><h3>plot:subplot#0<a class="headerlink" href="#plot-subplot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:subplot() external</code><p>Add a subplot to the current figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-subplot2grid-0">
+<span id="subplot2grid-0"></span><h3>plot:subplot2grid#0<a class="headerlink" href="#plot-subplot2grid-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:subplot2grid() external</code><p>Create an axis at specific location inside a regular grid.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-subplot-tool-0">
+<span id="subplot-tool-0"></span><h3>plot:subplot-tool#0<a class="headerlink" href="#plot-subplot-tool-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:subplot-tool() external</code><p>Launch a subplot tool window for a figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-subplots-0">
+<span id="subplots-0"></span><h3>plot:subplots#0<a class="headerlink" href="#plot-subplots-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:subplots() external</code><p>Create a figure and a set of subplots.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-subplots-adjust-0">
+<span id="subplots-adjust-0"></span><h3>plot:subplots-adjust#0<a class="headerlink" href="#plot-subplots-adjust-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:subplots-adjust() external</code><p>Tune the subplot layout.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-suptitle-0">
+<span id="suptitle-0"></span><h3>plot:suptitle#0<a class="headerlink" href="#plot-suptitle-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:suptitle() external</code><p>Add a centered title to the figure.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-switch-backend-0">
+<span id="switch-backend-0"></span><h3>plot:switch-backend#0<a class="headerlink" href="#plot-switch-backend-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:switch-backend() external</code><p>Close all open figures and set the Matplotlib backend.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-table-0">
+<span id="table-0"></span><h3>plot:table#0<a class="headerlink" href="#plot-table-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:table() external</code><p>Add a table to the current axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-text-0">
+<span id="text-0"></span><h3>plot:text#0<a class="headerlink" href="#plot-text-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:text() external</code><p>Add text to the axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-thetagrids-0">
+<span id="thetagrids-0"></span><h3>plot:thetagrids#0<a class="headerlink" href="#plot-thetagrids-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:thetagrids() external</code><p>Get or set the theta gridlines on the current polar plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-tick-params-0">
+<span id="tick-params-0"></span><h3>plot:tick-params#0<a class="headerlink" href="#plot-tick-params-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:tick-params() external</code><p>Change the appearance of ticks, tick labels, and gridlines.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-ticklabel-format-0">
+<span id="ticklabel-format-0"></span><h3>plot:ticklabel-format#0<a class="headerlink" href="#plot-ticklabel-format-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:ticklabel-format() external</code><p>Change the ScalarFormatter used by default for linear axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-tight-layout-0">
+<span id="tight-layout-0"></span><h3>plot:tight-layout#0<a class="headerlink" href="#plot-tight-layout-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:tight-layout() external</code><p>Automatically adjust subplot parameters to give specified padding.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-title-0">
+<span id="title-0"></span><h3>plot:title#0<a class="headerlink" href="#plot-title-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:title() external</code><p>Set a title for the axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-tricontour-0">
+<span id="tricontour-0"></span><h3>plot:tricontour#0<a class="headerlink" href="#plot-tricontour-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:tricontour() external</code><p>Draw contours on an unstructured triangular grid.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-tricontourf-0">
+<span id="tricontourf-0"></span><h3>plot:tricontourf#0<a class="headerlink" href="#plot-tricontourf-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:tricontourf() external</code><p>Draw contours on an unstructured triangular grid.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-tripcolor-0">
+<span id="tripcolor-0"></span><h3>plot:tripcolor#0<a class="headerlink" href="#plot-tripcolor-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:tripcolor() external</code><p>Create a pseudocolor plot of an unstructured triangular grid.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-triplot-0">
+<span id="triplot-0"></span><h3>plot:triplot#0<a class="headerlink" href="#plot-triplot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:triplot() external</code><p>Draw a unstructured triangular grid as lines and/or markers.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-twinx-0">
+<span id="twinx-0"></span><h3>plot:twinx#0<a class="headerlink" href="#plot-twinx-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:twinx() external</code><p>Make a second axes that shares the x-axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-twiny-0">
+<span id="twiny-0"></span><h3>plot:twiny#0<a class="headerlink" href="#plot-twiny-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:twiny() external</code><p>Make a second axes that shares the y-axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-uninstall-repl-displayhook-0">
+<span id="uninstall-repl-displayhook-0"></span><h3>plot:uninstall-repl-displayhook#0<a class="headerlink" href="#plot-uninstall-repl-displayhook-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:uninstall-repl-displayhook() external</code><p>Uninstall the matplotlib display hook.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-violinplot-0">
+<span id="violinplot-0"></span><h3>plot:violinplot#0<a class="headerlink" href="#plot-violinplot-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:violinplot() external</code><p>Make a violin plot.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-vlines-0">
+<span id="vlines-0"></span><h3>plot:vlines#0<a class="headerlink" href="#plot-vlines-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:vlines() external</code><p>Plot vertical lines.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-xcorr-0">
+<span id="xcorr-0"></span><h3>plot:xcorr#0<a class="headerlink" href="#plot-xcorr-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:xcorr() external</code><p>Plot the cross correlation between x and y.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-xkcd-0">
+<span id="xkcd-0"></span><h3>plot:xkcd#0<a class="headerlink" href="#plot-xkcd-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:xkcd() external</code><p>Turn on xkcd sketch-style drawing mode.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-xlabel-0">
+<span id="xlabel-0"></span><h3>plot:xlabel#0<a class="headerlink" href="#plot-xlabel-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:xlabel() external</code><p>Set the label for the x-axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-xlim-0">
+<span id="xlim-0"></span><h3>plot:xlim#0<a class="headerlink" href="#plot-xlim-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:xlim() external</code><p>Get or set the x limits of the current axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-xscale-0">
+<span id="xscale-0"></span><h3>plot:xscale#0<a class="headerlink" href="#plot-xscale-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:xscale() external</code><p>Set the x-axis scale.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-xticks-0">
+<span id="xticks-0"></span><h3>plot:xticks#0<a class="headerlink" href="#plot-xticks-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:xticks() external</code><p>Get or set the current tick locations and labels of the x-axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-ylabel-0">
+<span id="ylabel-0"></span><h3>plot:ylabel#0<a class="headerlink" href="#plot-ylabel-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:ylabel() external</code><p>Set the label for the y-axis.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-ylim-0">
+<span id="ylim-0"></span><h3>plot:ylim#0<a class="headerlink" href="#plot-ylim-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:ylim() external</code><p>Get or set the y-limits of the current axes.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-yscale-0">
+<span id="yscale-0"></span><h3>plot:yscale#0<a class="headerlink" href="#plot-yscale-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:yscale() external</code><p>Set the y-axis scale.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="plot-yticks-0">
+<span id="yticks-0"></span><h3>plot:yticks#0<a class="headerlink" href="#plot-yticks-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:deterministic %an:variadic function plot:yticks() external</code><p>Get or set the current tick locations and labels of the y-axis.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
