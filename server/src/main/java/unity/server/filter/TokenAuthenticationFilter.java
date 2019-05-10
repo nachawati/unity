@@ -40,10 +40,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.gitlab4j.api.Constants.TokenType;
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.models.User;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;
+
+import unity.client.UnityUser;
 
 public class TokenAuthenticationFilter extends GenericFilterBean
 {
@@ -78,6 +81,7 @@ public class TokenAuthenticationFilter extends GenericFilterBean
                 authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"), new SimpleGrantedAuthority("ROLE_ADMIN"));
             else
                 authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(new UnityUser(user), gitLabApi, authorities));
         } catch (Exception e) {
         } finally {
             chain.doFilter(request, response);
