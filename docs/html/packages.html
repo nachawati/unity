@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Package and dependency management &mdash; Unity DGMS latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Namespace resolution" href="namespaces.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Unity DGMS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Package and dependency management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespaces.html">Namespace resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library/index.html">Library Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Unity DGMS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Package and dependency management</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/nachawati/unity/blob/master/docs/packages.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="package-and-dependency-management">
+<h1>Package and dependency management<a class="headerlink" href="#package-and-dependency-management" title="Permalink to this headline">¶</a></h1>
+<p><strong>Unity DGMS</strong> adopts the CommonJS package format for the modular
+development, configuration, and distribution of DG applications and
+libraries, which can then be published to or installed from the <a class="reference external" href="https://www.npmjs.com/">npm
+registry</a> or any Git repository.</p>
+<p>To initialize a new package for <strong>Unity DGMS</strong>, simply use <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">init</span></code>
+or <code class="docutils literal notranslate"><span class="pre">yarn</span> <span class="pre">init</span></code></p>
+<ol class="arabic">
+<li><p class="first">From the terminal, set the current working directory to the directory
+that will serve as the root directory of the package.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">package</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run the following command:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">init</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>This will generate a <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file in the root directory of the
+package, similar to the following:</p>
+<div class="code json highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;name&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;version&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;description&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;main&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;echo </span><span class="se">\&quot;</span><span class="s2">Error: no test specified</span><span class="se">\&quot;</span><span class="s2"> &amp;&amp; exit 1&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;author&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;license&gt;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To install a dependency from the npm registry, in the root directory of
+the package, run the following command, replacing <code class="docutils literal notranslate"><span class="pre">&lt;dependency&gt;</span></code> with
+the name of the dependency from the npm registry to install:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>To publish a package to the npm registry, run the following command from
+the root directory of the package:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">publish</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="namespaces.html" class="btn btn-neutral float-right" title="Namespace resolution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
