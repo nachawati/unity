@@ -96,6 +96,22 @@
 						<version>1.6.0</version>
 						<executions>
 							<execution>
+								<id>delete-html</id>
+								<phase>package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>rm</executable>
+									<skip>${skip-documentation}</skip>
+									<arguments>
+										<argument>-R</argument>
+										<argument>html</argument>
+									</arguments>
+									<workingDirectory>${project.basedir}/../docs</workingDirectory>
+								</configuration>
+							</execution>
+							<execution>
 								<id>docs-html</id>
 								<phase>package</phase>
 								<goals>
