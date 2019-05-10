@@ -17,6 +17,7 @@
 		<module>deploy</module>
 		<module>kernel</module>
 		<module>modules</module>
+		<module>server</module>
 	</modules>
 
 	<properties>
