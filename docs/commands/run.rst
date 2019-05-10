@@ -19,20 +19,20 @@ Usage
    * - Options:
      - | **-h**, **--help**
        |    Show this help message and exit.
-       | -**e**, --**engine** = <engine>
-       |  Specify analytics engine
+       | **-e**, **--engine** = <engine>
+       |    Specify analytics engine
        |      Default: jsoniq10
-       |     --**mode**=<mode>
-       |         Specify symbolics mode
-       |            Default: pyomo
-       | -**r**, --**results** = <results>
-       |  Write results to file
-       | -**t**, --**timing**
-       |  Print timing information
-       | -**m**, --**memory**
-       |  Print memory usage information
-       | -**q**, --**query**
-       |  Execute query expression
-       |     --**disable-source-transformation**
-       |         Disable source code transformation
+       | **--mode** = <mode>
+       |    Specify symbolics mode
+       |      Default: pyomo
+       | **-r**, **--results** = <results>
+       |    Write results to file
+       | **-t**, **--timing**
+       |    Print timing information
+       | **-m**, **--memory**
+       |    Print memory usage information
+       | **-q**, **--query**
+       |    Execute query expression
+       | **--disable-source-transformation**
+       |    Disable source code transformation
 
