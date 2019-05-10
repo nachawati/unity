@@ -3,8 +3,9 @@
 
 # Unity DGMS
 
-[![Docker 0.1.0](https://img.shields.io/badge/docker-0.1.0-blue.svg?logo=docker)](https://hub.docker.com/r/dgms/dgms)
-[![npm 0.1.0](https://img.shields.io/badge/npm-0.1.0-red.svg?logo=npm)](https://www.npmjs.com/package/dgms)
+[![npm version](https://badge.fury.io/js/dgms.svg)](https://www.npmjs.com/package/dgms)
+[![npm downloads](https://img.shields.io/npm/dw/dgms.svg)](https://www.npmjs.com/package/dgms)
+[![docker pulls](https://img.shields.io/docker/pulls/dgms/dgms.svg)](https://hub.docker.com/r/dgms/dgms)
 
 **Unity DGMS** is an open-source JSONiq analytics run-time environment for building model-driven decision guidance applications.
 
