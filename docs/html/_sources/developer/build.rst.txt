@@ -22,4 +22,4 @@ can test the build by running:
 .. code:: bash
 
    cd ./target/unity/linux-gcc-amd64
-   java -Xrs -Xms1024m -jar ./lib/unity-cli-0.0.1-SNAPSHOT.jar run 1+1
+   java -Xrs -Xms1024m -jar ./lib/unity-cli-<VERSION>.jar run 1+1
