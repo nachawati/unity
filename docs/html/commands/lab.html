@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Build from source &mdash; Unity DGMS latest documentation</title>
+  <title>Lab &mdash; Unity DGMS latest documentation</title>
   
 
   
@@ -35,7 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Developer Reference" href="index.html" />
+    <link rel="next" title="Notebook" href="notebook.html" />
+    <link rel="prev" title="Generate" href="generate.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -92,12 +93,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../packages.html">Package and dependency management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../namespaces.html">Namespace resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../commands/index.html">Command Line Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../library/index.html">Library Reference</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Build from source</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command Line Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="compile.html">Compile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="console.html">Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generate.html">Generate</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="notebook.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Run</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">Library Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Reference</a></li>
 </ul>
 
             
@@ -143,16 +152,16 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Developer Reference</a> &raquo;</li>
+          <li><a href="index.html">Command Line Reference</a> &raquo;</li>
         
-      <li>Build from source</li>
+      <li>Lab</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/nachawati/unity/blob/master/docs/developer/build.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/nachawati/unity/blob/master/docs/commands/lab.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -166,23 +175,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="build-from-source">
-<h1>Build from source<a class="headerlink" href="#build-from-source" title="Permalink to this headline">¶</a></h1>
-<p>A clean build of <strong>Unity DGMS</strong> is performed in two steps:</p>
-<p><strong>Step 1:</strong> Clean project and build dependencies</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">mvnw</span> <span class="n">clean</span> <span class="n">install</span> <span class="o">-</span><span class="n">P</span> <span class="n">linux</span><span class="o">-</span><span class="n">gcc</span><span class="o">-</span><span class="n">amd64</span><span class="o">-</span><span class="n">dependencies</span>
-</pre></div>
+  <div class="section" id="lab">
+<h1>Lab<a class="headerlink" href="#lab" title="Permalink to this headline">¶</a></h1>
+<p>Start lab session</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p><strong>dgms</strong> <strong>lab</strong> [OPTIONS]</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><th class="stub">Options:</th>
+<td><div class="first last line-block">
+<div class="line"><strong>-h</strong>, <strong>–help</strong></div>
+<div class="line-block">
+<div class="line">Show this help message and exit.</div>
 </div>
-<p><strong>Step 2:</strong> Build project</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">mvnw</span> <span class="n">install</span>
-</pre></div>
 </div>
-<p>This will build a binary distribution of <strong>Unity DGMS</strong> with all core
-dependencies inside the <code class="docutils literal notranslate"><span class="pre">./target/unity/linux-gcc-amd64</span></code> folder. You
-can test the build by running:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">./</span><span class="n">target</span><span class="o">/</span><span class="n">unity</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">gcc</span><span class="o">-</span><span class="n">amd64</span>
-<span class="n">java</span> <span class="o">-</span><span class="n">Xrs</span> <span class="o">-</span><span class="n">Xms1024m</span> <span class="o">-</span><span class="n">jar</span> <span class="o">./</span><span class="n">lib</span><span class="o">/</span><span class="n">unity</span><span class="o">-</span><span class="n">cli</span><span class="o">-&lt;</span><span class="n">VERSION</span><span class="o">&gt;.</span><span class="n">jar</span> <span class="n">run</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
-</pre></div>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -194,8 +209,10 @@ can test the build by running:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="notebook.html" class="btn btn-neutral float-right" title="Notebook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Developer Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="generate.html" class="btn btn-neutral float-left" title="Generate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
