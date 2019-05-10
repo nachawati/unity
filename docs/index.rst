@@ -14,8 +14,10 @@ Unity DGMS is an open-source JSONiq analytics run-time environment for building 
    :caption: Contents:
 
    installation.rst
+   quick_start.rst
    packages.rst
    namespaces.rst
+   publications.rst
    library/index.rst
 
 Indices and tables
