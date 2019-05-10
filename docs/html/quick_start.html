@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick Start &mdash; Unity DGMS latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Package and dependency management" href="packages.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Unity DGMS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compact-queries">Compact queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-console-notebook-and-lab">Jupyter console, notebook and lab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-script-and-query-modules-on-the-command-line">Running script and query modules on the command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimization">Optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Package and dependency management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespaces.html">Namespace resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library/index.html">Library Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Unity DGMS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Quick Start</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/nachawati/unity/blob/master/docs/quick_start.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>This quick start will walk you through the core capabilities of Unity DGMS.</p>
+<div class="section" id="compact-queries">
+<h2>Compact queries<a class="headerlink" href="#compact-queries" title="Permalink to this headline">¶</a></h2>
+<p>Compact queries can be run directly from the terminal using the
+<code class="docutils literal notranslate"><span class="pre">dgms</span> <span class="pre">run</span></code> command, for example:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>dgms run --query let $input := { text: &quot;Hello World&quot; } return $input.text
+</pre></div>
+</div>
+<p>This should write <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> to the standard output.</p>
+</div>
+<div class="section" id="jupyter-console-notebook-and-lab">
+<h2>Jupyter console, notebook and lab<a class="headerlink" href="#jupyter-console-notebook-and-lab" title="Permalink to this headline">¶</a></h2>
+<p><strong>Unity DGMS</strong> integrates with Project Jupyter to provide out-of-the-box
+support for interactive computing with JSONiq.</p>
+<p>To start a Jupyter console session with <strong>Unity DGMS</strong>, run the
+following command from the terminal:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dgms</span> <span class="n">console</span>
+</pre></div>
+</div>
+<p>To start a Jupyter notebook session with <strong>Unity DGMS</strong>, run the
+following command from the terminal:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dgms</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+<p>To start a Jupyter lab session with <strong>Unity DGMS</strong>, run the following
+command from the terminal:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dgms</span> <span class="n">lab</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-script-and-query-modules-on-the-command-line">
+<h2>Running script and query modules on the command line<a class="headerlink" href="#running-script-and-query-modules-on-the-command-line" title="Permalink to this headline">¶</a></h2>
+<p>Files containing longer scripts and queries can also be run from the
+terminal using the <code class="docutils literal notranslate"><span class="pre">dgms</span> <span class="pre">run</span></code> command. For example, to run the module
+<code class="docutils literal notranslate"><span class="pre">expenditure.jq</span></code>:</p>
+<div class="code xquery highlight-default notranslate"><div class="highlight"><pre><span></span>jsoniq version &quot;1.0&quot;;
+
+import module namespace n =   &quot;http://dgms.io/modules/numerics&quot;;
+import module namespace plt = &quot;http://dgms.io/modules/plot&quot;;
+
+variable $t := n:linspace(0, 10);
+variable $c := n:square($t);
+
+variable $ax = plt:subplot();
+
+$ax.plot(t, c);
+$ax.set({xlabel: &quot;time (s)&quot;, ylabel: &quot;spending ($)&quot;, title: &quot;Expenditure&quot;});
+$ax.grid();
+
+plt:show();
+</pre></div>
+</div>
+<p>from the terminal, navigate to the directory containing the
+<code class="docutils literal notranslate"><span class="pre">expenditure.jq</span></code> file and run the following command:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dgms</span> <span class="n">run</span> <span class="n">expenditure</span><span class="o">.</span><span class="n">jq</span>
+</pre></div>
+</div>
+<p>This should generate the plot shown below:</p>
+<div class="figure" id="id1">
+<img alt="Expenditure" src="_static/expenditure.png" />
+<p class="caption"><span class="caption-text">Expenditure</span></p>
+</div>
+</div>
+<div class="section" id="optimization">
+<h2>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h2>
+<p>The following file <code class="docutils literal notranslate"><span class="pre">optimization.jq</span></code> shows how <strong>Unity DGMS</strong> can be
+used for optimization:</p>
+<div class="code xquery highlight-default notranslate"><div class="highlight"><pre><span></span>jsoniq version &quot;1.0&quot;;
+
+import module namespace a = &quot;http://dgms.io/modules/analytics&quot;;
+
+declare function local:model($input)
+{
+    variable $x := $input.x;
+    variable $y := $input.y;
+
+    let $cost := 10 * $x + 15 * $y
+
+    return {
+        cost: $cost,
+        constraints: [
+            $x div 40 + $y div 30 &lt;= 40,
+            0 &lt;= $x, $x &lt;= 1000,
+            0 &lt;= $y, $y &lt;= 860
+        }
+    }
+};
+
+let $input := {
+    x: a:variable(200, &quot;x&quot;, { bounds: [175, 250], domain: &quot;integer&quot; }),
+    y: a:variable(100, &quot;y&quot;, { bounds: [50, 400], domain: &quot;integer&quot; }),
+}
+
+return a:maximize({
+    model: local:model#1,
+    input: $input,
+    objectives: function($output) {
+        $output.cost
+    },
+    constraints: function($output) {
+        $output.constraints
+    },
+    options: {
+        solver: &quot;cbc&quot;
+    }
+})
+</pre></div>
+</div>
+<p>To optimize, run the following command in the directory containing
+<code class="docutils literal notranslate"><span class="pre">optimization.jq</span></code>:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dgms</span> <span class="n">run</span> <span class="n">optimization</span><span class="o">.</span><span class="n">jq</span> <span class="o">-</span><span class="n">r</span> <span class="n">result</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>This should write the following to the file <code class="docutils literal notranslate"><span class="pre">result.json</span></code>:</p>
+<div class="code json highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">175</span><span class="p">,</span>
+    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">50</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="packages.html" class="btn btn-neutral float-right" title="Package and dependency management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; Unity DGMS latest documentation</title>
+  <title>Publications &mdash; Unity DGMS latest documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quick Start" href="quick_start.html" />
-    <link rel="prev" title="Unity DGMS Documentation" href="index.html" />
+    <link rel="next" title="Library Reference" href="library/index.html" />
+    <link rel="prev" title="Namespace resolution" href="namespaces.html" />
     <link href="_static/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -88,15 +88,11 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-unity-dgms">Installing Unity DGMS</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="packages.html">Package and dependency management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namespaces.html">Namespace resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library/index.html">Library Reference</a></li>
 </ul>
 
@@ -143,14 +139,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Installation</li>
+      <li>Publications</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/nachawati/unity/blob/master/docs/installation.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/nachawati/unity/blob/master/docs/publications.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -164,39 +160,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>The primary way to install <strong>Unity DGMS</strong> is through the pre-built
-Docker image <code class="docutils literal notranslate"><span class="pre">dgms/dgms</span></code> that is hosted on <a class="reference external" href="https://hub.docker.com/r/dgms/dgms">DockerHub</a>. To simplify
-the use of the Docker image with local files, it is recommended to
-install the <code class="docutils literal notranslate"><span class="pre">dgms</span></code> package from the <a class="reference external" href="https://www.npmjs.com/package/dgms">npm registry</a>, which adds the
-system command <code class="docutils literal notranslate"><span class="pre">dgms</span></code> for running <strong>Unity DGMS</strong> from the terminal.</p>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>Please make sure that you have Docker and Node.js installed on your
-system.</p>
-<ul>
-<li><p class="first">Download <a class="reference external" href="https://www.docker.com/get-started">Docker</a></p>
-</li>
-<li><p class="first">Download <a class="reference external" href="https://nodejs.org">Node.js</a></p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-</li>
-</ul>
-</div>
-<div class="section" id="installing-unity-dgms">
-<h2>Installing Unity DGMS<a class="headerlink" href="#installing-unity-dgms" title="Permalink to this headline">¶</a></h2>
-<p>You can install <strong>Unity DGMS</strong> using the Node.js package manager <code class="docutils literal notranslate"><span class="pre">npm</span></code>
-or <code class="docutils literal notranslate"><span class="pre">yarn</span></code>:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">dgms</span> <span class="o">--</span><span class="k">global</span>
+  <div class="section" id="publications">
+<h1>Publications<a class="headerlink" href="#publications" title="Permalink to this headline">¶</a></h1>
+<p>If you find <strong>Unity DGMS</strong> useful in your work, we kindly request that you cite the following paper (<a class="reference external" href="http://www.scitepress.org/Papers/2017/63387/63387.pdf">pdf</a>):</p>
+<blockquote>
+<div>Nachawati, Mohamad Omar, Alexander Brodsky, and Juan Luo. “Unity Decision Guidance Management System: Analytics Engine and Reusable Model Repository.” In <em>Proceedings of the 19th International Conference on Enterprise Information Systems</em>, 1:312–23. ICEIS 2017. Porto, Portugal: Science and Technology Publications, (SCITEPRESS) Lda., 2017. <a class="reference external" href="https://doi.org/10.5220/0006338703120323">https://doi.org/10.5220/0006338703120323</a>.</div></blockquote>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">NachawatiBrodskyLuo2017</span><span class="p">,</span>
+        <span class="na">author</span> <span class="p">=</span> <span class="s">{Mohamad Omar Nachawati and Alexander Brodsky and Juan Luo}</span><span class="p">,</span>
+        <span class="na">title</span> <span class="p">=</span> <span class="s">{Unity Decision Guidance Management System: Analytics Engine and Reusable Model Repository}</span><span class="p">,</span>
+        <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the 19th International Conference on Enterprise Information Systems (ICEIS 2017)}</span><span class="p">,</span>
+        <span class="na">volume</span> <span class="p">=</span> <span class="s">{1}</span><span class="p">,</span>
+        <span class="na">pages</span> <span class="p">=</span> <span class="s">{312-323}</span><span class="p">,</span>
+        <span class="na">year</span> <span class="p">=</span> <span class="s">{2017}</span><span class="p">,</span>
+        <span class="na">doi</span> <span class="p">=</span> <span class="s">{10.5220/0006338703120323}</span><span class="p">,</span>
+<span class="p">}</span>
 </pre></div>
-</div>
-<p>You can test the installation by running:</p>
-<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dgms</span> <span class="n">run</span> <span class="o">--</span><span class="n">query</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
-</pre></div>
-</div>
-<p>If successful, this should write <code class="docutils literal notranslate"><span class="pre">2</span></code> to the standard output.</p>
 </div>
 </div>
 
@@ -208,10 +186,10 @@ or <code class="docutils literal notranslate"><span class="pre">yarn</span></cod
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="library/index.html" class="btn btn-neutral float-right" title="Library Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Unity DGMS Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="namespaces.html" class="btn btn-neutral float-left" title="Namespace resolution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
