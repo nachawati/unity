@@ -83,7 +83,7 @@ dgms lab
 Files containing longer scripts and queries can also be run from the terminal using the ``dgms run`` command. For example, to run the module ``expenditure.jq``:
 
 ```xquery
-jsoniq version "1.0-dg";
+jsoniq version "1.0";
 
 import module namespace n =   "http://dgms.io/modules/numerics";
 import module namespace plt = "http://dgms.io/modules/plot";
