@@ -78,6 +78,38 @@ To start a Jupyter lab session with **Unity DGMS**, run the following command fr
 dgms lab
 ```
 
+### Running script and query modules on the command line
+
+Files containing longer scripts and queries can also be run from the terminal using the ``dgms run`` command. For example, to run the module ``expenditure.jq``:
+
+```xquery
+jsoniq version "1.0-dg";
+
+import module namespace n =   "http://dgms.io/modules/numerics";
+import module namespace plt = "http://dgms.io/modules/plot";
+
+variable $t := n:linspace(0, 10);
+variable $c := n:square($t);
+
+variable $ax = plt:subplot();
+
+$ax.plot(t, c);
+$ax.set({xlabel: "time (s)", ylabel: "spending ($)", title: "Expenditure"});
+$ax.grid();
+
+plt:show();
+```
+
+from the terminal, navigate to the directory containing the ``expenditure.jq`` file and run the following command:
+
+```bash
+dgms run expenditure.jq
+```
+
+This should generate the plot shown below:
+
+![Expenditure](docs/_static/expenditure.png)
+
 ### Package and dependency management
 
 **Unity DGMS** adopts the CommonJS package format for the modular development, configuration, and distribution of DG applications and libraries, which can then be published to or installed from the [npm registry](https://www.npmjs.com/) or any Git repository.
