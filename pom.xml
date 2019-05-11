@@ -18,6 +18,7 @@
 		<module>deploy</module>
 		<module>kernel</module>
 		<module>modules</module>
+		<module>runner</module>
 		<module>server</module>
 	</modules>
 
