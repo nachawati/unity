@@ -32,7 +32,7 @@ import picocli.CommandLine.Option;
 import unity.client.UnityClient;
 import unity.kernel.engine.UnityAnalyticsEngineManager;
 
-@Command(name = "start", description = "Start server")
+@Command(name = "start", description = "Start Unity DGMS server")
 public class Server extends Main.Command
 {
     @Option(names = { "--gitlab-url" }, description = "The GitLab URL to use for Unity DGMS", required = false)
