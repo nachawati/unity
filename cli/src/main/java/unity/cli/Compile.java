@@ -15,6 +15,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Help;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+import unity.client.UnityClient;
 import unity.kernel.engine.UnityAnalyticsContext;
 import unity.kernel.engine.zorba.UnityZorbaStaticContext;
 
@@ -28,7 +29,7 @@ public class Compile extends Main.Command
     private List<String> expression = new ArrayList<>();
 
     @Override
-    public void exec() throws Exception
+    public void exec(UnityClient client) throws Exception
     {
         Path path = null;
         String expressions = "";
