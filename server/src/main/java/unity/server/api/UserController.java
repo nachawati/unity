@@ -48,7 +48,7 @@ import unity.client.UnityUser;
 
 @RestController
 @RequestMapping("/api/v1/users")
-public class UserController
+public class UserController extends Controller
 {
     @PostMapping
     @Secured("ROLE_ADMIN")
