@@ -29,6 +29,7 @@ package unity.cli;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+import unity.client.UnityClient;
 import unity.kernel.engine.UnityAnalyticsEngineManager;
 
 @Command(name = "start", description = "Start server")
@@ -38,7 +39,7 @@ public class Server extends Main.Command
     private String gitLabUrl = "https://git.dgms.io/";
 
     @Override
-    public void exec() throws Exception
+    public void exec(UnityClient client) throws Exception
     {
         Main.printBanner();
         System.out.print("Starting Unity DGMS... ");
