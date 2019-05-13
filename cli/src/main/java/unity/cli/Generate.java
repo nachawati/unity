@@ -41,6 +41,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Help;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+import unity.client.UnityClient;
 import unity.kernel.engine.UnityAnalyticsContext;
 
 @Command(name = "generate", aliases = "g", description = "Generate analytical artifacts", subcommands = { Generate.Library.class, Generate.Query.class })
@@ -61,7 +62,7 @@ public class Generate extends Main.Command
         private URI            namespace;
 
         @Override
-        public void exec() throws IOException
+        public void exec(UnityClient client) throws IOException
         {
             File path;
             if (namespace.getPath().endsWith(".jq")) {
@@ -119,7 +120,7 @@ public class Generate extends Main.Command
         private File           path;
 
         @Override
-        public void exec() throws IOException
+        public void exec(UnityClient client) throws IOException
         {
             if (path.getName().endsWith(".jq"))
                 lang = ModuleLanguage.JSONiq;
