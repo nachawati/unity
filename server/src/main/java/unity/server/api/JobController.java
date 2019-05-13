@@ -35,7 +35,7 @@ import unity.server.repository.JobRepository;
 
 @RestController
 @RequestMapping("/api/v1/jobs")
-public class JobController
+public class JobController extends Controller
 {
     @Autowired
     private JobRepository jobRepository;
