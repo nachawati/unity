@@ -47,7 +47,7 @@ import unity.client.UnityGroup;
 
 @RestController
 @RequestMapping("/api/v1/groups")
-public class GroupController
+public class GroupController extends Controller
 {
     @PostMapping
     @Secured("ROLE_USER")
