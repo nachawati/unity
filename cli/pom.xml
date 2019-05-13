@@ -129,6 +129,12 @@
 					<artifactId>unity-modules-system</artifactId>
 					<version>${project.version}</version>
 				</dependency>
+				
+				<dependency>
+					<groupId>unity</groupId>
+					<artifactId>unity-runner</artifactId>
+					<version>${project.version}</version>
+				</dependency>
 
 				<dependency>
 					<groupId>unity</groupId>
