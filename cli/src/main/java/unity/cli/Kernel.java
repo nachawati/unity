@@ -41,6 +41,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Help;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+import unity.client.UnityClient;
 import unity.kernel.UnityAnalyticsKernel;
 import unity.kernel.engine.UnityAnalyticsContext;
 import unity.kernel.engine.UnityAnalyticsEngine;
@@ -56,7 +57,7 @@ public class Kernel extends Main.Command
     protected String               engine = "jsoniq10";
 
     @Override
-    public void exec() throws Exception
+    public void exec(UnityClient client) throws Exception
     {
         String connectionFile = null;
         if (connection != null && !connection.isEmpty())
