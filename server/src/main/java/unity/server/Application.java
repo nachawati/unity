@@ -37,8 +37,7 @@ public class Application
 {
     public static void main(String... args)
     {
-        if (System.getProperty(""
-                + ".gitlab.url") == null)
+        if (System.getProperty("dgms.gitlab.url") == null)
             if (System.getenv("DGMS_GITLAB_URL") != null)
                 System.setProperty("dgms.gitlab.url", System.getenv("DGMS_GITLAB_URL"));
             else
