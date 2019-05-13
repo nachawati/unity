@@ -37,6 +37,12 @@ public class Application
 {
     public static void main(String... args)
     {
+        if (System.getProperty(""
+                + ".gitlab.url") == null)
+            if (System.getenv("DGMS_GITLAB_URL") != null)
+                System.setProperty("dgms.gitlab.url", System.getenv("DGMS_GITLAB_URL"));
+            else
+                System.setProperty("dgms.gitlab.url", "https://git.dgms.io/");
         SpringApplication.run(Application.class, args);
         System.out.println("SUCCESS");
     }
