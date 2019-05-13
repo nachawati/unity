@@ -28,13 +28,14 @@
 package unity.cli;
 
 import picocli.CommandLine.Command;
+import unity.client.UnityClient;
 import unity.kernel.engine.UnityAnalyticsEngineManager;
 
 @Command(name = "lab", description = "Start lab session")
 public class Lab extends Main.Command
 {
     @Override
-    public void exec() throws Exception
+    public void exec(UnityClient client) throws Exception
     {
         final ProcessBuilder processBuilder = new ProcessBuilder("jupyter", "lab", "--allow-root", "--i=0.0.0.0");
         processBuilder.environment().put("JUPYTER_PATH", UnityAnalyticsEngineManager.getInstallPath().toString());
