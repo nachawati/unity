@@ -51,6 +51,7 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Help;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
+import unity.client.UnityClient;
 import unity.kernel.engine.UnityAnalyticsContext;
 import unity.kernel.engine.UnityAnalyticsEngine;
 import unity.kernel.engine.UnityAnalyticsEngineManager;
@@ -83,7 +84,7 @@ public class Run extends Main.Command
     private List<String> expression                  = new ArrayList<>();
 
     @Override
-    public void exec() throws Exception
+    public void exec(UnityClient client) throws Exception
     {
         Path basePath = UnityAnalyticsContext.getWorkspacePath();
         List<Path> additionalPaths = new LinkedList<Path>();
