@@ -28,6 +28,9 @@
 package unity.cli;
 
 import java.io.InputStream;
+import java.io.Reader;
+import java.net.URI;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.LogManager;
@@ -35,12 +38,17 @@ import java.util.logging.LogManager;
 import org.fusesource.jansi.Ansi;
 import org.fusesource.jansi.AnsiConsole;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.IVersionProvider;
 import picocli.CommandLine.Model.CommandSpec;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Spec;
+import unity.client.UnityClient;
+import unity.kernel.engine.UnityAnalyticsContext;
 
 @Command(
         name = "dgms",
@@ -121,7 +129,7 @@ public class Main implements IVersionProvider, Runnable
         @Option(names = { "-h", "--help" }, usageHelp = true, description = "Show this help message and exit.")
         boolean               help;
 
-        public void exec() throws Exception
+        public void exec(UnityClient client) throws Exception
         {
             spec.commandLine().usage(System.out);
         }
@@ -154,12 +162,24 @@ public class Main implements IVersionProvider, Runnable
                 if (help)
                     spec.commandLine().usage(System.out);
                 else
-                    exec();
+                    exec(restoreClient());
             } catch (Exception e) {
                 System.out.println(Ansi.ansi().fgBright(Ansi.Color.RED).a("[ERROR]").reset() + " " + e.getMessage());
                 System.out.println();
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static UnityClient restoreClient()
+    {
+        try (Reader reader = Files.newBufferedReader(UnityAnalyticsContext.getSettingsPath().resolve("session.json"))) {
+            JsonObject sessionProperties = new Gson().fromJson(reader, JsonObject.class);
+            URI host = URI.create(sessionProperties.get("host").getAsString());
+            String accessToken = sessionProperties.get("access-token").getAsString();
+            return new UnityClient(host, accessToken);
+        } catch (Exception e) {
+            return null;
         }
     }
 }
