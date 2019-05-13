@@ -29,6 +29,7 @@ package unity.cli;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+import unity.client.UnityClient;
 import unity.kernel.engine.UnityAnalyticsEngineManager;
 
 @Command(name = "console", description = "Start console session")
@@ -38,7 +39,7 @@ public class Console extends Main.Command
     protected String engine = "jsoniq10";
 
     @Override
-    public void exec() throws Exception
+    public void exec(UnityClient client) throws Exception
     {
         final ProcessBuilder processBuilder = new ProcessBuilder("jupyter", "console", "--kernel", engine);
         processBuilder.environment().put("JUPYTER_PATH", UnityAnalyticsEngineManager.getInstallPath().toString());
