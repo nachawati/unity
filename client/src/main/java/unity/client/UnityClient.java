@@ -29,8 +29,10 @@ package unity.client;
 
 import java.net.URI;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -51,6 +53,36 @@ public class UnityClient
         headers.set("Authorization", "Bearer " + accessToken);
     }
 
+    public UnityGroup addGroup(String name, String path)
+    {
+        Map<String, String> requestBody = new HashMap<String, String>();
+        requestBody.put("name", name);
+        requestBody.put("path", path);
+        HttpEntity<Object> entity = new HttpEntity<Object>(requestBody, headers);
+        ResponseEntity<UnityGroup> response = rest.exchange(host.resolve("/api/v1/groups"), HttpMethod.POST, entity, UnityGroup.class);
+        return response.getBody();
+    }
+
+    public UnityRepository addRepository(String name)
+    {
+        Map<String, String> requestBody = new HashMap<String, String>();
+        requestBody.put("name", name);
+        HttpEntity<Object> entity = new HttpEntity<Object>(requestBody, headers);
+        ResponseEntity<UnityRepository> response = rest.exchange(host.resolve("/api/v1/repositories"), HttpMethod.POST, entity, UnityRepository.class);
+        return response.getBody();
+    }
+
+    public UnityUser addUser(String name, String email, String password)
+    {
+        Map<String, String> requestBody = new HashMap<String, String>();
+        requestBody.put("name", name);
+        requestBody.put("email", email);
+        requestBody.put("password", password);
+        HttpEntity<Object> entity = new HttpEntity<Object>(requestBody, headers);
+        ResponseEntity<UnityUser> response = rest.exchange(host.resolve("/api/v1/users"), HttpMethod.POST, entity, UnityUser.class);
+        return response.getBody();
+    }
+
     public String getAccessToken()
     {
         return accessToken;
@@ -63,9 +95,80 @@ public class UnityClient
         return response.getBody();
     }
 
+    public UnityGroup getGroup(Integer groupId)
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        ResponseEntity<UnityGroup> response = rest.exchange(host.resolve("/api/v1/groups/").resolve(groupId.toString()), HttpMethod.GET, entity,
+                UnityGroup.class);
+        return response.getBody();
+    }
+
     public URI getHost()
     {
         return host;
+    }
+
+    public UnityRepository getRepository(Integer repositoryId)
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        ResponseEntity<UnityRepository> response = rest.exchange(host.resolve("/api/v1/repositories/").resolve(repositoryId.toString()), HttpMethod.GET, entity,
+                UnityRepository.class);
+        return response.getBody();
+    }
+
+    public UnityUser getUser(Integer userId)
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        ResponseEntity<UnityUser> response = rest.exchange(host.resolve("/api/v1/users/").resolve(userId.toString()), HttpMethod.GET, entity, UnityUser.class);
+        return response.getBody();
+    }
+
+    public List<UnityGroup> listGroups()
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        ResponseEntity<List<UnityGroup>> response = rest.exchange(host.resolve("/api/v1/groups"), HttpMethod.GET, entity,
+                new ParameterizedTypeReference<List<UnityGroup>>()
+                {
+                });
+        return response.getBody();
+    }
+
+    public List<UnityRepository> listRepositories()
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        ResponseEntity<List<UnityRepository>> response = rest.exchange(host.resolve("/api/v1/repositories"), HttpMethod.GET, entity,
+                new ParameterizedTypeReference<List<UnityRepository>>()
+                {
+                });
+        return response.getBody();
+    }
+
+    public List<UnityUser> listUsers()
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        ResponseEntity<List<UnityUser>> response = rest.exchange(host.resolve("/api/v1/users"), HttpMethod.GET, entity,
+                new ParameterizedTypeReference<List<UnityUser>>()
+                {
+                });
+        return response.getBody();
+    }
+
+    public void removeGroup(Integer groupId)
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        rest.exchange(host.resolve("/api/v1/groups/").resolve(groupId.toString()), HttpMethod.DELETE, entity, String.class);
+    }
+
+    public void removeRepository(Integer repositoryId)
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        rest.exchange(host.resolve("/api/v1/repositories/").resolve(repositoryId.toString()), HttpMethod.DELETE, entity, String.class);
+    }
+
+    public void removeUser(Integer userId)
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        rest.exchange(host.resolve("/api/v1/users/").resolve(userId.toString()), HttpMethod.DELETE, entity, String.class);
     }
 
     private static final RestTemplate rest = new RestTemplate();
