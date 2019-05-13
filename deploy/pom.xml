@@ -185,7 +185,9 @@
 											<arg value="push" />
 											<arg value="dgms/dgms:${project.version}" />
 										</exec>
-
+										
+										<delete file="${project.build.directory}/npm/core"/>
+										
 										<exec executable="npm" failonerror="true"
 											dir="${project.build.directory}/npm">
 											<arg value="publish" />
