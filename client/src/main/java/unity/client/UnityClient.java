@@ -31,7 +31,10 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 public class UnityClient
@@ -51,6 +54,13 @@ public class UnityClient
     public String getAccessToken()
     {
         return accessToken;
+    }
+
+    public UnityUser getCurrentUser()
+    {
+        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        ResponseEntity<UnityUser> response = rest.exchange(host.resolve("/api/v1/session"), HttpMethod.GET, entity, UnityUser.class);
+        return response.getBody();
     }
 
     public URI getHost()
