@@ -38,7 +38,7 @@ declare option options:source-transformation "disabled";
 (:~
  : Constructs a symbolic function call.
  :)
-declare %public %an:deterministic %an:variadic function symbolics:function() external;
+declare %public %an:nondeterministic %an:variadic function symbolics:function() external;
 
 (:~
  : Gets symbolic mode.
@@ -49,6 +49,11 @@ declare %public %an:nondeterministic %an:variadic function symbolics:get-mode() 
  : Constructs a symbolic parameter.
  :)
 declare %public %an:nondeterministic %an:variadic function symbolics:parameter() external;
+
+(:~
+ : Constructs a symbolic placeholder.
+ :)
+declare %public %an:nondeterministic %an:variadic function symbolics:placeholder() external;
 
 (:~
  : Gets a reference.
