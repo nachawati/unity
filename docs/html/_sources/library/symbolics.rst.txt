@@ -44,6 +44,15 @@ Constructs a symbolic parameter.
 
 .. raw:: html
 
+  <code class="function-summary"><a href="#placeholder-0">placeholder</a>() external</code>
+
+Constructs a symbolic placeholder.
+
+
+----------
+
+.. raw:: html
+
   <code class="function-summary"><a href="#reference-0">reference</a>() external</code>
 
 Gets a reference.
@@ -80,7 +89,7 @@ symbolics:function#0
 ##########
 .. raw:: html
 
-  <code class="function-summary">declare %public %an:deterministic %an:variadic function symbolics:function() external</code>
+  <code class="function-summary">declare %public %an:nondeterministic %an:variadic function symbolics:function() external</code>
 
 
 Constructs a symbolic function call.
@@ -114,6 +123,21 @@ symbolics:parameter#0
 
 
 Constructs a symbolic parameter.
+
+
+
+----------
+
+.. _placeholder-0:
+
+symbolics:placeholder#0
+##########
+.. raw:: html
+
+  <code class="function-summary">declare %public %an:nondeterministic %an:variadic function symbolics:placeholder() external</code>
+
+
+Constructs a symbolic placeholder.
 
 
 

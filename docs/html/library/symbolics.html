@@ -108,6 +108,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#symbolics-function-0">symbolics:function#0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#symbolics-get-mode-0">symbolics:get-mode#0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#symbolics-parameter-0">symbolics:parameter#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#symbolics-placeholder-0">symbolics:placeholder#0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#symbolics-reference-0">symbolics:reference#0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#symbolics-set-mode-0">symbolics:set-mode#0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#symbolics-variable-0">symbolics:variable#0</a></li>
@@ -200,6 +201,8 @@
 <hr class="docutils" />
 <code class="function-summary"><a href="#parameter-0">parameter</a>() external</code><p>Constructs a symbolic parameter.</p>
 <hr class="docutils" />
+<code class="function-summary"><a href="#placeholder-0">placeholder</a>() external</code><p>Constructs a symbolic placeholder.</p>
+<hr class="docutils" />
 <code class="function-summary"><a href="#reference-0">reference</a>() external</code><p>Gets a reference.</p>
 <hr class="docutils" />
 <code class="function-summary"><a href="#set-mode-0">set-mode</a>() external</code><p>Sets symbolic mode</p>
@@ -212,7 +215,7 @@
 <hr class="docutils" />
 <div class="section" id="symbolics-function-0">
 <span id="function-0"></span><h3>symbolics:function#0<a class="headerlink" href="#symbolics-function-0" title="Permalink to this headline">¶</a></h3>
-<code class="function-summary">declare %public %an:deterministic %an:variadic function symbolics:function() external</code><p>Constructs a symbolic function call.</p>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function symbolics:function() external</code><p>Constructs a symbolic function call.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="symbolics-get-mode-0">
@@ -223,6 +226,11 @@
 <div class="section" id="symbolics-parameter-0">
 <span id="parameter-0"></span><h3>symbolics:parameter#0<a class="headerlink" href="#symbolics-parameter-0" title="Permalink to this headline">¶</a></h3>
 <code class="function-summary">declare %public %an:nondeterministic %an:variadic function symbolics:parameter() external</code><p>Constructs a symbolic parameter.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="symbolics-placeholder-0">
+<span id="placeholder-0"></span><h3>symbolics:placeholder#0<a class="headerlink" href="#symbolics-placeholder-0" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function symbolics:placeholder() external</code><p>Constructs a symbolic placeholder.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="symbolics-reference-0">

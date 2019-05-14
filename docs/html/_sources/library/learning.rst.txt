@@ -95,6 +95,14 @@ Function Summary
 
 ----------
 
+.. raw:: html
+
+  <code class="function-summary"><a href="#train-0">train</a>() external</code>
+
+
+
+----------
+
 Functions
 **********
 
@@ -233,6 +241,20 @@ learning:sparse-softmax-cross-entropy#0
 .. raw:: html
 
   <code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:sparse-softmax-cross-entropy() external</code>
+
+
+
+
+
+----------
+
+.. _train-0:
+
+learning:train#0
+##########
+.. raw:: html
+
+  <code class="function-summary">declare %public %an:nondeterministic %an:variadic function learning:train() external</code>
 
 
 

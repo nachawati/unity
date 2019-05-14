@@ -98,8 +98,15 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">analytics Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#function-summary">Function Summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#analytics-calibrate-1">analytics:calibrate#1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analytics-compute-1">analytics:compute#1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analytics-instantiate-2">analytics:instantiate#2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analytics-maximize-1">analytics:maximize#1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analytics-minimize-1">analytics:minimize#1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#analytics-parameter-0">analytics:parameter#0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#analytics-placeholder-0">analytics:placeholder#0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analytics-resolve-model-1">analytics:resolve-model#1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analytics-symbolify-1">analytics:symbolify#1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#analytics-variable-0">analytics:variable#0</a></li>
 </ul>
 </li>
@@ -193,9 +200,23 @@ analytics.</p>
 <div class="section" id="function-summary">
 <h2>Function Summary<a class="headerlink" href="#function-summary" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
+<code class="function-summary"><a href="#calibrate-1">calibrate</a>($kwargs)</code><p>Calibrate analytical model parameters</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#compute-1">compute</a>($kwargs)</code><p>Computes an analytical model with parametric input.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#instantiate-2">instantiate</a>($items, $solution)</code><p>Instantiate parametric object</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#maximize-1">maximize</a>($kwargs)</code><p>Find decision variable values that maximize analytical model objective</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#minimize-1">minimize</a>($kwargs)</code><p>Find decision variable values that minimize analytical model objective</p>
+<hr class="docutils" />
 <code class="function-summary"><a href="#parameter-0">parameter</a>() external</code><p>Constructs a parameter object.</p>
 <hr class="docutils" />
 <code class="function-summary"><a href="#placeholder-0">placeholder</a>() external</code><p>Constructs a placeholder object.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#resolve-model-1">resolve-model</a>($model) as function (*)</code><p>Resolve analytical model.</p>
+<hr class="docutils" />
+<code class="function-summary"><a href="#symbolify-1">symbolify</a>($items)</code><p>Constructs a symbolic object</p>
 <hr class="docutils" />
 <code class="function-summary"><a href="#variable-0">variable</a>() external</code><p>Constructs a variable object.</p>
 </div>
@@ -203,6 +224,62 @@ analytics.</p>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
+<div class="section" id="analytics-calibrate-1">
+<span id="calibrate-1"></span><h3>analytics:calibrate#1<a class="headerlink" href="#analytics-calibrate-1" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic function analytics:calibrate($kwargs)</code><p>Calibrate analytical model parameters</p>
+<div class="section" id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>$kwargs</strong></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="analytics-compute-1">
+<span id="compute-1"></span><h3>analytics:compute#1<a class="headerlink" href="#analytics-compute-1" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic %an:variadic function analytics:compute($kwargs)</code><p>Computes an analytical model with parametric input.</p>
+<div class="section" id="id1">
+<h4>Parameters<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>$kwargs</strong></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="analytics-instantiate-2">
+<span id="instantiate-2"></span><h3>analytics:instantiate#2<a class="headerlink" href="#analytics-instantiate-2" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic function analytics:instantiate($items, $solution)</code><p>Instantiate parametric object</p>
+<div class="section" id="id2">
+<h4>Parameters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>$items</strong></li>
+<li><strong>$solution</strong></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="analytics-maximize-1">
+<span id="maximize-1"></span><h3>analytics:maximize#1<a class="headerlink" href="#analytics-maximize-1" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic function analytics:maximize($kwargs)</code><p>Find decision variable values that maximize analytical model objective</p>
+<div class="section" id="id3">
+<h4>Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>$kwargs</strong></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="analytics-minimize-1">
+<span id="minimize-1"></span><h3>analytics:minimize#1<a class="headerlink" href="#analytics-minimize-1" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic function analytics:minimize($kwargs)</code><p>Find decision variable values that minimize analytical model objective</p>
+<div class="section" id="id4">
+<h4>Parameters<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>$kwargs</strong></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
 <div class="section" id="analytics-parameter-0">
 <span id="parameter-0"></span><h3>analytics:parameter#0<a class="headerlink" href="#analytics-parameter-0" title="Permalink to this headline">¶</a></h3>
 <code class="function-summary">declare %public %an:deterministic %an:variadic function analytics:parameter() external</code><p>Constructs a parameter object.</p>
@@ -212,6 +289,32 @@ analytics.</p>
 <span id="placeholder-0"></span><h3>analytics:placeholder#0<a class="headerlink" href="#analytics-placeholder-0" title="Permalink to this headline">¶</a></h3>
 <code class="function-summary">declare %public %an:deterministic %an:variadic function analytics:placeholder() external</code><p>Constructs a placeholder object.</p>
 <hr class="docutils" />
+</div>
+<div class="section" id="analytics-resolve-model-1">
+<span id="resolve-model-1"></span><h3>analytics:resolve-model#1<a class="headerlink" href="#analytics-resolve-model-1" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %private function analytics:resolve-model($model) as function (*)</code><p>Resolve analytical model.</p>
+<div class="section" id="id5">
+<h4>Parameters<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>$model</strong></li>
+</ul>
+</div>
+<div class="section" id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h4>
+<p><strong>function (*)</strong></p>
+<hr class="docutils" />
+</div>
+</div>
+<div class="section" id="analytics-symbolify-1">
+<span id="symbolify-1"></span><h3>analytics:symbolify#1<a class="headerlink" href="#analytics-symbolify-1" title="Permalink to this headline">¶</a></h3>
+<code class="function-summary">declare %public %an:nondeterministic function analytics:symbolify($items)</code><p>Constructs a symbolic object</p>
+<div class="section" id="id6">
+<h4>Parameters<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><strong>$items</strong></li>
+</ul>
+<hr class="docutils" />
+</div>
 </div>
 <div class="section" id="analytics-variable-0">
 <span id="variable-0"></span><h3>analytics:variable#0<a class="headerlink" href="#analytics-variable-0" title="Permalink to this headline">¶</a></h3>
