@@ -44,7 +44,7 @@ parameters_dict = dict()
 variable_seq = 0
 variables_dict = dict()
 
-mode = os.environ['SYMBOLICS_MODE']
+mode = 2
 
 def function():
     return None
@@ -116,6 +116,15 @@ def parameter(value=None, name=None, shape=[], dtype=tf.float64):
             raise ValueError("invalid rank: " + str(rank))
 
     return parameter
+
+def placeholder(name=None, shape=[], dtype=tf.float64):    
+    global mode
+    placeholder = None
+    if (mode == TENSORFLOW):
+        placeholder = tf.placeholder(dtype=dtype, name=name, shape=shape)
+    else:
+        raise ValueError("invalid mode: " + str(mode))    
+    return placeholder
 
 def reference():
     return None
@@ -198,3 +207,5 @@ def variable(initialize=None, name=None, shape=[], dtype=tf.float64, bounds=None
             raise ValueError("invalid rank: " + str(rank))
 
     return variable
+
+set_mode(os.environ['SYMBOLICS_MODE'])
