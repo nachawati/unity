@@ -38,6 +38,8 @@ import module namespace learning = "http://dgms.io/modules/learning";
 import module namespace optimization = "http://dgms.io/modules/optimization";
 import module namespace symbolics = "http://dgms.io/modules/symbolics";
 
+import module namespace reflection = "http://zorba.io/modules/reflection";
+
 declare namespace an = "http://zorba.io/annotations";
 declare namespace err = "http://dgms.io/errors";
 declare namespace options = "http://dgms.io/options";
@@ -59,7 +61,7 @@ declare %public %an:nondeterministic function analytics:calibrate($kwargs)
 		loss: $loss,
 		feed: $kwargs.feed,
 		options: $kwargs.options
-	})
+	});
 	symbolics:set-mode($mode);
 	{
 		solution: if (exists($result.solution)) then analytics:instantiate($input, $result.solution) else {},
