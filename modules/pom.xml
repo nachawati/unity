@@ -22,6 +22,7 @@
 		<module>numerics</module>
 		<module>optimization</module>
 		<module>plot</module>
+		<module>random</module>
 		<module>reflection</module>
 		<module>symbolics</module>
 		<module>system</module>
