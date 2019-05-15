@@ -426,6 +426,15 @@ Computes the hyperbolic tangent of $x element-wise.
 
 ----------
 
+.. raw:: html
+
+  <code class="function-summary"><a href="#linspace-0">linspace</a>() external</code>
+
+Return evenly spaced numbers over a specified interval.
+
+
+----------
+
 Functions
 **********
 
@@ -1364,5 +1373,20 @@ numerics:asarray#0
   <code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:asarray() external</code>
 
 
+
+
+
+----------
+
+.. _linspace-0:
+
+numerics:linspace#0
+##########
+.. raw:: html
+
+  <code class="function-summary">declare %public %an:deterministic %an:variadic function numerics:linspace() external</code>
+
+
+Return evenly spaced numbers over a specified interval.
 
 

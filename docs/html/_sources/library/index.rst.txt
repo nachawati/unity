@@ -10,6 +10,7 @@ Library Reference
    numerics.rst
    optimization.rst
    plot.rst
+   random.rst
    reflection.rst
    symbolics.rst
    system.rst
