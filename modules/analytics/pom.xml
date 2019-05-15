@@ -68,7 +68,7 @@
 						</executions>
 
 					</plugin>
-					
+
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
@@ -108,16 +108,22 @@
 
 				<dependency>
 					<groupId>unity</groupId>
+					<artifactId>unity-modules-optimization</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+				<dependency>
+					<groupId>unity</groupId>
 					<artifactId>unity-modules-numerics</artifactId>
 					<version>${project.version}</version>
 				</dependency>
-				
+
 				<dependency>
 					<groupId>unity</groupId>
 					<artifactId>unity-modules-reflection</artifactId>
 					<version>${project.version}</version>
 				</dependency>
-				
+
 				<dependency>
 					<groupId>unity</groupId>
 					<artifactId>unity-modules-symbolics</artifactId>
