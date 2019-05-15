@@ -114,6 +114,12 @@
 
 				<dependency>
 					<groupId>unity</groupId>
+					<artifactId>unity-modules-random</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+
+				<dependency>
+					<groupId>unity</groupId>
 					<artifactId>unity-modules-reflection</artifactId>
 					<version>${project.version}</version>
 				</dependency>
@@ -129,7 +135,7 @@
 					<artifactId>unity-modules-system</artifactId>
 					<version>${project.version}</version>
 				</dependency>
-				
+
 				<dependency>
 					<groupId>unity</groupId>
 					<artifactId>unity-runner</artifactId>
