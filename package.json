@@ -2,6 +2,7 @@
 	"name": "dgms",
 	"version": "${project.version}",
 	"description": "Unity DGMS is an open-source JSONiq analytics run-time environment for building model-driven decision guidance applications.",
+	"keywords": [ "analytics", "decision guidance", "machine learning", "optimization", "jsoniq" ],
 	"bin": {
 		"dgms": "dgms.js"
 	},
