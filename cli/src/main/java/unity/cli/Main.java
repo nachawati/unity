@@ -60,8 +60,8 @@ import unity.kernel.engine.UnityAnalyticsContext;
         mixinStandardHelpOptions = true,
         abbreviateSynopsis = true,
         versionProvider = Main.class,
-        subcommands = { Compile.class, Console.class, Generate.class, Group.class, Kernel.class, Lab.class, Login.class, Logout.class, Notebook.class,
-                Repository.class, Run.class, Server.class, User.class, Whoami.class })
+        subcommands = { Compile.class, Console.class, Convert.class, Generate.class, Group.class, Kernel.class, Lab.class, Login.class, Logout.class,
+                Notebook.class, Repository.class, Run.class, Server.class, User.class, Whoami.class })
 public class Main implements IVersionProvider, Runnable
 {
     public static synchronized String getVersionString()
