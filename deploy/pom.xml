@@ -188,11 +188,12 @@
 										
 										<delete file="${project.build.directory}/npm/core"/>
 										
+										<!-- 
 										<exec executable="npm" failonerror="true"
 											dir="${project.build.directory}/npm">
 											<arg value="publish" />
 										</exec>
-
+										-->
 									</target>
 								</configuration>
 							</execution>
