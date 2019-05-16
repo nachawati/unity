@@ -110,6 +110,66 @@ This should generate the plot shown below:
 
 ![Expenditure](docs/_static/expenditure.png)
 
+### Optimization
+
+The following example module ``optimization.jq`` shows how **Unity DGMS** can be used for optimization:
+
+```xquery
+jsoniq version "1.0";
+
+import module namespace a = "http://dgms.io/modules/analytics";
+
+declare function local:model($input)
+{
+    let $x := $input.x
+    let $y := $input.y
+
+    let $cost := 10 * $x + 15 * $y
+
+    return {
+        cost: $cost,
+        constraints: [
+            $x div 7 + $y div 9 <= 40
+        ]
+    }
+};
+
+let $input := {
+    x: a:variable({ bounds: [175, 250], domain: "integer" }),
+    y: a:variable({ bounds: [50, 400], domain: "integer" })
+}
+
+return a:maximize({
+    model: local:model#1,
+    input: $input,
+    objective: function($output) {
+        $output.cost
+    },
+    constraints: function($output) {
+        $output.constraints
+    },
+    options: {
+        solver: "cbc"
+    }
+})
+
+```
+
+To optimize, run the following command in the directory containing ``optimization.jq``:
+
+```bash
+dgms run optimization.jq -r result.json
+```
+
+This should write the following to the file ``result.json``:
+
+```json
+{
+    "x": 175,
+    "y": 135
+}
+```
+
 ### Package and dependency management
 
 **Unity DGMS** adopts the CommonJS package format for the modular development, configuration, and distribution of DG applications and libraries, which can then be published to or installed from the [npm registry](https://www.npmjs.com/) or any Git repository.
