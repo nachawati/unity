@@ -116,9 +116,9 @@ declare %public %an:nondeterministic function analytics:maximize($kwargs)
 	});
 	symbolics:set-mode($mode);
 	{
+		problem: $result.problem,
 		solution: if (exists($result.solution)) then analytics:instantiate($input, $result.solution) else {},
-		status: $result.status,
-		termination-condition: $result.termination-condition
+		solver: $result.solver
 	}
 };
 
@@ -138,9 +138,9 @@ declare %public %an:nondeterministic function analytics:minimize($kwargs)
 	});
 	symbolics:set-mode($mode);
 	{
+		problem: $result.problem,
 		solution: if (exists($result.solution)) then analytics:instantiate($input, $result.solution) else {},
-		status: $result.status,
-		termination-condition: $result.termination-condition
+		solver: $result.solver
 	}
 };
 
