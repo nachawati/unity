@@ -148,7 +148,6 @@
 					<version>${project.version}</version>
 				</dependency>
 
-
 				<dependency>
 					<groupId>com.beust</groupId>
 					<artifactId>jcommander</artifactId>
@@ -177,6 +176,11 @@
 				<dependency>
 					<groupId>org.fusesource.jansi</groupId>
 					<artifactId>jansi</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>net.vatov</groupId>
+					<artifactId>ampl-model</artifactId>
 				</dependency>
 
 			</dependencies>
