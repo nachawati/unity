@@ -92,34 +92,46 @@ public class Convert extends Main.Command
             NodeValue node = expression.getTreeValue();
             switch (node.getOperation()) {
             case PLUS:
+                out.print("(");
                 translate(out, node.getOperands()[0]);
                 out.print(" + ");
                 translate(out, node.getOperands()[1]);
+                out.print(")");
                 break;
             case MINUS:
+                out.print("(");
                 translate(out, node.getOperands()[0]);
                 out.print(" - ");
                 translate(out, node.getOperands()[1]);
+                out.print(")");
                 break;
             case MULT:
+                out.print("(");
                 translate(out, node.getOperands()[0]);
                 out.print(" * ");
                 translate(out, node.getOperands()[1]);
+                out.print(")");
                 break;
             case DIV_SLASH:
+                out.print("(");
                 translate(out, node.getOperands()[0]);
                 out.print(" idiv ");
                 translate(out, node.getOperands()[1]);
+                out.print(")");
                 break;
             case MOD:
+                out.print("(");
                 translate(out, node.getOperands()[0]);
                 out.print(" mod ");
                 translate(out, node.getOperands()[1]);
+                out.print(")");
                 break;
             case DIV:
+                out.print("(");
                 translate(out, node.getOperands()[0]);
                 out.print(" div ");
                 translate(out, node.getOperands()[1]);
+                out.print(")");
                 break;
             case POW:
                 out.print("math:pow(");
