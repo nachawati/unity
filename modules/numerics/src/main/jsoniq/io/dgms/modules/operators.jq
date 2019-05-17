@@ -288,7 +288,10 @@ declare %public %an:deterministic function operators:round($x)
 
 declare %public %an:deterministic function operators:sum($args)
 {
-	n:reduce-sum($args)
+	if ($args = null) then
+		0
+	else
+		n:reduce-sum($args)
 };
 
 declare %public %an:deterministic function operators:acos($x)
