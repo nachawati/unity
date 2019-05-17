@@ -85,15 +85,15 @@ Files containing longer scripts and queries can also be run from the terminal us
 ```xquery
 jsoniq version "1.0";
 
-import module namespace n =   "http://dgms.io/modules/numerics";
+import module namespace n   = "http://dgms.io/modules/numerics";
 import module namespace plt = "http://dgms.io/modules/plot";
 
 variable $t := n:linspace(0, 10);
 variable $c := n:square($t);
 
-variable $ax = plt:subplot();
+variable $ax := plt:subplot();
 
-$ax.plot(t, c);
+$ax.plot($t, $c);
 $ax.set({xlabel: "time (s)", ylabel: "spending ($)", title: "Expenditure"});
 $ax.grid();
 
