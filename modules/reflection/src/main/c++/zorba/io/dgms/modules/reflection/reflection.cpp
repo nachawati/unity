@@ -142,15 +142,32 @@ zorba::ItemSequence_t InvokeVariadicFunction::evaluate(const Arguments_t& args, 
         PyObject* callable = getItemAsPyObject(aQName, sctx, dctx);
         PyObject* result;
         if (PyCallable_Check(callable)) {
-            PyObject* arguments = PyTuple_New(args.size() - 1);
-            Py_ssize_t i = 0;
-            for (Arguments_t::const_iterator it = args.begin(); it != args.end(); it++, i++)
-                if (i == 0)
-                    continue;
-                else
-                    PyTuple_SetItem(arguments, i - 1, getItemSequenceAsPyObject(*it, sctx, dctx));
-            result = PyObject_CallObject(callable, arguments);
-            Py_XDECREF(arguments);
+            PyObject* py_args;
+            PyObject* py_kwargs = nullptr;
+
+            if (args.size() == 1) {
+                py_args = PyTuple_New(0);
+            }
+            else {
+                Py_ssize_t i = 0;
+                py_args = PyTuple_New(args.size() - 1);
+                int last = args.size() - 1;
+                for (Arguments_t::const_iterator it = args.begin(); it != args.end(); it++, i++) {
+                    if (i == 0)
+                        continue;
+                    PyObject* py_arg = getItemSequenceAsPyObject(*it, sctx, dctx);
+                    if (i == last && PyDict_Check(py_arg)) {
+                        _PyTuple_Resize(&py_args, last - 1);
+                        py_kwargs = py_arg;
+                    }
+                    else {
+                        PyTuple_SET_ITEM(py_args, i - 1, py_arg);
+                    }
+                }
+            }
+
+            result = PyObject_Call(callable, py_args, py_kwargs);
+            Py_XDECREF(py_args);
         } else {
             if (args.size() - 1 == 0) {
                 return new zorba::SingletonItemSequence(aQName);
