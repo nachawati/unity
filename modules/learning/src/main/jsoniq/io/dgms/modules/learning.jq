@@ -54,3 +54,6 @@ declare %public %an:nondeterministic %an:variadic function learning:sigmoid-cros
 declare %public %an:nondeterministic %an:variadic function learning:softmax-cross-entropy() external;
 
 declare %public %an:nondeterministic %an:variadic function learning:sparse-softmax-cross-entropy() external;
+
+declare %public %an:nondeterministic %an:variadic function learning:train() external;
+
