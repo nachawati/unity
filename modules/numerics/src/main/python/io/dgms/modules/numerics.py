@@ -366,7 +366,7 @@ def greater_equal(a, b, name=None):
         return np.greater_equal(a, b)
     if (symbolics.mode == symbolics.PYOMO):
         if (isinstance(a, pyo.NumericValue) or isinstance(b, pyo.NumericValue)):
-            return pyo.Constraint(expr=a >= b)
+            return a >= b
         return np.greater_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
@@ -391,7 +391,7 @@ def less(a, b, name=None):
         return np.less(a, b)
     if (symbolics.mode == symbolics.PYOMO):
         if (isinstance(a, pyo.NumericValue) or isinstance(b, pyo.NumericValue)):
-            return pyo.Constraint(expr=a < b)
+            return a < b
         return np.less(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
@@ -416,7 +416,7 @@ def less_equal(a, b, name=None):
         return np.less_equal(a, b)
     if (symbolics.mode == symbolics.PYOMO):
         if (isinstance(a, pyo.NumericValue) or isinstance(b, pyo.NumericValue)):
-            return pyo.Constraint(expr=a <= b)
+            return a <= b
         return np.less_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
@@ -441,7 +441,7 @@ def not_equal(a, b, name=None):
         return np.not_equal(a, b)
     if (symbolics.mode == symbolics.PYOMO):
         if (isinstance(a, pyo.NumericValue) or isinstance(b, pyo.NumericValue)):
-            return pyo.Constraint(expr=a != b)
+            return a != b
         return np.not_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
@@ -567,7 +567,25 @@ def sqrt(x, name=None):
     return None
 
 def square(x, name=None):
-    return None
+    if (symbolics.mode == symbolics.SYMPY):
+        if (isinstance(x, sym.Basic)):
+            return x * x
+        return np.square(x)
+    if (symbolics.mode == symbolics.PYOMO):
+        if (isinstance(x, pyo.NumericValue)):
+            return x * x
+        return np.square(x)
+    if (symbolics.mode == symbolics.CASADI_SX):
+        if (isinstance(x, (cas.DM, cas.SX))):
+            return cas.acos(x)
+        return np.square(x)
+    if (symbolics.mode == symbolics.CASADI_MX):
+        if (isinstance(x, (cas.DM, cas.MX))):
+            return x * x
+        return np.square(x)
+    if (isinstance(x, (tf.Tensor, tf.Variable))):
+        return tf.square(x, name)
+    return np.square(x)
 
 def tan(x, name=None):
     return None
@@ -584,3 +602,6 @@ def constant(x, type=None):
 
 def asarray(*args, **kwargs):
     return np.asarray(*args, **kwargs);
+
+def linspace(*args, **kwargs):
+    return np.linspace(*args, **kwargs)
