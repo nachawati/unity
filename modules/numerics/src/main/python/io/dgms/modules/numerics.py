@@ -213,7 +213,7 @@ def logical_and(a, b, name=None):
         return np.logical_and(a, b)
     if (symbolics.mode == symbolics.PYOMO):
         if (isinstance(a, pyo.NumericValue) or isinstance(b, pyo.NumericValue)):
-            return a & b
+            return a and b
         return np.logical_and(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
@@ -320,11 +320,11 @@ def equal(a, b, name=None):
         return np.equal(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
-            return a == b
+            return cas.eq(a, b)
         return np.equal(a, b)
     if (symbolics.mode == symbolics.CASADI_MX):
         if (isinstance(a, (cas.DM, cas.MX)) or isinstance(b, (cas.DM, cas.MX))):
-            return a == b
+            return cas.eq(a, b)
         return np.equal(a, b)
     if (isinstance(a, (tf.Tensor, tf.Variable))):
         if (isinstance(b, (tf.Tensor, tf.Variable))):
@@ -345,11 +345,11 @@ def greater(a, b, name=None):
         return np.greater(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
-            return a > b
+            return cas.gt(a, b)
         return np.greater(a, b)
     if (symbolics.mode == symbolics.CASADI_MX):
         if (isinstance(a, (cas.DM, cas.MX)) or isinstance(b, (cas.DM, cas.MX))):
-            return a > b
+            return cas.gt(a, b)
         return np.greater(a, b)
     if (isinstance(a, (tf.Tensor, tf.Variable))):
         if (isinstance(b, (tf.Tensor, tf.Variable))):
@@ -370,11 +370,11 @@ def greater_equal(a, b, name=None):
         return np.greater_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
-            return a >= b
+            return cas.ge(a, b)
         return np.greater_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_MX):
         if (isinstance(a, (cas.DM, cas.MX)) or isinstance(b, (cas.DM, cas.MX))):
-            return a >= b
+            return cas.ge(a, b)
         return np.greater_equal(a, b)
     if (isinstance(a, (tf.Tensor, tf.Variable))):
         if (isinstance(b, (tf.Tensor, tf.Variable))):
@@ -395,11 +395,11 @@ def less(a, b, name=None):
         return np.less(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
-            return a < b
+            return cas.lt(a, b)
         return np.less(a, b)
     if (symbolics.mode == symbolics.CASADI_MX):
         if (isinstance(a, (cas.DM, cas.MX)) or isinstance(b, (cas.DM, cas.MX))):
-            return a < b
+            return cas.lt(a, b)
         return np.less(a, b)
     if (isinstance(a, (tf.Tensor, tf.Variable))):
         if (isinstance(b, (tf.Tensor, tf.Variable))):
@@ -420,11 +420,11 @@ def less_equal(a, b, name=None):
         return np.less_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
-            return a <= b
+            return cas.le(a, b)
         return np.less_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_MX):
         if (isinstance(a, (cas.DM, cas.MX)) or isinstance(b, (cas.DM, cas.MX))):
-            return a <= b
+            return cas.le(a, b)
         return np.less_equal(a, b)
     if (isinstance(a, (tf.Tensor, tf.Variable))):
         if (isinstance(b, (tf.Tensor, tf.Variable))):
@@ -445,11 +445,11 @@ def not_equal(a, b, name=None):
         return np.not_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
-            return a != b
+            return cas.ne(a, b)
         return np.not_equal(a, b)
     if (symbolics.mode == symbolics.CASADI_MX):
         if (isinstance(a, (cas.DM, cas.MX)) or isinstance(b, (cas.DM, cas.MX))):
-            return a != b
+            return cas.ne(a, b)
         return np.not_equal(a, b)
     if (isinstance(a, (tf.Tensor, tf.Variable))):
         if (isinstance(b, (tf.Tensor, tf.Variable))):
