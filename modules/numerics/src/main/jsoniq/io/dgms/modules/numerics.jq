@@ -26,7 +26,7 @@ jsoniq version "1.0";
  : OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
  : CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  :)
- 
+
 (:~
  : This module provides functions for numerical operations on tensors.
  :)
@@ -139,7 +139,7 @@ declare %public %an:deterministic %an:variadic function numerics:logical-xor() e
  : Computes the logical and of elements across dimensions of $x.
  : @param $x The input tensor. Must be of dtype bool.
  : @param $axis The dimension(s) to reduce. By default it reduces all dimensions. Optional
- : @param $keep-dims If true, retains reduced dimensions with size 1. Optional 
+ : @param $keep-dims If true, retains reduced dimensions with size 1. Optional
  : @param $name A name for the operation. Optional
  : @return tensor
  :)
@@ -149,7 +149,7 @@ declare %public %an:deterministic %an:variadic function numerics:all() external;
  : Computes the logical or of elements across dimensions of $x.
  : @param $x The input tensor. Must be of dtype bool.
  : @param $axis The dimension(s) to reduce. By default it reduces all dimensions. Optional
- : @param $keep-dims If true, retains reduced dimensions with size 1. Optional 
+ : @param $keep-dims If true, retains reduced dimensions with size 1. Optional
  : @param $name A name for the operation. Optional
  : @return tensor
  :)
@@ -255,7 +255,7 @@ declare %public %an:deterministic %an:variadic function numerics:round() externa
  : Computes the sum of elements across dimensions of $x.
  : @param $x The input tensor.
  : @param $axis The dimension(s) to reduce. By default it reduces all dimensions. Optional
- : @param $keep-dims If true, retains reduced dimensions with size 1. Optional 
+ : @param $keep-dims If true, retains reduced dimensions with size 1. Optional
  : @param $name A name for the operation. Optional
  : @return tensor
  :)
@@ -408,3 +408,8 @@ declare %public %an:deterministic %an:variadic function numerics:pow() external;
 
 
 declare %public %an:deterministic %an:variadic function numerics:asarray() external;
+
+(:~
+ : Return evenly spaced numbers over a specified interval.
+ :)
+declare %public %an:deterministic %an:variadic function numerics:linspace() external;
