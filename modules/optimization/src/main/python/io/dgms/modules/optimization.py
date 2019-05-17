@@ -38,7 +38,6 @@ import tensorflow as tf
 
 problem_seq = 0
 problems_dict = dict()
-surrogates_dict = dict()
 
 def solve(*args, **kwargs):
 
@@ -94,6 +93,7 @@ def solve(*args, **kwargs):
         return solve_tensorflow(objectives, constraints, options)
     raise ValueError("invalid mode: " + symbolics.get_mode())
 
+
 def solve_pyomo(objectives, constraints, options={}):
 
     model = pyo.ConcreteModel()
@@ -113,8 +113,19 @@ def solve_pyomo(objectives, constraints, options={}):
     opt = pyo.SolverFactory(options.get("solver", "bonmin"))
     
     result = opt.solve(model)
-    #result.write(num=1)
-    return { str(id(variable)) : variable.value for variable in variables.values() }
+    
+    return {
+        "solver": {
+            "name": options.get("solver", "bonmin"),
+            "status": str(getattr(result.Solver, "Status")),
+            "termination-condition": str(getattr(result.Solver, "Termination condition")),
+            "time": getattr(result.Solver, "Time")
+        },
+        "solution": {
+            str(id(variable)) : variable.value for variable in variables.values()
+        }
+    }
+
 
 def add_pyomo_variables(expression, variables):
 
@@ -127,6 +138,7 @@ def add_pyomo_variables(expression, variables):
         elif (hasattr(expression, 'nargs')):
             for i in range(expression.nargs()):
                 stack.append(expression.arg(i))
+
 
 def solve_casadi(objectives, constraints, options={}):
     
@@ -157,11 +169,9 @@ def solve_casadi(objectives, constraints, options={}):
         add_casadi_variables(constraint, variables)
 
     discrete = list()
-    for variable in variables.values():
-        print("GOOD", symbolics.variables_dict)
+    for variable in variables.keys():
         domain = symbolics.variables_dict[variable].get("domain", "")
-        print("GOOD1")
-        if (domain == "integer"):
+        if (domain == "integer" or domain == "binary"):
             discrete.append(True)
         else:
             discrete.append(False)
@@ -170,10 +180,20 @@ def solve_casadi(objectives, constraints, options={}):
         ubx.append(bounds[1])
 
     nlp = { 'x': cas.vertcat(*variables.values()), 'f': cas.vertcat(*f), 'g': cas.vertcat(*g) }
-    solver = cas.nlpsol(options.get("name", "problem"), options.get("solver", "bonmin"), nlp, { "discrete": discrete })
+    solver = cas.nlpsol(options.get("name", "problem"), options.get("solver", "bonmin"), nlp, { "discrete": discrete, "print_time": 0, "verbose": False })
     solution = solver(lbx=lbx, ubx=ubx, lbg=lbg, ubg=ubg)
     
-    return { variable : value for variable, value in zip(variables.values(), solution.get("x").elements()) }
+    return {
+        "solver": {
+            "name": options.get("solver", "bonmin"),
+            "status": solver.stats()["return_status"],
+            "termination-condition": solver.stats()["return_status"],
+            "time": solver.stats()["t_proc_problem"]
+        },
+        "solution": {
+            variable : value for variable, value in zip(variables.keys(), solution.get("x").elements())
+        }
+    }
 
 
 def add_casadi_variables(expression, variables):
@@ -183,10 +203,11 @@ def add_casadi_variables(expression, variables):
     while (stack):
         expression = stack.pop()
         if (expression.is_symbolic()):
-            variables[expression] = expression
+            variables[str(expression.__hash__())] = expression
         else:
             for i in range(expression.n_dep()):
                 stack.append(expression.dep(i))
+
 
 def solve_tensorflow(objectives, constraints, options={}):
 
@@ -201,6 +222,7 @@ def solve_tensorflow(objectives, constraints, options={}):
         for i in range(1000):
             pop = algo.evolve(pop)
         print(pop)
+
 
 class UnityTensorflowProblem:
 
@@ -242,13 +264,6 @@ class UnityTensorflowProblem:
         fitness = [ value.item() for value in values ]
         return fitness
 
-    '''
-    def fitness_surrogate(self, x):
-        values = self.session.run(self._fitness_surrogate, feed_dict={variable: value for variable, value in zip(self.variables, x)})
-        fitness_surrogate = [ value.item() for value in values ]
-        return fitness_surrogate
-    '''
-
     def get_bounds(self):
         return self.bounds
 
@@ -273,11 +288,6 @@ class UnityTensorflowProblem:
         gradient = [ value.item() for value in values ]
         return gradient
 
-    def gradient_surrogate(self, x):
-        values = self.session.run(self._gradient_surrogate, feed_dict={variable: value for variable, value in zip(self.variables, x)})
-        gradient_surrogate = [ value.item() for value in values ]
-        return gradient_surrogate
-
     def has_hessians(self):
         return True
 
@@ -286,10 +296,6 @@ class UnityTensorflowProblem:
         hessians = [ value.item() for value in values ]
         return hessians
     
-    def hessians_surrogate(self, x):
-        values = self.session.run(self._hessians_surrogate, feed_dict={variable: value for variable, value in zip(self.variables, x)})
-        _hessians_surrogate = [ value.item() for value in values ]
-        return _hessians_surrogate
     '''
 
     def get_name(self):
