@@ -89,7 +89,7 @@ def parameter(value=None, name=None, shape=[], dtype=tf.float64):
             parameter = cas.SX.sym(name, shape[0], shape[1])
         else:
             raise ValueError("invalid rank: " + str(rank))
-        parameters_dict[parameter] = { "value": value, "name": name }
+        parameters_dict[str(parameter.__hash__())] = { "value": value, "name": name }
 
     elif (mode == CASADI_MX):
         if (rank == 0):
@@ -100,7 +100,7 @@ def parameter(value=None, name=None, shape=[], dtype=tf.float64):
             parameter = cas.MX.sym(name, shape[0], shape[1])
         else:
             raise ValueError("invalid rank: " + str(rank))
-        parameters_dict[parameter] = { "value": value, "name": name }
+        parameters_dict[str(parameter.__hash__())] = { "value": value, "name": name }
 
     elif (mode == TENSORFLOW):
         if (value is None):
@@ -125,6 +125,19 @@ def placeholder(name=None, shape=[], dtype=tf.float64):
     else:
         raise ValueError("invalid mode: " + str(mode))    
     return placeholder
+
+def id(value):
+    if (mode == SYMPY):
+        return str(id(value))
+    if (mode == PYOMO):
+        return str(id(value))
+    if (mode == CASADI_SX):
+        return str(value.__hash__())
+    if (mode == CASADI_MX):
+        return str(value.__hash__())
+    if (mode == TENSORFLOW):
+        return str(id(value.op))
+    return None
 
 def reference():
     return None
@@ -177,7 +190,7 @@ def variable(initialize=None, name=None, shape=[], dtype=tf.float64, bounds=None
             variable = cas.SX.sym(name, shape[0], shape[1])
         else:
             raise ValueError("invalid rank: " + str(rank))
-        variables_dict[variable] = { "bounds": bounds if (bounds is not None) else [tf.as_dtype(dtype).min, tf.as_dtype(dtype).max], "domain": domain, "initialize": initialize, "name": name }
+        variables_dict[str(variable.__hash__())] = { "bounds": bounds if (bounds is not None) else [tf.as_dtype(dtype).min, tf.as_dtype(dtype).max], "domain": domain, "initialize": initialize, "name": name }
 
     elif (mode == CASADI_MX):
         if (rank == 0):
@@ -188,7 +201,7 @@ def variable(initialize=None, name=None, shape=[], dtype=tf.float64, bounds=None
             variable = cas.MX.sym(name, shape[0], shape[1])
         else:
             raise ValueError("invalid rank: " + str(rank))
-        variables_dict[variable] = { "bounds": bounds if (bounds is not None) else [tf.as_dtype(dtype).min, tf.as_dtype(dtype).max], "domain": domain, "initialize": initialize, "name": name }
+        variables_dict[str(variable.__hash__())] = { "bounds": bounds if (bounds is not None) else [tf.as_dtype(dtype).min, tf.as_dtype(dtype).max], "domain": domain, "initialize": initialize, "name": name }
 
     elif (mode == TENSORFLOW):
         if (initialize is None):
