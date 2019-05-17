@@ -60,3 +60,6 @@ def sparse_softmax_cross_entropy(*args, **kwargs):
 
 def mean_squared_error(*args, **kwargs):
     return tf.losses.mean_squared_error(*args, **kwargs)
+
+def train(*args, **kwargs):
+    return 0
