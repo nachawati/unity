@@ -128,15 +128,15 @@ def placeholder(name=None, shape=[], dtype=tf.float64):
 
 def id(value):
     if (mode == SYMPY):
-        return str(id(value))
+        return value
     if (mode == PYOMO):
-        return str(id(value))
+        return value
     if (mode == CASADI_SX):
         return str(value.__hash__())
     if (mode == CASADI_MX):
         return str(value.__hash__())
     if (mode == TENSORFLOW):
-        return str(id(value.op))
+        return value.op
     return None
 
 def reference():
@@ -177,7 +177,7 @@ def variable(initialize=None, name=None, shape=[], dtype=tf.float64, bounds=None
             else:
                 variable = pyo.Var(initialize=initialize, bounds=bounds, domain=pyo.Reals)
             variable._name = name
-            variables_dict[id(variable)] = { "bounds": bounds if (bounds is not None) else [tf.as_dtype(dtype).min, tf.as_dtype(dtype).max], "domain": domain, "initialize": initialize, "name": name }
+            variables_dict[str(id(variable))] = { "bounds": bounds if (bounds is not None) else [tf.as_dtype(dtype).min, tf.as_dtype(dtype).max], "domain": domain, "initialize": initialize, "name": name }
         else:
             raise ValueError("invalid rank: " + str(rank))
 
