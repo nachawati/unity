@@ -55,8 +55,8 @@ declare %public %an:nondeterministic function analytics:calibrate($kwargs)
 	symbolics:set-mode(if (exists($kwargs.options.mode)) then $kwargs.options.mode else "tensorflow");
 	variable $input := analytics:symbolify($kwargs.input);
 	variable $output := analytics:symbolify($kwargs.output);
-	variable $predicted := analytics:resolve-model($kwargs.model)($input);
-	variable $loss := analytics:resolve-model($kwargs.loss)($predicted, $output);
+	variable $predicted := analytics:resolve-function($kwargs.model)($input);
+	variable $loss := analytics:resolve-function($kwargs.loss)($predicted, $output);
 	variable $result := learning:train({
 		loss: $loss,
 		feed: $kwargs.feed,
@@ -75,7 +75,7 @@ declare %public %an:nondeterministic function analytics:calibrate($kwargs)
  :)
 declare %public %an:nondeterministic %an:variadic function analytics:compute($kwargs)
 {
-	analytics:resolve-model($kwargs.model)(analytics:symbolify($kwargs.input))
+	analytics:resolve-function($kwargs.model)(analytics:symbolify($kwargs.input))
 };
 
 (:~
@@ -86,8 +86,8 @@ declare %public %an:nondeterministic function analytics:instantiate($items, $sol
 	for $item in $items
 	return
 		if ($item instance of xs:anyURI) then
-			if (fn:exists($solution.$item)) then
-				$solution.$item
+			if (fn:exists($solution.(symbolics:id($item)))) then
+				$solution.(symbolics:id($item))
 			else
 				$item
     	else if ($item instance of object) then {|
@@ -108,18 +108,18 @@ declare %public %an:nondeterministic function analytics:maximize($kwargs)
 	variable $mode := symbolics:get-mode();
 	symbolics:set-mode(if (exists($kwargs.options.mode)) then $kwargs.options.mode else "pyomo");
 	variable $input := analytics:symbolify($kwargs.input);
-	variable $output := analytics:resolve-model($kwargs.model)($input);
+	variable $output := analytics:resolve-function($kwargs.model)($input);
 	variable $result := optimization:solve({
-		maximize: $kwargs.objective($output),
-		subject-to: if (exists($kwargs.constraints)) then $kwargs.constraints($output) else $output.constraints,
+		maximize: analytics:resolve-function($kwargs.objective)($output),
+		subject-to: if (exists($kwargs.constraints)) then analytics:resolve-function($kwargs.constraints)($output) else $output.constraints,
 		options: $kwargs.options
 	});
-	symbolics:set-mode($mode);
-	{
-		problem: $result.problem,
+	variable $return := {
 		solution: if (exists($result.solution)) then analytics:instantiate($input, $result.solution) else {},
 		solver: $result.solver
-	}
+	};
+	symbolics:set-mode($mode);
+	$return
 };
 
 (:~
@@ -130,18 +130,18 @@ declare %public %an:nondeterministic function analytics:minimize($kwargs)
 	variable $mode := symbolics:get-mode();
 	symbolics:set-mode(if (exists($kwargs.options.mode)) then $kwargs.options.mode else "pyomo");
 	variable $input := analytics:symbolify($kwargs.input);
-	variable $output := analytics:resolve-model($kwargs.model)($input);
+	variable $output := analytics:resolve-function($kwargs.model)($input);
 	variable $result := optimization:solve({
-		minimize: $kwargs.objective($output),
-		subject-to: if (exists($kwargs.constraints)) then $kwargs.constraints($output) else $output.constraints,
+		minimize: analytics:resolve-function($kwargs.objective)($output),
+		subject-to: if (exists($kwargs.constraints)) then analytics:resolve-function($kwargs.constraints)($output) else $output.constraints,
 		options: $kwargs.options
 	});
-	symbolics:set-mode($mode);
-	{
-		problem: $result.problem,
+	variable $return := {
 		solution: if (exists($result.solution)) then analytics:instantiate($input, $result.solution) else {},
 		solver: $result.solver
-	}
+	};
+	symbolics:set-mode($mode);
+	$return
 };
 
 (:~
@@ -157,16 +157,16 @@ declare %public %an:deterministic %an:variadic function analytics:placeholder() 
 (:~
  : Resolve analytical model.
  :)
-declare %private function analytics:resolve-model($model) as function(*)
+declare %private function analytics:resolve-function($function) as function(*)
 {
-    if ($model instance of function(*)) then
-        $model
+    if ($function instance of function(*)) then
+        $function
     else
-        let $model-id := normalize-space($model)
-        return if (starts-with($model-id, "Q{")) then
-            reflection:eval("jsoniq version \"1.0\"; import module namespace ns = \"" || substring-before(substring-after($model-id, "Q{"), "}")  || "\"; ns:" || substring-before(substring-after($model-id, "}"), "#") || "#" || substring-after($model-id, "#"))
+        let $function-id := normalize-space($function)
+        return if (starts-with($function-id, "Q{")) then
+            reflection:eval("jsoniq version \"1.0\"; import module namespace ns = \"" || substring-before(substring-after($function-id, "Q{"), "}")  || "\"; ns:" || substring-before(substring-after($function-id, "}"), "#") || "#" || substring-after($function-id, "#"))
         else
-            reflection:eval($model-id)
+            reflection:eval($function-id)
 };
 
 (:~
