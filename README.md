@@ -165,8 +165,16 @@ This should write the following to the file ``result.json``:
 
 ```json
 {
+  "solution" : {
     "x": 175,
     "y": 135
+  },
+  "solver" : {
+    "name" : "cbc",
+    "time" : 0.0832550525665283,
+    "termination-condition" : "optimal",
+    "status" : "ok"
+  }
 }
 ```
 
