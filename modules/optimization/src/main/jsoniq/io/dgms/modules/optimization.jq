@@ -43,6 +43,11 @@ declare namespace options = "http://dgms.io/options";
 declare option options:source-transformation "disabled";
 
 (:~
+ : Optimizer that implements the gradient descent algorithm.
+ :)
+declare %public %an:nondeterministic %an:variadic function optimization:gradient-descent-optimizer() external;
+
+(:~
  : Solves an optimization problem
  :)
 declare %public %an:nondeterministic %an:variadic function optimization:solve() external;
