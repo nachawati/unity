@@ -63,11 +63,11 @@ def get_mode():
         return "tensorflow"
     return "sympy"
 
-def parameter(value=None, name=None, shape=[], dtype=tf.float64):
+def parameter(value=None, name=None, shape=None, dtype=tf.float64):
 
     global mode, parameter_seq, parameter_dict
     parameter = None
-    rank = len(shape)
+    rank = len(shape if shape is not None else [])
 
     if (name == None):
         parameter_seq += 1
@@ -103,7 +103,7 @@ def parameter(value=None, name=None, shape=[], dtype=tf.float64):
         parameters_dict[str(parameter.__hash__())] = { "value": value, "name": name }
 
     elif (mode == TENSORFLOW):
-        if (value is None):
+        if (value is None and shape is not None):
             value = tf.random.uniform(shape, minval=dtype.min, maxval=dtype.max, dtype=dtype)
         parameter = tf.Variable(value, name=name, dtype=tf.as_dtype(dtype), expected_shape=shape, trainable=True)    
         parameters_dict[parameter.op] = { "value": value, "name": name }
@@ -117,7 +117,7 @@ def parameter(value=None, name=None, shape=[], dtype=tf.float64):
 
     return parameter
 
-def placeholder(name=None, shape=[], dtype=tf.float64):    
+def placeholder(name=None, shape=None, dtype=tf.float64):    
     global mode
     placeholder = None
     if (mode == TENSORFLOW):
