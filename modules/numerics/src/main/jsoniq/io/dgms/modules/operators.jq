@@ -30,6 +30,7 @@ jsoniq version "1.0";
 module namespace operators = "http://dgms.io/modules/operators";
 
 import module namespace n = "http://dgms.io/modules/numerics";
+import module namespace r = "http://dgms.io/modules/reflection";
 
 import module namespace math = "http://www.w3.org/2005/xpath-functions/math";
 import module namespace reflection = "http://zorba.io/modules/reflection";
@@ -415,7 +416,7 @@ declare %public %an:deterministic function operators:object-lookup($object, $mem
 declare %public %an:deterministic function operators:array-unboxing($object)
 {
 	if ($object instance of xs:anyURI) then
-		n:asarray($object)
+		r:invoke-variadic(operators:object-lookup($object, "tolist"))
 	else
 		$object[]
 };
