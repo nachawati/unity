@@ -500,10 +500,42 @@ def floor(x, name=None):
 def round(x, name=None):
     return None
 
-def pow(x, y, name=None):
-    return None
+def pow(a, b, name=None):
+    if (symbolics.mode == symbolics.SYMPY):
+        if (isinstance(a, sym.Basic) or isinstance(b, sym.Basic)):
+            return a ** b
+        return np.power(a, b)
+    if (symbolics.mode == symbolics.PYOMO):
+        if (isinstance(a, pyo.NumericValue) or isinstance(b, pyo.NumericValue)):
+            return a ** b
+        return np.power(a, b)
+    if (symbolics.mode == symbolics.CASADI_SX):
+        if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
+            return cas.power(a, b)
+        return np.power(a, b)
+    if (symbolics.mode == symbolics.CASADI_MX):
+        if (isinstance(a, (cas.DM, cas.MX)) or isinstance(b, (cas.DM, cas.MX))):
+            return cas.power(a, b)
+        return np.power(a, b)
+    if (isinstance(a, (tf.Tensor, tf.Variable))):
+        if (isinstance(b, (tf.Tensor, tf.Variable))):
+            return tf.pow(a, b, name)
+        return np.power(a, b)
+    if (isinstance(b, (tf.Tensor, tf.Variable))):
+        return tf.pow(tf.constant(a, b.dtype), b, name)
+    return np.power(a, b)
 
 def reduce_sum(x, axis=None, keep_dims=False, name=None):
+    if (symbolics.mode == symbolics.SYMPY):
+        return None
+    if (symbolics.mode == symbolics.PYOMO):
+        return None
+    if (symbolics.mode == symbolics.CASADI_SX):
+        return None
+    if (symbolics.mode == symbolics.CASADI_MX):
+        return None
+    if (isinstance(x, (tf.Tensor, tf.Variable))):
+        return tf.reduce_sum(x, axis, keep_dims, name)
     return None
 
 def acos(x, name=None):
