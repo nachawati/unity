@@ -27,11 +27,11 @@
 
 import tensorflow as tf
 
-def parameter(value, name=None, shape=[], dtype="float64"):
-    return { "@type": "http://dgms.io/schema/Parameter", "value": value, "name": name, "shape": shape, "dtype": dtype }
+def parameter(value=None, name=None, shape=[], dtype="float64"):
+    return { "@type": "http://dgms.io/schema/Parameter", "value": value, "name": name, "shape": shape, "dtype": tf.as_dtype(dtype) }
 
 def placeholder(name=None, shape=[], dtype="float64"):
-    return { "@type": "http://dgms.io/schema/Placeholder", "name": name, "shape": shape, "dtype": dtype }
+    return { "@type": "http://dgms.io/schema/Placeholder", "name": name, "shape": shape, "dtype": tf.as_dtype(dtype) }
 
 def variable(initialize=None, name=None, shape=[], dtype="float64", bounds=None, domain=None):
-    return { "@type": "http://dgms.io/schema/Variable", "initialize": initialize, "name": name, "shape": shape, "dtype": dtype, "bounds": bounds, "domain": domain }
+    return { "@type": "http://dgms.io/schema/Variable", "initialize": initialize, "name": name, "shape": shape, "dtype": tf.as_dtype(dtype), "bounds": bounds, "domain": domain }
