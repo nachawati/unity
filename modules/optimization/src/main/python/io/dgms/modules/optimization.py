@@ -35,10 +35,19 @@ import pyomo.environ as pyo
 import python.io.dgms.modules.symbolics as symbolics
 import shutil
 import tensorflow as tf
+import ctypes
 
 problem_seq = 0
 problems_dict = dict()
 
+kernel = ctypes.CDLL("libunity-kernel.so")
+pointer = kernel.pointer
+pointer.restype = ctypes.py_object
+pointer.argtypes = [ctypes.c_void_p]
+
+def gradient_descent_optimizer(*args, **kwargs):
+    return tf.train.GradientDescentOptimizer(*args, **kwargs)
+    
 def solve(*args, **kwargs):
 
     objectives = collections.OrderedDict()
@@ -90,7 +99,7 @@ def solve(*args, **kwargs):
     if (symbolics.mode == symbolics.CASADI_MX):
         return solve_casadi(objectives, constraints, options)
     if (symbolics.mode == symbolics.TENSORFLOW):
-        return solve_tensorflow(objectives, constraints, options)
+        return solve_tensorflow(objectives, constraints, kwargs.get("bindings", {}), options)
     raise ValueError("invalid mode: " + symbolics.get_mode())
 
 
@@ -209,20 +218,63 @@ def add_casadi_variables(expression, variables):
                 stack.append(expression.dep(i))
 
 
-def solve_tensorflow(objectives, constraints, options={}):
+def solve_tensorflow(objectives, constraints, bindings={}, options={}):
 
-    with tf.Session() as session:
+    solver = options.get("solver")
+    if (solver is None):
+        solver = tf.train.GradientDescentOptimizer(0.01)
+    
+    if (isinstance(solver, tf.train.Optimizer)):
 
-        problem = UnityTensorflowProblem(session, objectives, constraints, options)
-        session.run(tf.global_variables_initializer())
-        prob = pg.problem(problem)
-        algo = pg.algorithm(pg.ihs())
-        pop = pg.population(prob, 10)
+        if (len(objectives) != 1):
+            raise ValueError(type(solver) + " does not support multiple objectives")
+        elif (len(constraints) != 0):
+            raise ValueError(type(solver) + " does not support constrained optimization")
+
+        objective = next(iter(objectives.values()))
+        optimizer = solver.minimize(objective)
         
-        for i in range(1000):
-            pop = algo.evolve(pop)
-        print(pop)
+        with tf.Session() as session:
+            session.run(tf.global_variables_initializer())
+            
+            keys = list(bindings.keys())            
+            keys_pointer = [ pointer(int(key)) for key in keys ]
+                        
+            for epoch in range(options.get("training-epochs", 1000)):
+                
+                for values in zip(*[bindings[key] for key in keys]):
+                    session.run(optimizer, feed_dict = { key: value for (key, value) in zip(keys_pointer, values) })
+                if (options.get("verbose", False) == True):
+                    if (epoch + 1) % 50 == 0: 
+                        loss = session.run(objective, feed_dict = { key_pointer: bindings[key] for (key, key_pointer) in zip(keys, keys_pointer) })
+                        print("Epoch", (epoch + 1), ": loss =", loss)
+                     
+            return {
+                "solution": {
+                    variable : value for variable, value in zip(tf.trainable_variables(), session.run(tf.trainable_variables()))
+                },
+                "solver": {
+                    "name": type(solver).__name__,
+                }
+            }
+                
+    elif (isinstance(solver, pg.algorithm)):
+        with tf.Session() as session:
 
+            problem = UnityTensorflowProblem(session, objectives, constraints, options)
+            session.run(tf.global_variables_initializer())
+            prob = pg.problem(problem)
+            algo = pg.algorithm(pg.ihs())
+            pop = pg.population(prob, 10)
+            
+            for i in range(1000):
+                pop = algo.evolve(pop)
+            print(pop)
+            
+        return "GOOD"
+
+    else:
+        raise ValueError("invalid solver: " + solver)
 
 class UnityTensorflowProblem:
 
