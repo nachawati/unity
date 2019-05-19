@@ -34,7 +34,6 @@ jsoniq version "1.0";
 
 module namespace analytics = "http://dgms.io/modules/analytics";
 
-import module namespace learning = "http://dgms.io/modules/learning";
 import module namespace optimization = "http://dgms.io/modules/optimization";
 import module namespace symbolics = "http://dgms.io/modules/symbolics";
 
@@ -56,17 +55,17 @@ declare %public %an:nondeterministic function analytics:calibrate($kwargs)
 	variable $input := analytics:symbolify($kwargs.input);
 	variable $output := analytics:symbolify($kwargs.output);
 	variable $predicted := analytics:resolve-function($kwargs.model)($input);
-	variable $loss := analytics:resolve-function($kwargs.loss)($predicted, $output);
-	variable $result := learning:train({
-		loss: $loss,
-		feed: $kwargs.feed,
+	variable $loss := analytics:resolve-function($kwargs.loss)($output, $predicted);
+	variable $result := optimization:solve({
+		minimize: $loss,
+		bindings: $kwargs.bindings,
 		options: $kwargs.options
 	});
 	symbolics:set-mode($mode);
 	{
+		s: $result.solution,
 		solution: if (exists($result.solution)) then analytics:instantiate($input, $result.solution) else {},
-		status: $result.status,
-		termination-condition: $result.termination-condition
+		solver: $result.solver
 	}
 };
 
