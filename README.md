@@ -240,6 +240,10 @@ lib/io/dgms/modules/mymodule.jq
 
 If no file exists at that location in the main package, **Unity DGMS** will systematically look for a file that matches the package-relative path in the closure of all dependencies of the main package.
 
+### JSONiq External Functions
+
+**Unity DGMS** supports executing C++ code directly from JSONiq queries based on the default [Zorba external function](http://www.zorba.io/documentation/latest/zorba/modules/external_functions/) interface.
+
 ## Compile from source
 
 A clean build of **Unity DGMS** is performed in two steps:
