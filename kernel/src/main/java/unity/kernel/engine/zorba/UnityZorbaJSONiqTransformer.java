@@ -69,7 +69,7 @@ public class UnityZorbaJSONiqTransformer extends UnityZorbaXQueryTransformer
             return;
         }
         if (node.hasChildTerminal("'instance'"))
-            out.print(prefix_operators + ":get-instance(");
+            out.print(" " + prefix_operators + ":get-instance(");
         else {
             visit(node);
             return;
@@ -86,9 +86,9 @@ public class UnityZorbaJSONiqTransformer extends UnityZorbaXQueryTransformer
         for (UnitySyntaxTreeNode child : node.getChildren()) {
             for (UnitySyntaxTreeNode grandChild : child.getChildren()) {
                 if ("Expr".equals(grandChild.getName())) {
-                    out.print(prefix_operators + ":serialize((");
+                    out.print(" " + prefix_operators + ":serialize((");
                     grandChild.accept(this);
-                    out.print("), " + prefix_operators + ":serialization-mode())");
+                    out.print("), " + " " + prefix_operators + ":serialization-mode())");
                 } else {
                     grandChild.accept(this);
                 }
@@ -110,7 +110,7 @@ public class UnityZorbaJSONiqTransformer extends UnityZorbaXQueryTransformer
             out.print(")");
             break;
         case "ObjectLookup":
-            out.print(prefix_operators + ":object-lookup(");
+            out.print(" " + prefix_operators + ":object-lookup(");
             PostfixExpr(children, i - 1);
             out.print(",");
             for (int j = 1; j < child.getChildren().size(); j++)
@@ -121,7 +121,7 @@ public class UnityZorbaJSONiqTransformer extends UnityZorbaXQueryTransformer
             out.print(")");
             break;
         case "ArrayUnboxing":
-            out.print(prefix_operators + ":array-unboxing(");
+            out.print(" " + prefix_operators + ":array-unboxing(");
             PostfixExpr(children, i - 1);
             out.print(")");
             break;
@@ -160,9 +160,9 @@ public class UnityZorbaJSONiqTransformer extends UnityZorbaXQueryTransformer
             return;
         }
         if (node.hasChildTerminal("'some'"))
-            out.print(prefix_operators + ":some([for");
+            out.print(" " + prefix_operators + ":some([for");
         else if (node.hasChildTerminal("'every'"))
-            out.print(prefix_operators + ":every([for");
+            out.print(" " + prefix_operators + ":every([for");
         else {
             visit(node);
             return;
