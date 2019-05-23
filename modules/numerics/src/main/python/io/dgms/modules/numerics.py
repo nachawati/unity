@@ -212,8 +212,18 @@ def logical_and(a, b, name=None):
             return sym.And(a, b)
         return np.logical_and(a, b)
     if (symbolics.mode == symbolics.PYOMO):
-        if (isinstance(a, pyo.NumericValue) or isinstance(b, pyo.NumericValue)):
-            return a and b
+        if (isinstance(a, pyo.NumericValue) and isinstance(b, pyo.ConstraintList)):
+            b.add(a)
+            return b
+        elif (isinstance(b, pyo.NumericValue) and isinstance(a, pyo.ConstraintList)):
+            a.add(b)
+            return a
+        else:
+            x = pyo.ConstraintList()
+            x.construct()
+            x.add(a)
+            x.add(b)
+            return x
         return np.logical_and(a, b)
     if (symbolics.mode == symbolics.CASADI_SX):
         if (isinstance(a, (cas.DM, cas.SX)) or isinstance(b, (cas.DM, cas.SX))):
@@ -460,11 +470,11 @@ def not_equal(a, b, name=None):
     return np.not_equal(a, b)
 
 def where(condition, a, b, name=None):
-    if (symbolics.mode == 1):
+    if (symbolics.mode == symbolics.PYOMO):
         return pyo.Expr_if(IF=condition, THEN=a, ELSE=b)
-    if (symbolics.mode == 2):
+    if (symbolics.mode == symbolics.CASADI_SX):
         return cas.if_else(condition, a, b)
-    if (symbolics.mode == 3):
+    if (symbolics.mode == symbolics.CASADI_MX):
         return cas.if_else(condition, a, b)
     if (isinstance(a, (tf.Tensor, tf.Variable)) or isinstance(b, (tf.Tensor, tf.Variable))):
         return tf.where(tf.cast(condition, tf.bool), tf.cast(a, tf.float64), tf.cast(b, tf.float64), name)
