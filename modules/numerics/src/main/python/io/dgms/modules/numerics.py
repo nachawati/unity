@@ -537,16 +537,16 @@ def pow(a, b, name=None):
 
 def reduce_sum(x, axis=None, keep_dims=False, name=None):
     if (symbolics.mode == symbolics.SYMPY):
-        return None
+        return np.sum(x, axis)
     if (symbolics.mode == symbolics.PYOMO):
-        return None
+        return np.sum(x, axis)
     if (symbolics.mode == symbolics.CASADI_SX):
-        return None
+        return np.sum(x, axis)
     if (symbolics.mode == symbolics.CASADI_MX):
-        return None
+        return np.sum(x, axis)
     if (isinstance(x, (tf.Tensor, tf.Variable))):
         return tf.reduce_sum(x, axis, keep_dims, name)
-    return None
+    return np.sum(x, axis)
 
 def acos(x, name=None):
     if (symbolics.mode == symbolics.SYMPY):
