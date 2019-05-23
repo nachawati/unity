@@ -26,7 +26,13 @@ Please make sure that you have Docker and Node.js installed on your system.
 
 ### Installing **Unity DGMS**
 
-You can install **Unity DGMS** using the Node.js package manager ``npm`` or ``yarn``:
+To install **Unity DGMS**, pull the pre-built Docker image ``dgms/dgms``:
+
+```bash
+docker pull dgms/dgms:0.1.0-SNAPSHOT
+```
+
+To install the ``dgms`` system command, using the Node.js package manager ``npm`` or ``yarn`` run:
 
 ```bash
 npm install dgms --global
@@ -176,6 +182,55 @@ This should write the following to the file ``result.json``:
     "status" : "ok"
   }
 }
+```
+
+### Calibration
+
+The following example module ``calibration.jq`` shows how **Unity DGMS** can be used for calibrating analytical models:
+
+```xquery
+jsoniq version "1.0";
+
+import module namespace a = "http://dgms.io/modules/analytics";
+
+declare function local:model($input)
+{
+    let $X := $input.X
+    let $W := $input.W
+    let $b := $input.b
+
+    return {
+        cost: $X * $W + $b
+    }
+};
+
+let $X := a:placeholder()
+let $Y := a:placeholder()
+return
+a:calibrate({
+    model: local:model#1,
+    input: {
+        X: $X,
+        W: a:parameter(),
+        b: a:parameter()
+    },
+    output: {
+        cost: $Y
+    },
+    loss: function($observed, $predicted, $batch-size) {
+        n:reduce-sum(n:pow($observed.cost - $predicted.cost, 2)) div (2 * $batch-size)
+    },
+    bindings: {
+        $X: n:asarray([...]),
+        $Y: n:asarray([...])
+    }
+})
+```
+
+To optimize, run the following command in the directory containing ``calibration.jq``:
+
+```bash
+dgms run calibration.jq -r result.json
 ```
 
 ### Package and dependency management
