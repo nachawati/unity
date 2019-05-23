@@ -113,7 +113,10 @@ def solve_pyomo(objectives, constraints, options={}):
         add_pyomo_variables(objective, variables)
 
     for key, constraint in constraints.items():
-        setattr(model, key, pyo.Constraint(expr=constraint))
+        if (isinstance(constraint, pyo.ConstraintList)):
+            setattr(model, key, constraint)
+        else:    
+            setattr(model, key, pyo.Constraint(expr=constraint))
         add_pyomo_variables(constraint, variables)
 
     for variable in variables.values():
@@ -144,6 +147,9 @@ def add_pyomo_variables(expression, variables):
         expression = stack.pop()
         if (hasattr(expression, 'is_variable_type') and expression.is_variable_type()):
             variables[id(expression)] = expression
+        elif (isinstance(expression, pyo.ConstraintList)):
+            for c in expression.values():
+                stack.append(c.expr)
         elif (hasattr(expression, 'nargs')):
             for i in range(expression.nargs()):
                 stack.append(expression.arg(i))
