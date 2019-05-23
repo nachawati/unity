@@ -131,12 +131,21 @@ declare %public %an:deterministic function operators:lnot($x)
 
 declare %public %an:deterministic function operators:some($input)
 {
+	true
+(:
+	every $i in $input satisfies $i 
+
 	n:any($input)
+	:)
 };
 
 declare %public %an:deterministic function operators:every($input)
 {
+	true
+(:
+	some $i in $input satisfies $i
 	n:all($input)
+	:)
 };
 
 declare %public %an:deterministic function operators:if-else($condition, $a, $b)
