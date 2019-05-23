@@ -251,7 +251,10 @@ zorba::ItemSequence_t InvokeVariadicFunction::evaluate(const Arguments_t& args, 
                     iter_index->open();
                     iter_index->next(index);
                     iter_index->close();
-                    return new zorba::SingletonItemSequence(aQName.getObjectValue(index.getStringValue()));
+                    zorba::Item value = aQName.getObjectValue(index.getStringValue());
+                    if (value.isNull())
+                        return new zorba::EmptySequence();
+                    return new zorba::SingletonItemSequence(value);
                 }
             }
 
