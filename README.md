@@ -306,7 +306,7 @@ A clean build of **Unity DGMS** is performed in two steps:
 **Step 1:** Clean project and build dependencies
 
 ```bash
-./mvnw clean install -P linux-gcc-amd64-dependencies
+./mvnw clean install -P dependencies-linux-gcc-amd64
 ```
 
 **Step 2:** Build project
