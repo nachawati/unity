@@ -48,6 +48,9 @@ JNIEXPORT void JNICALL Java_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1
     //PyRun_SimpleString("tf.enable_eager_execution();");
     PyRun_SimpleString("import sys");
 
+    char* home = std::getenv("DGMS_HOME");
+    if (home == nullptr)
+    	home = "/opt/unity";
     strcpy(command, "if (os.path.abspath(\"");
     strcat(command, std::getenv("DGMS_HOME"));
     strcat(command, "/lib");
