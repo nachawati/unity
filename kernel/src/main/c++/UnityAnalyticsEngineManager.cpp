@@ -27,7 +27,7 @@
 
 #include "UnityAnalyticsEngineManager.hpp"
 #include <unity_kernel_engine_UnityAnalyticsEngineManager.h>
-
+#include <iostream>
 JNIEXPORT void JNICALL Java_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1Initialize(JNIEnv * env, jobject obj, jstring mode)
 {
     dlopen("libpython3.5m.so", RTLD_NOW | RTLD_GLOBAL);
@@ -51,11 +51,12 @@ JNIEXPORT void JNICALL Java_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1
     char* home = std::getenv("DGMS_HOME");
     if (home == nullptr)
     	home = "/opt/unity";
+
     strcpy(command, "if (os.path.abspath(\"");
-    strcat(command, std::getenv("DGMS_HOME"));
+    strcat(command, home);
     strcat(command, "/lib");
     strcat(command, "\")) not in sys.path: sys.path.append(os.path.abspath(\"");
-    strcat(command, std::getenv("DGMS_HOME"));
+    strcat(command, home);
     strcat(command, "/lib\"))");
     PyRun_SimpleString(command);
 }
