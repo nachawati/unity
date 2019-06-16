@@ -100,7 +100,7 @@ declare %public %an:deterministic function operators:plus($x)
 declare %public %an:deterministic function operators:neg($x)
 {
 	if ($x instance of xs:anyURI) then
-		n:neg($x)
+		n:negative($x)
 	else
 		-$x
 };
@@ -131,21 +131,12 @@ declare %public %an:deterministic function operators:lnot($x)
 
 declare %public %an:deterministic function operators:some($input)
 {
-	true
-(:
-	every $i in $input satisfies $i 
-
-	n:any($input)
-	:)
+	n:reduce-any($input)
 };
 
 declare %public %an:deterministic function operators:every($input)
 {
-	true
-(:
-	some $i in $input satisfies $i
-	n:all($input)
-	:)
+	n:reduce-all($input)
 };
 
 declare %public %an:deterministic function operators:if-else($condition, $a, $b)
