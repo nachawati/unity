@@ -98,7 +98,7 @@ declare %public %an:deterministic %an:variadic function numerics:mod() external;
  : @param $name A name for the operation (optional).
  : @return tensor
  :)
-declare %public %an:deterministic %an:variadic function numerics:neg() external;
+declare %public %an:deterministic %an:variadic function numerics:negative() external;
 
 (:~
  : Returns the truth value of $a and $b element-wise.
@@ -143,7 +143,7 @@ declare %public %an:deterministic %an:variadic function numerics:logical-xor() e
  : @param $name A name for the operation. Optional
  : @return tensor
  :)
-declare %public %an:deterministic %an:variadic function numerics:all() external;
+declare %public %an:deterministic %an:variadic function numerics:reduce-all() external;
 
 (:~
  : Computes the logical or of elements across dimensions of $x.
@@ -153,7 +153,7 @@ declare %public %an:deterministic %an:variadic function numerics:all() external;
  : @param $name A name for the operation. Optional
  : @return tensor
  :)
-declare %public %an:deterministic %an:variadic function numerics:any() external;
+declare %public %an:deterministic %an:variadic function numerics:reduce-any() external;
 
 (:~
  : Returns the truth value of $a == $b element-wise.
