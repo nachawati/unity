@@ -27,6 +27,7 @@
 
 #include <unity-zorba.hpp>
 #include <zorba/external_module.h>
+#include <iostream>
 
 #define IO_DGMS_MODULES_REFLECTION_NAMESPACE "http://dgms.io/modules/reflection"
 
@@ -137,6 +138,9 @@ zorba::ItemSequence_t InvokeVariadicFunction::evaluate(const Arguments_t& args, 
     iter->open();
     iter->next(aQName);
     iter->close();
+
+    if (aQName.isNull())
+    	return new zorba::EmptySequence();
 
     if (aQName.isAtomic()) {
         PyObject* callable = getItemAsPyObject(aQName, sctx, dctx);
