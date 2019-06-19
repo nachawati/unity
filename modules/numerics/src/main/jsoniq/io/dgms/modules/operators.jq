@@ -41,55 +41,55 @@ declare namespace options = "http://dgms.io/options";
 
 declare option options:source-transformation "disabled";
 
-declare %public %an:deterministic function operators:add($a, $b)
+declare %public %an:deterministic function operators:add($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:add($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:add($x, $y)
 	else
-		$a + $b
+		$x + $y
 };
 
-declare %public %an:deterministic function operators:sub($a, $b)
+declare %public %an:deterministic function operators:subtract($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:subtract($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:subtract($x, $y)
 	else
-		$a - $b
+		$x - $y
 };
 
-declare %public %an:deterministic function operators:mul($a, $b)
+declare %public %an:deterministic function operators:multiply($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:multiply($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:multiply($x, $y)
 	else
-		$a * $b
+		$x * $y
 };
 
-declare %public %an:deterministic function operators:div($a, $b)
+declare %public %an:deterministic function operators:divide($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:divide($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:divide($x, $y)
 	else
-		$a div $b
+		$x div $y
 };
 
-declare %public %an:deterministic function operators:idiv($a, $b)
+declare %public %an:deterministic function operators:integer-divide($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:floor-divide($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:floor-divide($x, $y)
 	else
-		$a idiv $b
+		$x idiv $y
 };
 
-declare %public %an:deterministic function operators:mod($a, $b)
+declare %public %an:deterministic function operators:mod($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:mod($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:mod($x, $y)
 	else
-		$a mod $b
+		$x mod $y
 };
 
-declare %public %an:deterministic function operators:plus($x)
+declare %public %an:deterministic function operators:unary-plus($x)
 {
 	if ($x instance of xs:anyURI) then
 		$x
@@ -97,7 +97,7 @@ declare %public %an:deterministic function operators:plus($x)
 		+$x
 };
 
-declare %public %an:deterministic function operators:neg($x)
+declare %public %an:deterministic function operators:unary-minus($x)
 {
 	if ($x instance of xs:anyURI) then
 		n:negative($x)
@@ -105,23 +105,23 @@ declare %public %an:deterministic function operators:neg($x)
 		-$x
 };
 
-declare %public %an:deterministic function operators:land($a, $b)
+declare %public %an:deterministic function operators:logical-and($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:logical-and($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:logical-and($x, $y)
 	else
-		$a and $b
+		$x and $y
 };
 
-declare %public %an:deterministic function operators:lor($a, $b)
+declare %public %an:deterministic function operators:logical-or($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:logical-or($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:logical-or($x, $y)
 	else
-		$a or $b
+		$x or $y
 };
 
-declare %public %an:deterministic function operators:lnot($x)
+declare %public %an:deterministic function operators:logical-not($x)
 {
 	if ($x instance of xs:anyURI) then
 		n:logical-not($x)
@@ -139,12 +139,12 @@ declare %public %an:deterministic function operators:every($input)
 	n:reduce-all($input)
 };
 
-declare %public %an:deterministic function operators:if-else($condition, $a, $b)
+declare %public %an:deterministic function operators:if-else($condition, $expression1, $expression2)
 {
 	if ($condition instance of xs:anyURI) then
-		n:where($condition, $a, $b)
+		n:where($condition, $expression1, $expression2)
 	else
-		if ($condition) then $a else $b
+		if ($condition) then $expression1 else $expression2
 };
 
 declare %public %an:deterministic function operators:get-instance($x)
@@ -155,100 +155,100 @@ declare %public %an:deterministic function operators:get-instance($x)
 		$x
 };
 
-declare %public %an:deterministic function operators:veq($a, $b)
+declare %public %an:deterministic function operators:value-equal($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:equal($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:equal($x, $y)
 	else
-		$a eq $b
+		$x eq $y
 };
 
-declare %public %an:deterministic function operators:geq($a, $b)
+declare %public %an:deterministic function operators:value-not-equal($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:equal($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:not-equal($x, $y)
 	else
-		$a = $b
+		$x ne $y
 };
 
-declare %public %an:deterministic function operators:vne($a, $b)
+declare %public %an:deterministic function operators:value-less($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:not-equal($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:less($x, $y)
 	else
-		$a ne $b
+		$x lt $y
 };
 
-declare %public %an:deterministic function operators:gne($a, $b)
+declare %public %an:deterministic function operators:value-greater($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:not-equal($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:greater($x, $y)
 	else
-		$a != $b
+		$x gt $y
 };
 
-declare %public %an:deterministic function operators:vlt($a, $b)
+declare %public %an:deterministic function operators:value-less-equal($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:less($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:less-equal($x, $y)
 	else
-		$a lt $b
+		$x le $y
 };
 
-declare %public %an:deterministic function operators:glt($a, $b)
+declare %public %an:deterministic function operators:value-greater-equal($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:less($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:greater-equal($x, $y)
 	else
-		$a < $b
+		$x ge $y
 };
 
-declare %public %an:deterministic function operators:vgt($a, $b)
+declare %public %an:deterministic function operators:general-equal($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:greater($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:equal($x, $y)
 	else
-		$a gt $b
+		$x = $y
 };
 
-declare %public %an:deterministic function operators:ggt($a, $b)
+declare %public %an:deterministic function operators:general-not-equal($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:greater($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:not-equal($x, $y)
 	else
-		$a > $b
+		$x != $y
 };
 
-declare %public %an:deterministic function operators:vle($a, $b)
+declare %public %an:deterministic function operators:general-less($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:less-equal($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:less($x, $y)
 	else
-		$a le $b
+		$x < $y
 };
 
-declare %public %an:deterministic function operators:gle($a, $b)
+declare %public %an:deterministic function operators:general-greater($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:less-equal($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:greater($x, $y)
 	else
-		$a <= $b
+		$x > $y
 };
 
-declare %public %an:deterministic function operators:vge($a, $b)
+declare %public %an:deterministic function operators:general-less-equal($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:greater-equal($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:less-equal($x, $y)
 	else
-		$a ge $b
+		$x <= $y
 };
 
-declare %public %an:deterministic function operators:gge($a, $b)
+declare %public %an:deterministic function operators:general-greater-equal($x, $y)
 {
-	if ($a instance of xs:anyURI or $b instance of xs:anyURI) then
-		n:greater-equal($a, $b)
+	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
+		n:greater-equal($x, $y)
 	else
-		$a >= $b
+		$x >= $y
 };
 
 declare %public %an:deterministic function operators:abs($x)
