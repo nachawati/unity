@@ -25,16 +25,14 @@
 # CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #
 
-
+from builtins import list
 import casadi as cas;
 import numpy as np;
 import pyomo.environ as pyo
 import sympy as sym
 import tensorflow as tf;
-import python.io.dgms.modules.symbolics as symbolics
-
 from tensorflow.python.framework import ops
-from builtins import list
+import python.io.dgms.modules.symbolics as symbolics
 
 def add(x, y, name=None):
     if (symbolics.mode == symbolics.SYMPY):
@@ -577,24 +575,18 @@ def reduce_any(input, axis=None, keepdims=False, name=None):
 
 
 
-def where(condition, a, b, name=None):
+def where(condition, x, y, name=None):
+    if (symbolics.mode == symbolics.SYMPY):
+        raise Exception("where operator not supported with Pyomo")
     if (symbolics.mode == symbolics.PYOMO):
-        return pyo.Expr_if(IF=condition, THEN=a, ELSE=b)
+        return pyo.Expr_if(condition, x, y)
     if (symbolics.mode == symbolics.CASADI_SX):
-        return cas.if_else(condition, a, b)
+        return cas.if_else(condition, x, y, True)
     if (symbolics.mode == symbolics.CASADI_MX):
-        return cas.if_else(condition, a, b)
-    if (isinstance(a, (tf.Tensor, tf.Variable)) or isinstance(b, (tf.Tensor, tf.Variable))):
-        return tf.where(tf.cast(condition, tf.bool), tf.cast(a, tf.float64), tf.cast(b, tf.float64), name)
-    return np.where(condition, a, b)
-
-
-
-
-
-
-
-
+        return cas.if_else(condition, x, y, True)
+    if (isinstance(condition, (tf.Tensor, tf.Variable))):
+        tf.where(condition, x, y, name)
+    return np.where(condition, x, y)
 
 def abs(x, name=None):
     if (symbolics.mode == symbolics.SYMPY):
@@ -618,12 +610,15 @@ def abs(x, name=None):
     return np.abs(x)
 
 def ceil(x, name=None):
+    print("ceil")
     return None
 
 def floor(x, name=None):
+    print("floor")
     return None
 
 def round(x, name=None):
+    print("round")
     return None
 
 def pow(a, b, name=None):
@@ -651,18 +646,21 @@ def pow(a, b, name=None):
         return tf.pow(tf.constant(a, b.dtype), b, name)
     return np.power(a, b)
 
-def reduce_sum(x, axis=None, keep_dims=False, name=None):
-    if (symbolics.mode == symbolics.SYMPY):
-        return np.sum(x, axis)
-    if (symbolics.mode == symbolics.PYOMO):
-        return np.sum(x, axis)
-    if (symbolics.mode == symbolics.CASADI_SX):
-        return np.sum(x, axis)
-    if (symbolics.mode == symbolics.CASADI_MX):
-        return np.sum(x, axis)
+def reduce_sum(x, axis=None, keepdims=False, name=None):
+    if (x is None):
+        return 0
+    if (isinstance(x, np.ndarray)):
+        return np.sum(x, axis, keepdims=keepdims)
     if (isinstance(x, (tf.Tensor, tf.Variable))):
-        return tf.reduce_sum(x, axis, keep_dims, name)
-    return np.sum(x, axis)
+        return tf.reduce_sum(x, axis, keepdims, name)
+    if not hasattr(x, '__len__'):
+        return x
+    if (len(x) == 0):
+        return 0
+    result = x[0]
+    for i in x[1:]:
+        result = result + i
+    return result
 
 def acos(x, name=None):
     if (symbolics.mode == symbolics.SYMPY):
@@ -770,6 +768,7 @@ def atan(x, name=None):
     return np.atan(x)
 
 def atan2(y, x, name=None):
+    print("atan2")
     return None
 
 def atanh(x, name=None):
@@ -1004,9 +1003,11 @@ def tanh(x, name=None):
     return np.tanh(x)
 
 def dtype(x):
+    print("dtype")
     return None
 
 def constant(x, type=None):
+    print("constant")
     return None
 
 
