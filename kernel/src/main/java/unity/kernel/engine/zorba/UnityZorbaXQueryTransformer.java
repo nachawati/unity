@@ -136,7 +136,7 @@ public class UnityZorbaXQueryTransformer
                 if ("'+'".equals(child.getName()))
                     out.print(prefix_operators + ":add(");
                 else if ("'-'".equals(child.getName()))
-                    out.print(prefix_operators + ":sub(");
+                    out.print(prefix_operators + ":subtract(");
                 else
                     throw new Exception("Invalid operator: " + child.getName());
                 c++;
@@ -178,7 +178,7 @@ public class UnityZorbaXQueryTransformer
         for (UnitySyntaxTreeNode child : Lists.reverse(node.getChildren())) {
             if (child.getType() == Type.TERMINAL) {
                 if ("'and'".equals(child.getName()))
-                    out.print(prefix_operators + ":land(");
+                    out.print(prefix_operators + ":logical-and(");
                 else
                     throw new Exception("Invalid operator: " + child.getName());
                 c++;
@@ -220,29 +220,29 @@ public class UnityZorbaXQueryTransformer
         for (UnitySyntaxTreeNode child : Lists.reverse(node.getChildren())) {
             if ("GeneralComp".equals(child.getName()) || "NodeComp".equals(child.getName()) || "ValueComp".equals(child.getName())) {
                 if ("eq".equals(child.toString()))
-                    out.print(prefix_operators + ":veq(");
+                    out.print(prefix_operators + ":value-equal(");
                 else if ("=".equals(child.toString()))
-                    out.print(prefix_operators + ":geq(");
+                    out.print(prefix_operators + ":general-equal(");
                 else if ("ne".equals(child.toString()))
-                    out.print(prefix_operators + ":vne(");
+                    out.print(prefix_operators + ":value-not-equal(");
                 else if ("!=".equals(child.toString()))
-                    out.print(prefix_operators + ":gne(");
+                    out.print(prefix_operators + ":general-not-equal(");
                 else if ("lt".equals(child.toString()))
-                    out.print(prefix_operators + ":vlt(");
+                    out.print(prefix_operators + ":value-less(");
                 else if ("<".equals(child.toString()))
-                    out.print(prefix_operators + ":glt(");
+                    out.print(prefix_operators + ":general-less(");
                 else if ("gt".equals(child.toString()))
-                    out.print(prefix_operators + ":vgt(");
+                    out.print(prefix_operators + ":value-greater(");
                 else if (">".equals(child.toString()))
-                    out.print(prefix_operators + ":ggt(");
+                    out.print(prefix_operators + ":general-greater(");
                 else if ("le".equals(child.toString()))
-                    out.print(prefix_operators + ":vle(");
+                    out.print(prefix_operators + ":value-less-equal(");
                 else if ("<=".equals(child.toString()))
-                    out.print(prefix_operators + ":gle(");
+                    out.print(prefix_operators + ":general-less-equal(");
                 else if ("ge".equals(child.toString()))
-                    out.print(prefix_operators + ":vge(");
+                    out.print(prefix_operators + ":value-greater-equal(");
                 else if (">=".equals(child.toString()))
-                    out.print(prefix_operators + ":gge(");
+                    out.print(prefix_operators + ":general-greater-equal(");
                 else
                     throw new Exception("Invalid operator: " + child.toString());
                 c++;
@@ -451,11 +451,11 @@ public class UnityZorbaXQueryTransformer
         for (UnitySyntaxTreeNode child : Lists.reverse(node.getChildren())) {
             if (child.getType() == Type.TERMINAL) {
                 if ("'*'".equals(child.getName()))
-                    out.print(prefix_operators + ":mul(");
+                    out.print(prefix_operators + ":multiply(");
                 else if ("'div'".equals(child.getName()))
-                    out.print(prefix_operators + ":div(");
+                    out.print(prefix_operators + ":divide(");
                 else if ("'idiv'".equals(child.getName()))
-                    out.print(prefix_operators + ":idiv(");
+                    out.print(prefix_operators + ":integer-divide(");
                 else if ("'mod'".equals(child.getName()))
                     out.print(prefix_operators + ":mod(");
                 else
@@ -508,7 +508,7 @@ public class UnityZorbaXQueryTransformer
             return;
         }
         if (node.hasChildTerminal("'not'"))
-            out.print(prefix_operators + ":lnot(");
+            out.print(prefix_operators + ":logical-not(");
         else {
             visit(node);
             return;
@@ -545,7 +545,7 @@ public class UnityZorbaXQueryTransformer
         for (UnitySyntaxTreeNode child : Lists.reverse(node.getChildren())) {
             if (child.getType() == Type.TERMINAL) {
                 if ("'or'".equals(child.getName()))
-                    out.print(prefix_operators + ":lor(");
+                    out.print(prefix_operators + ":logical-or(");
                 else
                     throw new Exception("Invalid operator: " + child.getName());
                 c++;
@@ -647,9 +647,9 @@ public class UnityZorbaXQueryTransformer
         for (UnitySyntaxTreeNode child : node.getChildren()) {
             if (child.getType() == Type.TERMINAL) {
                 if ("'+'".equals(child.getName()))
-                    out.print(prefix_operators + ":plus(");
+                    out.print(prefix_operators + ":unary-plus(");
                 else if ("'-'".equals(child.getName()))
-                    out.print(prefix_operators + ":neg(");
+                    out.print(prefix_operators + ":unary-minus(");
                 else
                     throw new Exception("Invalid operator: " + child.getName());
             }
