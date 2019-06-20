@@ -107,26 +107,26 @@ declare %public %an:deterministic function operators:unary-minus($x)
 
 declare %public %an:deterministic function operators:logical-and($x, $y)
 {
-	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
-		n:logical-and($x, $y)
-	else
+	if ($x instance of xs:boolean and $y instance of xs:boolean) then
 		$x and $y
+	else
+		n:logical-and($x, $y)
 };
 
 declare %public %an:deterministic function operators:logical-or($x, $y)
 {
-	if ($x instance of xs:anyURI or $y instance of xs:anyURI) then
-		n:logical-or($x, $y)
-	else
+	if ($x instance of xs:boolean and $y instance of xs:boolean) then
 		$x or $y
+	else
+		n:logical-or($x, $y)
 };
 
 declare %public %an:deterministic function operators:logical-not($x)
 {
-	if ($x instance of xs:anyURI) then
-		n:logical-not($x)
-	else
+	if ($x instance of xs:boolean) then
 		fn:not($x)
+	else
+		n:logical-not($x)
 };
 
 declare %public %an:deterministic function operators:some($input)
@@ -139,12 +139,12 @@ declare %public %an:deterministic function operators:every($input)
 	n:reduce-all($input)
 };
 
-declare %public %an:deterministic function operators:if-else($condition, $expression1, $expression2)
+declare %public %an:deterministic function operators:if-else($condition, $x, $y)
 {
 	if ($condition instance of xs:anyURI) then
-		n:where($condition, $expression1, $expression2)
+		n:where($condition, $x, $y)
 	else
-		if ($condition) then $expression1 else $expression2
+		if ($condition) then $x else $y
 };
 
 declare %public %an:deterministic function operators:get-instance($x)
