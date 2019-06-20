@@ -369,11 +369,11 @@ def logical_and(x, y, name=None):
             return sym.And(x, y)
         return np.logical_and(x, y)
     if (symbolics.mode == symbolics.PYOMO):
-        if (isinstance(x, tuple)):
-            if (isinstance(y, tuple)):
+        if (isinstance(x, (list, tuple))):
+            if (isinstance(y, (list, tuple))):
                 return x + y
             return x + (y,)
-        if (isinstance(y, tuple)):
+        if (isinstance(y, (list, tuple))):
             return (x,) + y
         return (x, y)
     if (symbolics.mode == symbolics.CASADI_SX):
@@ -471,10 +471,20 @@ def logical_xor(x, y, name=None):
         return tf.logical_xor(tf.constant(x, y.dtype), y, name)
     return np.logical_xor(x, y)
 
+def flatten(input):
+    output = []
+    for item in input:
+        if (isinstance(item, (list, tuple))):
+            output += flatten(item)
+        else:
+            output += [item]
+    return output
+
 def reduce_all(input, axis=None, keepdims=False, name=None):
     items = None
-    if (isinstance(input, tuple)):
+    if (isinstance(input, (list, tuple))):
         items = []
+        input = flatten(input)
         for x in input:
             if (isinstance(x, bool)):
                 if (not x):
@@ -520,7 +530,7 @@ def reduce_all(input, axis=None, keepdims=False, name=None):
         
 def reduce_any(input, axis=None, keepdims=False, name=None):
     items = None
-    if (isinstance(input, tuple)):
+    if (isinstance(input, (list, tuple))):
         items = []
         for x in input:
             if (isinstance(x, bool)):
@@ -653,7 +663,7 @@ def reduce_sum(x, axis=None, keepdims=False, name=None):
         return np.sum(x, axis, keepdims=keepdims)
     if (isinstance(x, (tf.Tensor, tf.Variable))):
         return tf.reduce_sum(x, axis, keepdims, name)
-    if not hasattr(x, '__len__'):
+    if (not isinstance(x, (list, tuple))):
         return x
     if (len(x) == 0):
         return 0
