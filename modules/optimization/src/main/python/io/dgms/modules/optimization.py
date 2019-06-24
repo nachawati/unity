@@ -227,15 +227,16 @@ def add_casadi_variables(expression, variables):
 def solve_tensorflow(objectives, constraints, bindings={}, options={}):
 
     solver = options.get("solver")
+    
     if (solver is None):
-        solver = tf.train.GradientDescentOptimizer(0.01)
+        solver = pg.algorithm(pg.ihs()) #tf.train.GradientDescentOptimizer(0.01)
     
     if (isinstance(solver, tf.train.Optimizer)):
 
         if (len(objectives) != 1):
-            raise ValueError(type(solver) + " does not support multiple objectives")
+            raise ValueError(str(type(solver)) + " does not support multiple objectives")
         elif (len(constraints) != 0):
-            raise ValueError(type(solver) + " does not support constrained optimization")
+            raise ValueError(str(type(solver)) + " does not support constrained optimization")
 
         objective = next(iter(objectives.values()))
         optimizer = solver.minimize(objective)
@@ -243,7 +244,7 @@ def solve_tensorflow(objectives, constraints, bindings={}, options={}):
         with tf.Session() as session:
             session.run(tf.global_variables_initializer())
             
-            keys = list(bindings.keys())            
+            keys = list(bindings.keys())
             keys_pointer = [ pointer(int(key)) for key in keys ]
                         
             for epoch in range(options.get("training-epochs", 1000)):
@@ -270,17 +271,23 @@ def solve_tensorflow(objectives, constraints, bindings={}, options={}):
             problem = UnityTensorflowProblem(session, objectives, constraints, options)
             session.run(tf.global_variables_initializer())
             prob = pg.problem(problem)
-            algo = pg.algorithm(pg.ihs())
+            algo = solver
             pop = pg.population(prob, 10)
             
-            for i in range(1000):
+            for i in range(10000):
                 pop = algo.evolve(pop)
-            print(pop)
+            #print(pop)
             
-        return "GOOD"
-
+            return {
+                "solution": {
+                    symbolics.variables_dict[variable.op].get("id") : value for variable, value in zip(problem.variables, pop.champion_x)
+                },
+                "solver": {
+                    "name": str(solver.get_name())
+                }
+            }
     else:
-        raise ValueError("invalid solver: " + solver)
+        raise ValueError("invalid solver: " + str(solver))
 
 class UnityTensorflowProblem:
 
