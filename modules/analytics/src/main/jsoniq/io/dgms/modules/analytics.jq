@@ -85,8 +85,8 @@ declare %public %an:nondeterministic function analytics:instantiate($items, $sol
 	for $item in $items
 	return
 		if ($item instance of xs:anyURI) then
-			if (fn:exists($solution.(symbolics:id($item)))) then
-				$solution.(symbolics:id($item))
+			if (fn:exists($solution.(symbolics:identifier($item)))) then
+				$solution.(symbolics:identifier($item))
 			else
 				$item
     	else if ($item instance of object) then {|
