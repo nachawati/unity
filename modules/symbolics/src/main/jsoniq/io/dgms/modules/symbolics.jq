@@ -48,7 +48,7 @@ declare %public %an:nondeterministic %an:variadic function symbolics:get-mode() 
 (:~
  : Gets an id.
  :)
-declare %public %an:nondeterministic %an:variadic function symbolics:id() external;
+declare %public %an:nondeterministic %an:variadic function symbolics:identifier() external;
 
 (:~
  : Constructs a symbolic parameter.
