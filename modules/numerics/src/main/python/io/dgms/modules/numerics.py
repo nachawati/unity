@@ -30,8 +30,7 @@ import casadi as cas;
 import numpy as np;
 import pyomo.environ as pyo
 import sympy as sym
-import tensorflow as tf;
-from tensorflow.python.framework import ops
+import tensorflow as tf
 import python.io.dgms.modules.symbolics as symbolics
 
 def add(x, y, name=None):
