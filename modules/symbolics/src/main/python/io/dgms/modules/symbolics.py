@@ -52,11 +52,9 @@ variables_dict = dict()
 
 mode = 2
 
-def function(func, *args):
-    
+def function(func, *inp, Tout=tf.float64, name=None):
     global _lib
-    result =  _lib.invoke(ctypes.py_object(func), ctypes.py_object(args))
-    return result
+    return tf.py_function(lambda *args: _lib.invoke(ctypes.py_object(func), ctypes.py_object(args)), inp, Tout, name)
 
 def get_mode():
     global mode
