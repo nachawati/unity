@@ -236,7 +236,7 @@ def solve_tensorflow(objectives, constraints, bindings={}, options={}):
         if (len(objectives) != 1):
             raise ValueError(str(type(solver)) + " does not support multiple objectives")
         elif (len(constraints) != 0):
-            raise ValueError(str(type(solver)) + " does not support constrained optimization")
+            raise ValueError(str(type(solver)) + " does not support constraints")
 
         objective = next(iter(objectives.values()))
         optimizer = solver.minimize(objective)
@@ -277,6 +277,7 @@ def solve_tensorflow(objectives, constraints, bindings={}, options={}):
             for i in range(10000):
                 pop = algo.evolve(pop)
             #print(pop)
+            
             
             return {
                 "solution": {
