@@ -31,6 +31,12 @@ import pyomo.environ as pyo
 import sympy as sym
 import tensorflow as tf
 
+import ctypes
+
+_lib = ctypes.CDLL('libunity-kernel.so')
+_lib.invoke.argtype = (ctypes.py_object, ctypes.py_object)
+_lib.invoke.restype = ctypes.py_object
+
 SYMPY = 1
 PYOMO = 2
 CASADI_SX = 3
@@ -46,8 +52,11 @@ variables_dict = dict()
 
 mode = 2
 
-def function():
-    return None
+def function(func, *args):
+    
+    global _lib
+    result =  _lib.invoke(ctypes.py_object(func), ctypes.py_object(args))
+    return result
 
 def get_mode():
     global mode
@@ -126,7 +135,7 @@ def placeholder(name=None, shape=None, dtype=tf.float64):
         raise ValueError("invalid mode: " + str(mode))    
     return placeholder
 
-def id(value):
+def identifier(value):
     if (mode == SYMPY):
         return value
     if (mode == PYOMO):
@@ -136,11 +145,11 @@ def id(value):
     if (mode == CASADI_MX):
         return str(value.__hash__())
     if (mode == TENSORFLOW):
-        return value.op
+        return str(id(value))
     return None
 
-def reference():
-    return None
+def reference(value):
+    return value
 
 def set_mode(value):
     global mode
@@ -209,8 +218,8 @@ def variable(initialize=None, name=None, shape=[], dtype=tf.float64, bounds=None
                 initialize = tf.random.uniform(shape, minval=bounds[0], maxval=bounds[1], dtype=dtype)
             else:
                 initialize = tf.random.uniform(shape, minval=-100, maxval=100, dtype=dtype)
-        variable = tf.Variable(initialize, name=name, dtype=dtype, expected_shape=shape, trainable=False)    
-        variables_dict[variable.op] = { "bounds": bounds if (bounds is not None) else [tf.as_dtype(dtype).min, tf.as_dtype(dtype).max], "domain": domain, "initialize": initialize, "name": name }
+        variable = tf.Variable(initialize, name=name, dtype=dtype, expected_shape=shape, trainable=False)
+        variables_dict[variable.op] = { "bounds": bounds if (bounds is not None) else [tf.as_dtype(dtype).min, tf.as_dtype(dtype).max], "domain": domain, "initialize": initialize, "name": name, "id": str(id(variable)) }
 
     else:
         if (rank == 0):
