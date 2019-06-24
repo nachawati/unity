@@ -8,6 +8,8 @@
 #include <zorba/zorba_string.h>
 #include <zorba/zorba.h>
 #include <iostream>
+#include <cstdlib>
+#include <string>
 
 #ifdef WIN32
 #  define DLL_EXPORT __declspec(dllexport)
@@ -162,11 +164,12 @@ PyObject* getItemAsPyObject(zorba::Item item, const zorba::StaticContext* sctx, 
     else if (item.isAtomic()) {
         switch (item.getTypeCode()) {
             case zorba::store::SchemaTypeCode::XS_ANY_URI: {
-                PyObjectParameter* parameter = dynamic_cast<PyObjectParameter*>(dctx->getExternalFunctionParameter(item.getStringValue()));
-                if (parameter == nullptr)
-                    return Py_None;
-                return parameter->getObject();
-            }
+            	const char* str = item.getStringValue().str().c_str();
+            	PyObject* value = (PyObject*) std::atoll(str);
+				if (value == nullptr)
+					return PyUnicode_FromString(str);
+				return value;
+			}
             case zorba::store::SchemaTypeCode::XS_STRING:
                 return PyUnicode_FromString(item.getStringValue().str().c_str());
             case zorba::store::SchemaTypeCode::XS_BOOLEAN:
@@ -287,7 +290,6 @@ zorba::Item getPyObjectAsItem(PyObject* object, const zorba::StaticContext* sctx
     }
 
     std::string name = std::to_string((intptr_t) object);
-    dctx->addExternalFunctionParameter(name, new PyObjectParameter(object, 0));
     return getItemFactory()->createAnyURI(name);
 }
 
