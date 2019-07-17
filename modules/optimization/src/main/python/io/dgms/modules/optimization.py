@@ -36,6 +36,7 @@ import python.io.dgms.modules.symbolics as symbolics
 import shutil
 import tensorflow as tf
 import ctypes
+import time
 
 problem_seq = 0
 problems_dict = dict()
@@ -83,14 +84,26 @@ def solve(*args, **kwargs):
     subject_to = kwargs.get("subject-to", None)
     if (isinstance(subject_to, dict)):
         for key, constraint in subject_to.items():
-            constraints[key] = constraint
+            if (isinstance(constraint, bool)):
+                if (constraint is False):
+                    raise ValueError("constraint is false: " + str(key))
+            else:
+                constraints[key] = constraint
     elif (isinstance(subject_to, (list, tuple))):
         for constraint in subject_to:
-            constraints["con" + str(g)] = constraint
-            g += 1
+            if (isinstance(constraint, bool)):
+                if (constraint is False):
+                    raise ValueError("constraint is false: " + str(g))
+            else:
+                constraints["con" + str(g)] = constraint
+                g += 1
     elif (subject_to is not None):
-        constraints["con" + str(g)] = subject_to
-        g += 1
+        if (isinstance(subject_to, bool)):
+            if (subject_to is False):
+                raise ValueError("constraint is false: " + str(g))
+        else:
+            constraints["con" + str(g)] = subject_to
+            g += 1
 
     if (symbolics.mode == symbolics.PYOMO):
         return solve_pyomo(objectives, constraints, options)
@@ -274,9 +287,13 @@ def solve_tensorflow(objectives, constraints, bindings={}, options={}):
             algo = solver
             pop = pg.population(prob, 10)
             
-            for i in range(10000):
+            start_time = time.process_time()
+            
+            max_iterations = options.get("max-iterations", 1000)
+            for i in range(max_iterations):
                 pop = algo.evolve(pop)
-            #print(pop)
+            
+            end_time = time.process_time()
             
             
             return {
@@ -284,7 +301,9 @@ def solve_tensorflow(objectives, constraints, bindings={}, options={}):
                     symbolics.variables_dict[variable.op].get("id") : value for variable, value in zip(problem.variables, pop.champion_x)
                 },
                 "solver": {
-                    "name": str(solver.get_name())
+                    "time": end_time - start_time,
+                    "name": str(solver.get_name()),
+                    "iterations": max_iterations
                 }
             }
     else:
