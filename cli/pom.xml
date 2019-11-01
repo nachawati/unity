@@ -221,6 +221,56 @@
 						</configuration>
 					</plugin>
 
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>wagon-maven-plugin</artifactId>
+						<version>${wagon-maven-plugin.version}</version>
+						<inherited>false</inherited>
+						<executions>
+
+							<execution>
+								<id>download-ampl</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>download-single</goal>
+								</goals>
+								<configuration>
+									<url>https://github.com/nachawati/ampl/releases/download/ampl-0.0.2-SNAPSHOT</url>
+									<fromFile>ampl-model-0.0.2-SNAPSHOT.jar</fromFile>
+									<toFile>${project.build.directory}/ampl-model-0.0.2-SNAPSHOT.jar</toFile>
+									<skipIfExists>true</skipIfExists>
+								</configuration>
+							</execution>
+
+						</executions>
+
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-install-plugin</artifactId>
+						<version>${maven-install-plugin.version}</version>
+						<executions>
+
+							<execution>
+								<id>install-ampl</id>
+								<phase>package</phase>
+								<goals>
+									<goal>install-file</goal>
+								</goals>
+								<configuration>
+									<file>${project.build.directory}/ampl-model-0.0.2-SNAPSHOT.jar</file>
+									<groupId>net.vatov</groupId>
+									<artifactId>ampl</artifactId>
+									<version>0.0.2-SNAPSHOT</version>
+									<packaging>jar</packaging>
+									<generatePom>true</generatePom>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+
 				</plugins>
 
 			</build>
