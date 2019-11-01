@@ -2,14 +2,14 @@
 
 if [ $# == 0 ]; then
 
-	docker build -t unity-build:latest \
+	docker build -t nachawati/unity-build:0.1.0 \
 		-f ${0%/*}/deploy/src/docker/Dockerfile.build ${0%/*}/deploy/src/docker
 
 else
 
 	if [[ "$(docker images -q unity-build:latest 2> /dev/null)" == "" ]]; then
 	
-		docker build -t unity-build:latest \
+		docker build -t nachawati/unity-build:0.1.0 \
 			-f ${0%/*}/deploy/src/docker/Dockerfile.build ${0%/*}/deploy/src/docker
 	
 	fi
@@ -23,7 +23,7 @@ else
 		-v "/home/${SUDO_USER:-$USER}/.docker:/root/.docker" \
 		-e DOCKER_HOST=unix:///var/run/docker.sock \
 		-e MAVEN_CONFIG=/var/maven/.m2 \
-		unity-build:latest \
+		nachawati/unity-build:0.1.0 \
 		mvn -Duser.home=/var/maven "$@"
 
 fi
