@@ -137,7 +137,11 @@ def solve_pyomo(objectives, constraints, options={}):
 
     opt = pyo.SolverFactory(options.get("solver", "bonmin"))
     
-    result = opt.solve(model)
+    for option in options:
+    	if option not in ["solver", "engine", "tee"]: 
+    		opt.options[option] = options[option]
+    
+    result = opt.solve(model, tee=options.get("tee", False))
     
     return {
         "solver": {
