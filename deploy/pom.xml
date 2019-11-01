@@ -32,7 +32,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-resources-plugin</artifactId>
-						<version>3.1.0</version>
+						<version>${maven-resources-plugin.version}</version>
 						<executions>
 
 							<execution>
@@ -93,7 +93,7 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.6.0</version>
+						<version>${exec-maven-plugin.version}</version>
 						<executions>
 							<execution>
 								<id>delete-html</id>
@@ -132,7 +132,7 @@
 					<plugin>
 						<groupId>com.spotify</groupId>
 						<artifactId>dockerfile-maven-plugin</artifactId>
-						<version>1.4.4</version>
+						<version>${dockerfile-maven-plugin.version}</version>
 						<configuration>
 							<contextDirectory>${project.basedir}/../target/unity/${target}</contextDirectory>
 							<repository>dgms/dgms</repository>
@@ -152,9 +152,10 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.8</version>
+						<version>${maven-antrun-plugin.version}</version>
 						<executions>
 
+<!-- 
 							<execution>
 								<id>install</id>
 								<phase>install</phase>
@@ -166,12 +167,12 @@
 										<exec executable="npm" failonerror="true"
 											dir="${project.build.directory}/npm">
 											<arg value="install" />
-											<arg value="--global" />
+											<arg value="-/-global" />
 										</exec>
 									</target>
 								</configuration>
 							</execution>
-
+ -->
 							<execution>
 								<id>deploy</id>
 								<phase>deploy</phase>
@@ -228,7 +229,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.7.0</version>
+						<version>${maven-compiler-plugin.version}</version>
 						<executions>
 							<execution>
 								<id>default-compile</id>

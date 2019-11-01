@@ -27,18 +27,20 @@
 
 #include "UnityAnalyticsEngineManager.hpp"
 #include <unity_kernel_engine_UnityAnalyticsEngineManager.h>
-#include <iostream>
 
 JNIEXPORT void JNICALL Java_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1Initialize(JNIEnv * env, jobject obj, jstring mode)
 {
-    dlopen("libpython3.5m.so", RTLD_NOW | RTLD_GLOBAL);
+    dlopen("libpython3.7m.so", RTLD_NOW | RTLD_GLOBAL);
     Py_Initialize();
-    PyEval_InitThreads();
+
+    wchar_t* argv[] = { L"dgms", nullptr };
+    PySys_SetArgv(1, argv);
+
     PyRun_SimpleString("import os");
     PyRun_SimpleString("os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'");
 
-    PyRun_SimpleString("import tensorflow as tf");
-    PyRun_SimpleString("tf.logging.set_verbosity(tf.logging.ERROR)");
+    //PyRun_SimpleString("import tensorflow as tf");
+    //PyRun_SimpleString("tf.logging.set_verbosity(tf.logging.ERROR)");
 
     const char *mode_string = env->GetStringUTFChars(mode, 0);
     char command[2048];

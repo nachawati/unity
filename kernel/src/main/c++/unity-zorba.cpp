@@ -1,5 +1,5 @@
 #include <unity-zorba.hpp>
-#include <python3.5/Python.h>
+#include <python3.7m/Python.h>
 #include <vector>
 #include <zorba/empty_sequence.h>
 #include <zorba/external_module.h>

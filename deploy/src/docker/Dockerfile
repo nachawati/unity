@@ -25,60 +25,32 @@
 # CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #
 
-FROM openjdk:8-jdk
+FROM maven:3.6-jdk-11
+
+RUN apt-get update -qq && \
+	apt-get install -yqq \
+		sudo \
+		software-properties-common
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
-RUN apt-get update -qq && \
-    apt-get install -yqq \
-		apt-transport-https \
-		build-essential \
-		ca-certificates \
-		cmake \
-		gcc \
-		libgmp10 \
-		libxerces-c-dev \
-		libxml2 \
-		libxslt1.1 \
-		libz-dev \
-		llvm \
-		nodejs \
-		python3 \
-		python3-dev \
-		python3-pip \
-		python3-wheel \
-		swig \
-		wget \
-		zlib1g && \
-	rm -rf /var/lib/apt/lists/*
+RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | apt-key add -
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
 
-RUN wget -q https://github.com/oracle/graal/releases/download/vm-1.0.0-rc13/graalvm-ce-1.0.0-rc13-linux-amd64.tar.gz && \
-    tar -xvzf graalvm-ce-1.0.0-rc13-linux-amd64.tar.gz && \
-    rm graalvm-ce-1.0.0-rc13-linux-amd64.tar.gz
-
-ENV PATH=/graalvm-ce-1.0.0-rc13/bin:$PATH
-ENV JAVA_HOME=/graalvm-ce-1.0.0-rc13
-
-RUN pip3 install casadi
-RUN pip3 install jupyter
-RUN pip3 install jupyterlab
-RUN pip3 install matplotlib
-RUN pip3 install pygmo
-RUN pip3 install pyomo
-RUN pip3 install nlopt
-RUN pip3 install numpy
-RUN pip3 install tensorflow
-RUN pip3 install pandas
-RUN pip3 install seaborn
-RUN pip3 install sympy
-
-RUN apt-get update -qq && \
+RUN apt-get update -qq  && \
+	apt-get purge "flex" && \
+	apt-get purge "libboost*" && \
+	apt-get purge "libfl-dev" && \
+	apt-get purge "libmagick*" && \
+	apt-get purge "texlive*" && \
 	apt-get install -yqq \
 		apt-transport-https \
 		build-essential \
 		ca-certificates \
 		cmake \
 		curl \
+		docker-ce \
 		doxygen \
 		gcc \
 		gfortran \
@@ -105,6 +77,7 @@ RUN apt-get update -qq && \
 		libmagickwand-dev \
 		libpdfbox-java \
 		libslicot0 \
+		libsqlite3-dev \
 		libtidy-dev \
 		libxerces-c-dev \
 		libxml2 \
@@ -115,11 +88,7 @@ RUN apt-get update -qq && \
 		llvm-dev \
 		nodejs \
 		m4 \
-		python3 \
-		python3-dev \
-		python3-pip \
-		python3-wheel \
-		software-properties-common \
+		sqlite3 \
 		swig \
 		uuid \
 		uuid-dev \
@@ -128,13 +97,55 @@ RUN apt-get update -qq && \
 		zlib1g-dev --install-recommends && \
 	rm -rf /var/lib/apt/lists/*
 
+RUN wget -q http://launchpadlibrarian.net/160037457/bison_3.0.2.dfsg-2_amd64.deb
+RUN wget -q http://launchpadlibrarian.net/160037458/libbison-dev_3.0.2.dfsg-2_amd64.deb
+RUN dpkg -i libbison-dev_3.0.2.dfsg-2_amd64.deb bison_3.0.2.dfsg-2_amd64.deb
+RUN wget -q https://launchpad.net/ubuntu/+source/flex/2.5.39-8/+build/6118519/+files/libfl-dev_2.5.39-8_amd64.deb
+RUN wget -q https://launchpad.net/ubuntu/+source/flex/2.5.39-8/+build/6118519/+files/flex_2.5.39-8_amd64.deb
+RUN dpkg -i libfl-dev_2.5.39-8_amd64.deb flex_2.5.39-8_amd64.deb
+
+RUN rm -r /usr/include/c++/6/tr1
+ 
+RUN /usr/bin/npm install -g @angular/cli
+
+RUN wget http://www.openssl.org/source/openssl-1.0.2t.tar.gz
+RUN tar xvf openssl-1.0.2t.tar.gz
+WORKDIR "/openssl-1.0.2t"
+RUN ./config --prefix=/usr/local --openssldir=/usr/local shared zlib
+RUN make -j8
+RUN make install
+
+WORKDIR "/"
+
+RUN wget -q https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tgz
+RUN tar xvf Python-3.7.5.tgz
+WORKDIR "/Python-3.7.5"
+RUN ./configure --enable-optimizations --enable-shared --with-ensurepip=install --prefix=/usr/local LDFLAGS="-Wl,-rpath /usr/local/lib"
+RUN make -j8
+RUN make install
+
+RUN pip3 install casadi
+RUN pip3 install jupyter
+RUN pip3 install jupyterlab
+RUN pip3 install matplotlib
+RUN pip3 install nlopt
+RUN pip3 install numpy
+RUN pip3 install pandas
+RUN pip3 install plyvel
+RUN pip3 install pygmo
+RUN pip3 install pyomo
+RUN pip3 install seaborn
+RUN pip3 install sphinx
+RUN pip3 install sphinx-tabs
+RUN pip3 install sphinx_rtd_theme
+RUN pip3 install sympy
+RUN pip3 install tensorflow
+
 RUN wget -q https://github.com/madebr/pyOpt/archive/master.zip && \
     unzip master.zip && \
     rm master.zip && \
     cd pyOpt-master && \
     python3 setup.py install
-
-RUN pip3 install plyvel
 
 ENV PATH="/opt/unity/bin:${PATH}:/root/bin"
 ENV LD_LIBRARY_PATH="/opt/unity/lib:${LD_LIBRARY_PATH}:/root/lib"
@@ -158,6 +169,6 @@ WORKDIR "/root/workspace"
 EXPOSE 8888
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "-Xrs", "-Xms1024m", "-jar", "/opt/unity/lib/unity-cli-${project.version}.jar" ]
+ENTRYPOINT [ "java", "--add-opens", "java.base/java.lang=ALL-UNNAMED", "-Xrs", "-Xms1024m", "-jar", "/opt/unity/lib/unity-cli-${project.version}.jar" ]
 
 ADD . /opt/unity

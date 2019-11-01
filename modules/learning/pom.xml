@@ -30,7 +30,7 @@
 
 					<plugin>
 						<artifactId>maven-resources-plugin</artifactId>
-						<version>3.0.2</version>
+						<version>${maven-resources-plugin.version}</version>
 						<executions>
 
 							<execution>
@@ -72,7 +72,7 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.6.0</version>
+						<version>${exec-maven-plugin.version}</version>
 						<executions>
 							<execution>
 								<phase>package</phase>
@@ -127,7 +127,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.7.0</version>
+						<version>${maven-compiler-plugin.version}</version>
 						<executions>
 							<execution>
 								<id>default-compile</id>

@@ -87,7 +87,6 @@ JNIEXPORT jboolean JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContex
         zorba::StaticContext* sctx = *((zorba::StaticContext**) env->GetLongField(obj, fld));
         if (sctx == NULL)
             return JNI_FALSE;
-
         if (!PyErr_Occurred()) {
             sctx->registerModule(module);
             return JNI_TRUE;

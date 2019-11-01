@@ -32,6 +32,6 @@
 #include <cstring>
 #include <dlfcn.h>
 #include <jni.h>
-#include <python3.5/Python.h>
+#include <python3.7m/Python.h>
 
 #endif

@@ -33,7 +33,7 @@
 #include <cstring>
 #include <iostream>
 #include <map>
-#include <python3.5/Python.h>
+#include <python3.7m/Python.h>
 #include <string>
 #include <vector>
 #include <zorba/empty_sequence.h>

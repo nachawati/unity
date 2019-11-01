@@ -31,7 +31,7 @@ project(unity-kernel)
 
 find_package(JNI)
 
-find_package(PythonLibs 3.5 REQUIRED)
+find_package(PythonLibs 3.7 REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED unity-zorba.cpp UnityAnalyticsEngineManager.cpp UnityZorbaDynamicContext.cpp UnityZorbaStaticContext.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "unity-kernel")

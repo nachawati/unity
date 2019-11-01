@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-if [[ "$(docker images -q unity-build:latest 2> /dev/null)" == "" ]]; then
-
-	docker build -t unity-build:latest \
-		-f ${0%/*}/deploy/src/docker/Dockerfile.build ${0%/*}/deploy/src/docker
-
-fi
-
 if [ $# == 0 ]; then
 
 	docker build -t unity-build:latest \
 		-f ${0%/*}/deploy/src/docker/Dockerfile.build ${0%/*}/deploy/src/docker
 
 else
+
+	if [[ "$(docker images -q unity-build:latest 2> /dev/null)" == "" ]]; then
+	
+		docker build -t unity-build:latest \
+			-f ${0%/*}/deploy/src/docker/Dockerfile.build ${0%/*}/deploy/src/docker
+	
+	fi
 
 	docker run -it --rm \
 		-v /var/run/docker.sock:/var/run/docker.sock \
@@ -28,5 +28,7 @@ else
 
 fi
 
-chown -R ${SUDO_UID:-$UID}:${SUDO_GID:-$GID} ${0%/*}
-chown -R ${SUDO_UID:-$UID}:${SUDO_GID:-$GID} /home/${SUDO_USER:-$USER}/.m2
+if [[ -v SUDO_UID ]]; then
+    chown -R ${SUDO_UID:-$UID}:${SUDO_GID:-$GID} ${0%/*}
+	chown -R ${SUDO_UID:-$UID}:${SUDO_GID:-$GID} /home/${SUDO_USER:-$USER}/.m2
+fi

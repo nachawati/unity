@@ -25,7 +25,7 @@
 # CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #
 
-FROM maven:3.5-jdk-8 as BUILD
+FROM maven:3.6-jdk-11 as BUILD
 
 RUN apt-get update -qq && \
 	apt-get install -yqq \
@@ -77,6 +77,7 @@ RUN apt-get update -qq  && \
 		libmagickwand-dev \
 		libpdfbox-java \
 		libslicot0 \
+		libsqlite3-dev \
 		libtidy-dev \
 		libxerces-c-dev \
 		libxml2 \
@@ -87,11 +88,7 @@ RUN apt-get update -qq  && \
 		llvm-dev \
 		nodejs \
 		m4 \
-		python3 \
-		python3-dev \
-		python3-pip \
-		python3-wheel \
-		software-properties-common \
+		sqlite3 \
 		swig \
 		uuid \
 		uuid-dev \
@@ -111,36 +108,43 @@ RUN rm -r /usr/include/c++/6/tr1
  
 RUN /usr/bin/npm install -g @angular/cli
 
-RUN wget -q https://github.com/oracle/graal/releases/download/vm-1.0.0-rc13/graalvm-ce-1.0.0-rc13-linux-amd64.tar.gz && \
-    tar -xvzf graalvm-ce-1.0.0-rc13-linux-amd64.tar.gz && \
-    rm graalvm-ce-1.0.0-rc13-linux-amd64.tar.gz
+RUN wget http://www.openssl.org/source/openssl-1.0.2t.tar.gz
+RUN tar xvf openssl-1.0.2t.tar.gz
+WORKDIR "/openssl-1.0.2t"
+RUN ./config --prefix=/usr/local --openssldir=/usr/local shared zlib
+RUN make -j8
+RUN make install
 
-RUN pip3 install sphinx
-RUN pip3 install sphinx-tabs
-RUN pip3 install sphinx_rtd_theme
+WORKDIR "/"
+
+RUN wget -q https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tgz
+RUN tar xvf Python-3.7.5.tgz
+WORKDIR "/Python-3.7.5"
+RUN ./configure --enable-optimizations --enable-shared --with-ensurepip=install --prefix=/usr/local LDFLAGS="-Wl,-rpath /usr/local/lib"
+RUN make -j8
+RUN make install
 
 RUN pip3 install casadi
 RUN pip3 install jupyter
 RUN pip3 install jupyterlab
 RUN pip3 install matplotlib
-RUN pip3 install pygmo
-RUN pip3 install pyomo
 RUN pip3 install nlopt
 RUN pip3 install numpy
-RUN pip3 install tensorflow
 RUN pip3 install pandas
+RUN pip3 install plyvel
+RUN pip3 install pygmo
+RUN pip3 install pyomo
 RUN pip3 install seaborn
+RUN pip3 install sphinx
+RUN pip3 install sphinx-tabs
+RUN pip3 install sphinx_rtd_theme
+RUN pip3 install sympy
+RUN pip3 install tensorflow
 
 RUN wget -q https://github.com/madebr/pyOpt/archive/master.zip && \
     unzip master.zip && \
     rm master.zip && \
     cd pyOpt-master && \
     python3 setup.py install
-    
-RUN pip3 install plyvel
-RUN pip3 install sympy
-
-ENV PATH=/graalvm-ce-1.0.0-rc13/bin:$PATH
-ENV JAVA_HOME=/graalvm-ce-1.0.0-rc13
 
 WORKDIR /usr/src/unity

@@ -29,7 +29,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(reflection)
 
-find_package(PythonLibs 3.5 REQUIRED)
+find_package(PythonLibs 3.7 REQUIRED)
 
 add_library(${PROJECT_NAME} SHARED reflection.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "reflection")

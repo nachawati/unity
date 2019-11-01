@@ -31,7 +31,7 @@
 #include <jni.h>
 #include <iostream>
 #include <string>
-#include <python3.5/Python.h>
+#include <python3.7m/Python.h>
 #include <unity-zorba.hpp>
 
 class UnityZorbaResolver;
