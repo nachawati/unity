@@ -38,9 +38,9 @@ if (linux-gcc-amd64)
 	include_directories(
 		"${PYTHON_INCLUDE_DIRS}"
 		"${CMAKE_SOURCE_DIR}/../../../../../../../include"
-		"${CMAKE_SOURCE_DIR}/../../../../../../../../../../target/unity/linux-gcc-amd64/include")
+		"${CMAKE_SOURCE_DIR}/../../../../../../../../../../target/linux-gcc-amd64/include")
 	target_link_libraries(${PROJECT_NAME} PRIVATE
 		"${PYTHON_LIBRARIES}"
-		"${CMAKE_SOURCE_DIR}/../../../../../../../../../../target/unity/linux-gcc-amd64/lib/libunity-kernel.so"
-		"${CMAKE_SOURCE_DIR}/../../../../../../../../../../target/unity/linux-gcc-amd64/lib/libzorba_simplestore.so")
+		"${CMAKE_SOURCE_DIR}/../../../../../../../../../../target/linux-gcc-amd64/lib/libunity-kernel.so"
+		"${CMAKE_SOURCE_DIR}/../../../../../../../../../../target/linux-gcc-amd64/lib/libzorba_simplestore.so")
 endif()

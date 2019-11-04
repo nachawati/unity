@@ -40,7 +40,7 @@
 									<goal>copy-dependencies</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${project.basedir}/../target/unity/${target}/lib</outputDirectory>
+									<outputDirectory>${project.basedir}/../target/${target}/lib</outputDirectory>
 									<silent>true</silent>
 								</configuration>
 							</execution>
@@ -61,7 +61,7 @@
 									<mainClass>unity.cli.Main</mainClass>
 								</manifest>
 							</archive>
-							<outputDirectory>${project.basedir}/../target/unity/${target}/lib</outputDirectory>
+							<outputDirectory>${project.basedir}/../target/${target}/lib</outputDirectory>
 						</configuration>
 					</plugin>
 

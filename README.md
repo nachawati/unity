@@ -315,10 +315,10 @@ A clean build of **Unity DGMS** is performed in two steps:
 ./mvnw install
 ```
 
-This will build a binary distribution of **Unity DGMS** with all core dependencies inside the ``./target/unity/linux-gcc-amd64`` folder. You can test the build by running:
+This will build a binary distribution of **Unity DGMS** with all core dependencies inside the ``./target/linux-gcc-amd64`` folder. You can test the build by running:
 
 ```bash
-cd ./target/unity/linux-gcc-amd64
+cd ./target/linux-gcc-amd64
 java -Xrs -Xms1024m -jar ./lib/unity-cli-<VERSION>.jar run 1+1
 ```
 

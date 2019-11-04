@@ -42,7 +42,7 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${project.basedir}/../target/unity/${target}</outputDirectory>
+									<outputDirectory>${project.basedir}/../target/${target}</outputDirectory>
 									<overwrite>true</overwrite>
 									<resources>
 										<resource>
@@ -134,7 +134,7 @@
 						<artifactId>dockerfile-maven-plugin</artifactId>
 						<version>${dockerfile-maven-plugin.version}</version>
 						<configuration>
-							<contextDirectory>${project.basedir}/../target/unity/${target}</contextDirectory>
+							<contextDirectory>${project.basedir}/../target/${target}</contextDirectory>
 							<repository>dgms/dgms</repository>
 							<tag>${project.version}</tag>
 						</configuration>

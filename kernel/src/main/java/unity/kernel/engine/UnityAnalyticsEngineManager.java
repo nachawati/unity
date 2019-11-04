@@ -225,7 +225,7 @@ public class UnityAnalyticsEngineManager extends ScriptEngineManager
                     switch (SystemUtils.OS_ARCH) {
                     case "amd64":
                     case "x86_64":
-                        return new File(location, "target/unity/linux-gcc-amd64").toPath();
+                        return new File(location, "target/linux-gcc-amd64").toPath();
                     }
             }
             return new File(path).getParentFile().getParentFile().toPath();

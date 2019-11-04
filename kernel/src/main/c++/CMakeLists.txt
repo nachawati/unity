@@ -39,11 +39,11 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "unity-kernel")
 if (linux-gcc-amd64)
 	include_directories(
 		"${CMAKE_SOURCE_DIR}/../include"
-		"${CMAKE_SOURCE_DIR}/../../../../target/unity/linux-gcc-amd64/include"
+		"${CMAKE_SOURCE_DIR}/../../../../target/linux-gcc-amd64/include"
 		"${JAVA_INCLUDE_PATH}"
 		"${JAVA_INCLUDE_PATH2}"
 		"${PYTHON_INCLUDE_DIRS}")
 	target_link_libraries(${PROJECT_NAME} PRIVATE
 		"${PYTHON_LIBRARIES}"
-		"${CMAKE_SOURCE_DIR}/../../../../target/unity/linux-gcc-amd64/lib/libzorba_simplestore.so")
+		"${CMAKE_SOURCE_DIR}/../../../../target/linux-gcc-amd64/lib/libzorba_simplestore.so")
 endif()

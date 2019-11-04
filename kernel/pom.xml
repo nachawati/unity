@@ -101,7 +101,7 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${project.basedir}/../target/unity/${target}/kernels</outputDirectory>
+									<outputDirectory>${project.basedir}/../target/${target}/kernels</outputDirectory>
 									<overwrite>true</overwrite>
 									<resources>
 										<resource>
@@ -119,7 +119,7 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${project.basedir}/../target/unity/${target}/include</outputDirectory>
+									<outputDirectory>${project.basedir}/../target/${target}/include</outputDirectory>
 									<resources>
 										<resource>
 											<directory>${project.basedir}/src/main/include</directory>
@@ -147,7 +147,7 @@
 									<goal>copy-dependencies</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${project.basedir}/../target/unity/${target}/lib</outputDirectory>
+									<outputDirectory>${project.basedir}/../target/${target}/lib</outputDirectory>
 									<silent>true</silent>
 								</configuration>
 							</execution>
@@ -168,7 +168,7 @@
 									<mainClass>unity.kernel.DocumentationGenerator</mainClass>
 								</manifest>
 							</archive>
-							<outputDirectory>${project.basedir}/../target/unity/${target}/lib</outputDirectory>
+							<outputDirectory>${project.basedir}/../target/${target}/lib</outputDirectory>
 						</configuration>
 					</plugin>
 
@@ -199,7 +199,7 @@
 										</exec>
 										<copy
 											file="${project.build.directory}/${target}/unity-kernel/libunity-kernel.so"
-											tofile="${project.basedir}/../target/unity/${target}/lib/libunity-kernel.so"
+											tofile="${project.basedir}/../target/${target}/lib/libunity-kernel.so"
 											overwrite="true" />
 									</target>
 								</configuration>
@@ -317,7 +317,7 @@
 											resource="net/sf/antcontrib/antcontrib.properties"
 											classpathref="maven.plugin.classpath" />
 										<available
-											file="${project.basedir}/../target/unity/${target}/lib/libzorba_simplestore.so"
+											file="${project.basedir}/../target/${target}/lib/libzorba_simplestore.so"
 											property="CompileZorba" value="false" />
 										<if>
 											<equals arg1="${CompileZorba}" arg2="false" />
@@ -342,7 +342,7 @@
 													<arg value="-DCMAKE_CXX_STANDARD_REQUIRED=ON" />
 													<arg value="-DCMAKE_CXX_EXTENSIONS=OFF" />
 													<arg
-														value="-DCMAKE_INSTALL_PREFIX=${project.basedir}/../target/unity/${target}" />
+														value="-DCMAKE_INSTALL_PREFIX=${project.basedir}/../target/${target}" />
 													<arg
 														value="-DCMAKE_INSTALL_RPATH=\$ORIGIN/" />														
 													<arg
@@ -356,14 +356,14 @@
 													dir="${project.build.directory}/zorba-${zorba.version}/build/${target}">
 													<arg value="install" />
 												</exec>
-												<copy file="/usr/lib/x86_64-linux-gnu/libicuuc.so.57" todir="${project.basedir}/../target/unity/${target}/lib"/>
-												<chmod file="${project.basedir}/../target/unity/${target}/lib/libicuuc.so.57" perm="+x"/>
-												<copy file="/usr/lib/x86_64-linux-gnu/libicudata.so.57" todir="${project.basedir}/../target/unity/${target}/lib"/>
-												<chmod file="${project.basedir}/../target/unity/${target}/lib/libicudata.so.57" perm="+x"/>
-												<copy file="/usr/lib/x86_64-linux-gnu/libicui18n.so.57" todir="${project.basedir}/../target/unity/${target}/lib"/>
-												<chmod file="${project.basedir}/../target/unity/${target}/lib/libicui18n.so.57" perm="+x"/>
-												<copy file="/usr/lib/x86_64-linux-gnu/libxerces-c-3.1.so" todir="${project.basedir}/../target/unity/${target}/lib"/>
-												<chmod file="${project.basedir}/../target/unity/${target}/lib/libxerces-c-3.1.so" perm="+x"/>
+												<copy file="/usr/lib/x86_64-linux-gnu/libicuuc.so.57" todir="${project.basedir}/../target/${target}/lib"/>
+												<chmod file="${project.basedir}/../target/${target}/lib/libicuuc.so.57" perm="+x"/>
+												<copy file="/usr/lib/x86_64-linux-gnu/libicudata.so.57" todir="${project.basedir}/../target/${target}/lib"/>
+												<chmod file="${project.basedir}/../target/${target}/lib/libicudata.so.57" perm="+x"/>
+												<copy file="/usr/lib/x86_64-linux-gnu/libicui18n.so.57" todir="${project.basedir}/../target/${target}/lib"/>
+												<chmod file="${project.basedir}/../target/${target}/lib/libicui18n.so.57" perm="+x"/>
+												<copy file="/usr/lib/x86_64-linux-gnu/libxerces-c-3.1.so" todir="${project.basedir}/../target/${target}/lib"/>
+												<chmod file="${project.basedir}/../target/${target}/lib/libxerces-c-3.1.so" perm="+x"/>
 											</else>
 										</if>
 									</target>
@@ -379,7 +379,7 @@
 											resource="net/sf/antcontrib/antcontrib.properties"
 											classpathref="maven.plugin.classpath" />
 										<available
-											file="${project.basedir}/../target/unity/${target}/bin/couenne"
+											file="${project.basedir}/../target/${target}/bin/couenne"
 											property="CompileCouenne" value="false" />
 										<if>
 											<equals arg1="${CompileCouenne}" arg2="false" />
@@ -412,7 +412,7 @@
 													<arg value="get.dependencies.sh" />
 													<arg value="build" />
 													<arg
-														value="--prefix=${project.basedir}/../target/unity/${target}" />
+														value="--prefix=${project.basedir}/../target/${target}" />
 												</exec>
 												<exec executable="make" failonerror="true"
 													dir="${project.build.directory}/Couenne-${couenne.version}/build/Couenne">
@@ -462,7 +462,7 @@
 									<goal>install-file</goal>
 								</goals>
 								<configuration>
-									<file>${project.basedir}/../target/unity/${target}/share/java/zorba_api.jar</file>
+									<file>${project.basedir}/../target/${target}/share/java/zorba_api.jar</file>
 									<groupId>io.zorba</groupId>
 									<artifactId>zorba-api</artifactId>
 									<version>${zorba.version}</version>

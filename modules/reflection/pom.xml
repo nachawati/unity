@@ -40,7 +40,7 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${project.basedir}/../../target/unity/${target}/lib</outputDirectory>
+									<outputDirectory>${project.basedir}/../../target/${target}/lib</outputDirectory>
 									<resources>
 										<resource>
 											<directory>${project.basedir}/src/main/jsoniq</directory>
@@ -81,7 +81,7 @@
 										</exec>
 										<copy
 											file="${project.build.directory}/${target}/zorba/io/dgms/modules/reflection/libreflection.so"
-											tofile="${project.basedir}/../../target/unity/${target}/lib/io/dgms/modules/libreflection.so"
+											tofile="${project.basedir}/../../target/${target}/lib/io/dgms/modules/libreflection.so"
 											overwrite="true" />
 									</target>
 								</configuration>
@@ -110,14 +110,14 @@
 										<argument>-Xrs</argument>
 										<argument>-Xms1024m</argument>
 										<argument>-jar</argument>
-										<argument>${project.basedir}/../../target/unity/linux-gcc-amd64/lib/unity-kernel-${project.version}.jar</argument>
+										<argument>${project.basedir}/../../target/linux-gcc-amd64/lib/unity-kernel-${project.version}.jar</argument>
 										<argument>${project.basedir}/../../docs/library/reflection.rst</argument>
 										<argument>http://dgms.io/modules/reflection</argument>
-										<argument>${project.basedir}/../../target/unity/linux-gcc-amd64/lib</argument>
+										<argument>${project.basedir}/../../target/linux-gcc-amd64/lib</argument>
 									</arguments>
 									<environmentVariables>
-										<DGMS_HOME>${project.basedir}/../../target/unity/linux-gcc-amd64</DGMS_HOME>
-										<LD_LIBRARY_PATH>${project.basedir}/../../target/unity/linux-gcc-amd64/lib</LD_LIBRARY_PATH>
+										<DGMS_HOME>${project.basedir}/../../target/linux-gcc-amd64</DGMS_HOME>
+										<LD_LIBRARY_PATH>${project.basedir}/../../target/linux-gcc-amd64/lib</LD_LIBRARY_PATH>
 									</environmentVariables>
 								</configuration>
 							</execution>
