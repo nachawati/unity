@@ -27,9 +27,9 @@
 
 #include "UnityZorbaStaticContext.hpp"
 
-#include <unity_kernel_engine_zorba_UnityZorbaStaticContext.h>
+#include <io_dgms_unity_kernel_engine_zorba_UnityZorbaStaticContext.h>
 
-JNIEXPORT void JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContext_addPythonPath(JNIEnv* env, jobject obj, jstring path)
+JNIEXPORT void JNICALL Java_io_dgms_unity_kernel_engine_zorba_UnityZorbaStaticContext_addPythonPath(JNIEnv* env, jobject obj, jstring path)
 {
     const char *pathUTFChars = env->GetStringUTFChars(path, NULL);
     char command[2048];
@@ -42,7 +42,7 @@ JNIEXPORT void JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContext_ad
     env->ReleaseStringUTFChars(path, pathUTFChars);
 }
 
-JNIEXPORT void JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContext_configure(JNIEnv* env, jobject obj, jobject xquery)
+JNIEXPORT void JNICALL Java_io_dgms_unity_kernel_engine_zorba_UnityZorbaStaticContext_configure(JNIEnv* env, jobject obj, jobject xquery)
 {
     jclass cls = env->GetObjectClass(obj);
     jfieldID fld = env->GetFieldID(cls, "swigCPtr", "J");
@@ -54,7 +54,7 @@ JNIEXPORT void JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContext_co
     dctx->addExternalFunctionParam("dctx", dctx);
 }
 
-JNIEXPORT jboolean JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContext_initialize(JNIEnv* env, jobject obj)
+JNIEXPORT jboolean JNICALL Java_io_dgms_unity_kernel_engine_zorba_UnityZorbaStaticContext_initialize(JNIEnv* env, jobject obj)
 {
     try {
         jclass cls = env->GetObjectClass(obj);
@@ -74,7 +74,7 @@ JNIEXPORT jboolean JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContex
     }
 }
 
-JNIEXPORT jboolean JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContext_registerPythonModule(JNIEnv* env, jobject obj, jstring uri, jstring name)
+JNIEXPORT jboolean JNICALL Java_io_dgms_unity_kernel_engine_zorba_UnityZorbaStaticContext_registerPythonModule(JNIEnv* env, jobject obj, jstring uri, jstring name)
 {
     try {
         const char *uriUTFChars = env->GetStringUTFChars(uri, nullptr);
@@ -100,7 +100,7 @@ JNIEXPORT jboolean JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContex
     }
 }
 
-JNIEXPORT jboolean JNICALL Java_unity_kernel_engine_zorba_UnityZorbaStaticContext_release(JNIEnv* env, jobject obj)
+JNIEXPORT jboolean JNICALL Java_io_dgms_unity_kernel_engine_zorba_UnityZorbaStaticContext_release(JNIEnv* env, jobject obj)
 {
     try {
         jclass cls = env->GetObjectClass(obj);

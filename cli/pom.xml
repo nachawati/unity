@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>unity</groupId>
+		<groupId>io.dgms</groupId>
 		<artifactId>unity</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
@@ -58,7 +58,7 @@
 									<addClasspath>true</addClasspath>
 									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-									<mainClass>unity.cli.Main</mainClass>
+									<mainClass>io.dgms.unity.cli.Main</mainClass>
 								</manifest>
 							</archive>
 							<outputDirectory>${project.basedir}/../target/${target}/lib</outputDirectory>
@@ -72,85 +72,85 @@
 			<dependencies>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-client</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-kernel</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-analytics</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-data</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-learning</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-numerics</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-optimization</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-plot</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-random</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-reflection</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-symbolics</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-modules-system</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-runner</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-server</artifactId>
 					<version>${project.version}</version>
 				</dependency>

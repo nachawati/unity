@@ -26,9 +26,9 @@
  */
 
 #include "UnityAnalyticsEngineManager.hpp"
-#include <unity_kernel_engine_UnityAnalyticsEngineManager.h>
+#include <io_dgms_unity_kernel_engine_UnityAnalyticsEngineManager.h>
 
-JNIEXPORT void JNICALL Java_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1Initialize(JNIEnv * env, jobject obj, jstring mode)
+JNIEXPORT void JNICALL Java_io_dgms_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1Initialize(JNIEnv * env, jobject obj, jstring mode)
 {
     dlopen("libpython3.7m.so", RTLD_NOW | RTLD_GLOBAL);
     Py_Initialize();
@@ -56,7 +56,7 @@ JNIEXPORT void JNICALL Java_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1
 
     char* home = std::getenv("DGMS_HOME");
     if (home == nullptr)
-    	home = "/opt/unity";
+    	home = "/opt/dgms";
 
     strcpy(command, "if (os.path.abspath(\"");
     strcat(command, home);
@@ -67,7 +67,7 @@ JNIEXPORT void JNICALL Java_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1
     PyRun_SimpleString(command);
 }
 
-JNIEXPORT void JNICALL Java_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1Finalize(JNIEnv * env, jobject obj)
+JNIEXPORT void JNICALL Java_io_dgms_unity_kernel_engine_UnityAnalyticsEngineManager_Py_1Finalize(JNIEnv * env, jobject obj)
 {
     Py_Finalize();
 }

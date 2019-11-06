@@ -147,10 +147,10 @@ RUN wget -q https://github.com/madebr/pyOpt/archive/master.zip && \
     cd pyOpt-master && \
     python3 setup.py install
 
-ENV PATH="/opt/unity/bin:${PATH}:/root/bin"
-ENV LD_LIBRARY_PATH="/opt/unity/lib:${LD_LIBRARY_PATH}:/root/lib"
+ENV PATH="/opt/dgms/bin:${PATH}:/root/bin"
+ENV LD_LIBRARY_PATH="/opt/dgms/lib:${LD_LIBRARY_PATH}:/root/lib"
 
-ENV DGMS_HOME="/opt/unity"
+ENV DGMS_HOME="/opt/dgms"
 ENV DGMS_SETTINGS="/root/.dgms"
 ENV DGMS_WORKSPACE="/root/workspace"
 ENV DGMS_PACKAGES="/root/packages"
@@ -169,6 +169,6 @@ WORKDIR "/root/workspace"
 EXPOSE 8888
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "--add-opens", "java.base/java.lang=ALL-UNNAMED", "-Xrs", "-Xms1024m", "-jar", "/opt/unity/lib/unity-cli-${project.version}.jar" ]
+ENTRYPOINT [ "java", "--add-opens", "java.base/java.lang=ALL-UNNAMED", "-Xrs", "-Xms1024m", "-jar", "/opt/dgms/lib/unity-cli-${project.version}.jar" ]
 
-ADD . /opt/unity
+ADD . /opt/dgms

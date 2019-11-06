@@ -27,7 +27,7 @@
 
 #include "UnityZorbaDynamicContext.hpp"
 
-#include <unity_kernel_engine_zorba_UnityZorbaDynamicContext.h>
+#include <io_dgms_unity_kernel_engine_zorba_UnityZorbaDynamicContext.h>
 
 UnityExternalFunctionParameter::UnityExternalFunctionParameter(JNIEnv * env, jobject obj)
 {
@@ -70,7 +70,7 @@ zorba::DynamicContext* getDynamicContext(JNIEnv * env, jobject obj)
     return ((zorba::DynamicContext*) env->GetLongField(objDynamicContext, fld));
 }
 
-JNIEXPORT void JNICALL Java_unity_kernel_engine_zorba_UnityZorbaDynamicContext_addExternalFunctionParameter(JNIEnv * env, jobject obj, jstring name,
+JNIEXPORT void JNICALL Java_io_dgms_unity_kernel_engine_zorba_UnityZorbaDynamicContext_addExternalFunctionParameter(JNIEnv * env, jobject obj, jstring name,
         jobject value)
 {
     zorba::DynamicContext* dctx = getDynamicContext(env, obj);
@@ -81,7 +81,7 @@ JNIEXPORT void JNICALL Java_unity_kernel_engine_zorba_UnityZorbaDynamicContext_a
     dctx->addExternalFunctionParameter(str, param);
 }
 
-JNIEXPORT jobject JNICALL Java_unity_kernel_engine_zorba_UnityZorbaDynamicContext_getExternalFunctionParameter(JNIEnv * env, jobject obj, jstring name)
+JNIEXPORT jobject JNICALL Java_io_dgms_unity_kernel_engine_zorba_UnityZorbaDynamicContext_getExternalFunctionParameter(JNIEnv * env, jobject obj, jstring name)
 {
     zorba::DynamicContext* dctx = getDynamicContext(env, obj);
     const char *cstr = env->GetStringUTFChars(name, NULL);

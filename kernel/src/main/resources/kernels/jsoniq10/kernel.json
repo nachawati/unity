@@ -2,7 +2,7 @@
 	"argv": [
 		"java",
 		"-jar",
-		"/opt/unity/lib/unity-cli-${project.version}.jar",
+		"/opt/dgms/lib/unity-cli-${project.version}.jar",
 		"kernel",
 		"-e",
 		"jsoniq10",

@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>unity</groupId>
+		<groupId>io.dgms</groupId>
 		<artifactId>unity</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
@@ -49,13 +49,13 @@
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-client</artifactId>
 					<version>${project.version}</version>
 				</dependency>
 
 				<dependency>
-					<groupId>unity</groupId>
+					<groupId>io.dgms</groupId>
 					<artifactId>unity-kernel</artifactId>
 					<version>${project.version}</version>
 				</dependency>
@@ -128,7 +128,7 @@
 						<version>${spring.version}</version>
 						<configuration>
 							<executable>true</executable>
-							<mainClass>unity.server.Application</mainClass>
+							<mainClass>io.dgms.unity.server.Application</mainClass>
 						</configuration>
 						<executions>
 							<execution>
