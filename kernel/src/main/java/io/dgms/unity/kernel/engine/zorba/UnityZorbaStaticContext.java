@@ -133,7 +133,7 @@ public class UnityZorbaStaticContext extends StaticContext implements AutoClosea
                             .resolve(path);
                     if (Files.isRegularFile(python.getParent().resolve(python.getFileName().toString() + ".py"))
                             || Files.isRegularFile(python.resolve("__init__.py")))
-                        registerPythonModule(uri, "python." + Strings.className(path).toLowerCase());
+                        registerPythonModule(uri, "python." + Strings.className(path.replace('-', '_')).toLowerCase());
                 }
             }
             return "file:///" + path;
