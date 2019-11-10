@@ -18,7 +18,7 @@
 
 		<profile>
 
-			<id>main-linux-gcc-amd64</id>
+			<id>main</id>
 
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -70,6 +70,21 @@
 			</build>
 
 			<dependencies>
+
+				<dependency>
+					<groupId>com.beust</groupId>
+					<artifactId>jcommander</artifactId>
+				</dependency>
+				
+				<dependency>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+				</dependency>
+				
+				<dependency>
+					<groupId>info.picocli</groupId>
+					<artifactId>picocli</artifactId>
+				</dependency>
 
 				<dependency>
 					<groupId>io.dgms</groupId>
@@ -156,23 +171,13 @@
 				</dependency>
 
 				<dependency>
-					<groupId>com.beust</groupId>
-					<artifactId>jcommander</artifactId>
-				</dependency>
-
-				<dependency>
-					<groupId>info.picocli</groupId>
-					<artifactId>picocli</artifactId>
-				</dependency>
-
-				<dependency>
-					<groupId>commons-io</groupId>
-					<artifactId>commons-io</artifactId>
-				</dependency>
-
-				<dependency>
 					<groupId>io.github.spencerpark</groupId>
 					<artifactId>jupyter-jvm-basekernel</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>net.vatov</groupId>
+					<artifactId>ampl-model</artifactId>
 				</dependency>
 
 				<dependency>
@@ -185,18 +190,13 @@
 					<artifactId>jansi</artifactId>
 				</dependency>
 
-				<dependency>
-					<groupId>net.vatov</groupId>
-					<artifactId>ampl-model</artifactId>
-				</dependency>
-
 			</dependencies>
 
 		</profile>
 
 		<profile>
 
-			<id>dependencies-linux-gcc-amd64</id>
+			<id>dependencies</id>
 
 			<build>
 

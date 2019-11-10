@@ -18,7 +18,7 @@
 
 		<profile>
 
-			<id>main-linux-gcc-amd64</id>
+			<id>main</id>
 
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -86,14 +86,15 @@
 										<argument>-Xrs</argument>
 										<argument>-Xms1024m</argument>
 										<argument>-jar</argument>
-										<argument>${project.basedir}/../../target/linux-gcc-amd64/lib/unity-kernel-${project.version}.jar</argument>
+										<argument>${project.basedir}/../../target/${target}/lib/unity-kernel-${project.version}.jar</argument>
 										<argument>${project.basedir}/../../docs/library/plot.rst</argument>
 										<argument>http://dgms.io/modules/plot</argument>
-										<argument>${project.basedir}/../../target/linux-gcc-amd64/lib</argument>
+										<argument>${project.basedir}/../../target/${target}/lib</argument>
 									</arguments>
 									<environmentVariables>
-										<DGMS_HOME>${project.basedir}/../../target/linux-gcc-amd64</DGMS_HOME>
-										<LD_LIBRARY_PATH>${project.basedir}/../../target/linux-gcc-amd64/lib</LD_LIBRARY_PATH>
+										<DGMS_HOME>${project.basedir}/../../target/${target}</DGMS_HOME>
+										<LD_LIBRARY_PATH>${project.basedir}/../../target/${target}/lib</LD_LIBRARY_PATH>
+										<PATH>${project.basedir}/../../target/${target}/bin</PATH>
 									</environmentVariables>
 								</configuration>
 							</execution>
@@ -118,7 +119,7 @@
 
 		<profile>
 
-			<id>dependencies-linux-gcc-amd64</id>
+			<id>dependencies</id>
 
 			<build>
 

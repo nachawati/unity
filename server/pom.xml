@@ -18,7 +18,7 @@
 
 		<profile>
 
-			<id>main-linux-gcc-amd64</id>
+			<id>main</id>
 
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -167,7 +167,7 @@
 
 		<profile>
 
-			<id>dependencies-linux-gcc-amd64</id>
+			<id>dependencies</id>
 
 			<build>
 

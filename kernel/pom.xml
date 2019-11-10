@@ -18,7 +18,7 @@
 
 		<profile>
 
-			<id>main-linux-gcc-amd64</id>
+			<id>main</id>
 
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -220,7 +220,7 @@
 
 		<profile>
 
-			<id>dependencies-linux-gcc-amd64</id>
+			<id>dependencies</id>
 
 			<build>
 
@@ -265,35 +265,7 @@
 									<skipIfExists>true</skipIfExists>
 								</configuration>
 							</execution>
-
-							<execution>
-								<id>download-coin-or-tools</id>
-								<phase>initialize</phase>
-								<goals>
-									<goal>download-single</goal>
-								</goals>
-								<configuration>
-									<url>https://github.com/coin-or-tools/BuildTools/archive/releases</url>
-									<fromFile>${coin-or-tools.version}.zip</fromFile>
-									<toFile>${project.build.directory}/BuildTools-releases-${coin-or-tools.version}.zip</toFile>
-									<skipIfExists>true</skipIfExists>
-								</configuration>
-							</execution>
-
-							<execution>
-								<id>download-couenne</id>
-								<phase>initialize</phase>
-								<goals>
-									<goal>download-single</goal>
-								</goals>
-								<configuration>
-									<url>https://github.com/coin-or/Couenne/archive</url>
-									<fromFile>${couenne.version}.zip</fromFile>
-									<toFile>${project.build.directory}/Couenne-${couenne.version}.zip</toFile>
-									<skipIfExists>true</skipIfExists>
-								</configuration>
-							</execution>
-  							
+ 							
 						</executions>
 
 					</plugin>
@@ -356,79 +328,10 @@
 													dir="${project.build.directory}/zorba-${zorba.version}/build/${target}">
 													<arg value="install" />
 												</exec>
-												<copy file="/usr/lib/x86_64-linux-gnu/libicuuc.so.57" todir="${project.basedir}/../target/${target}/lib"/>
-												<chmod file="${project.basedir}/../target/${target}/lib/libicuuc.so.57" perm="+x"/>
-												<copy file="/usr/lib/x86_64-linux-gnu/libicudata.so.57" todir="${project.basedir}/../target/${target}/lib"/>
-												<chmod file="${project.basedir}/../target/${target}/lib/libicudata.so.57" perm="+x"/>
-												<copy file="/usr/lib/x86_64-linux-gnu/libicui18n.so.57" todir="${project.basedir}/../target/${target}/lib"/>
-												<chmod file="${project.basedir}/../target/${target}/lib/libicui18n.so.57" perm="+x"/>
-												<copy file="/usr/lib/x86_64-linux-gnu/libxerces-c-3.1.so" todir="${project.basedir}/../target/${target}/lib"/>
-												<chmod file="${project.basedir}/../target/${target}/lib/libxerces-c-3.1.so" perm="+x"/>
 											</else>
 										</if>
 									</target>
 								</configuration>
-							</execution>
-
-							<execution>
-								<id>compile-couenne</id>
-								<phase>compile</phase>
-								<configuration>
-									<target>
-										<taskdef
-											resource="net/sf/antcontrib/antcontrib.properties"
-											classpathref="maven.plugin.classpath" />
-										<available
-											file="${project.basedir}/../target/${target}/bin/couenne"
-											property="CompileCouenne" value="false" />
-										<if>
-											<equals arg1="${CompileCouenne}" arg2="false" />
-											<then>
-											</then>
-											<else>
-												<unzip
-													src="${project.build.directory}/BuildTools-releases-${coin-or-tools.version}.zip"
-													dest="${project.build.directory}" overwrite="false" />
-												<move
-													file="${project.build.directory}/BuildTools-releases-${coin-or-tools.version}"
-													tofile="${project.build.directory}/Couenne-${couenne.version}"
-													overwrite="false" />
-												<unzip
-													src="${project.build.directory}/Couenne-${couenne.version}.zip"
-													dest="${project.build.directory}" overwrite="false" />
-												<chmod
-													file="${project.build.directory}/Couenne-${couenne.version}/Couenne/configure"
-													perm="+x" />
-												<chmod
-													file="${project.build.directory}/Couenne-${couenne.version}/Couenne/install-sh"
-													perm="+x" />
-												<exec executable="/bin/bash" failonerror="true"
-													dir="${project.build.directory}/Couenne-${couenne.version}">
-													<arg value="get.dependencies.sh" />
-													<arg value="fetch" />
-												</exec>
-												<exec executable="/bin/bash" failonerror="true"
-													dir="${project.build.directory}/Couenne-${couenne.version}">
-													<arg value="get.dependencies.sh" />
-													<arg value="build" />
-													<arg
-														value="--prefix=${project.basedir}/../target/${target}" />
-												</exec>
-												<exec executable="make" failonerror="true"
-													dir="${project.build.directory}/Couenne-${couenne.version}/build/Couenne">
-													<arg value="-j${cpuCount}" />
-												</exec>
-												<exec executable="make" failonerror="true"
-													dir="${project.build.directory}/Couenne-${couenne.version}/build/Couenne">
-													<arg value="install" />
-												</exec>
-											</else>
-										</if>
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
 							</execution>
 
 						</executions>
